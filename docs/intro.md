@@ -46,4 +46,4 @@ Design, automate and test your API using the [openapicmd](/docs/openapicmd/intro
 - [x] 🏎 Lightweight - small frontend bundle + optimized for serverless cold starts
 - [x] 🧙‍♂️ No code generation – we only generate types
 - [x] ❤️ OpenAPI 3.x support
-- [x] 👀 [Samples](https://openapistack.co/docs/openapi-backend/examples) included
+- [x] 👀 [Samples](/docs/openapi-backend/examples) included

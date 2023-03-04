@@ -7,7 +7,7 @@ sidebar_position: 4
 To quickly spin up a local mock server for an openapi, use the `mock` command.
 
 ```
-npx openapicmd mock ./openapi.yml
+openapi mock ./openapi.yml
 
 Mock server running at http://localhost:9000
 OpenAPI definition at http://localhost:9000/openapi.json

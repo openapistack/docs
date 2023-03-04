@@ -13,7 +13,13 @@ The call command can be used to call APIs from the command line for testing or a
 Use the `call` command to call operations in your API from the command line:
 
 ```
-npx openapicmdcall https://petstore3.swagger.io/api/v3/openapi.json
+openapi call https://petstore3.swagger.io/api/v3/openapi.json
+```
+
+or with npx:
+
+```
+npx openapicmd call https://petstore3.swagger.io/api/v3/openapi.json
 ```
 
 ## Interactive Mode
@@ -75,26 +81,15 @@ GET /pet/1
 You can pass parameters directly as command line flags to skip interactive mode:
 
 ```
-npx openapicmdcall https://petstore3.swagger.io/api/v3/openapi.json -o updatePet -d '{"id": 1, "name":"Cats"}' -p petId=1 --security=none
+openapi call https://petstore3.swagger.io/api/v3/openapi.json -o updatePet -d '{"id": 1, "name":"Cats"}' -p petId=1 --security=none
 ```
 
-```json
-GET /pet/1
-{
-  "id": 1,
-  "name": "Dogs",
-  "photoUrls": [
-    "nulla mollit veniam ea"
-  ],
-  "tags": [
-    {
-      "id": -21297897,
-      "name": "incididunt sed eiusmod"
-    }
-  ],
-  "status": "pending"
-}
-```
+- operationId can be speficified with the `-o` or `--operation`
+- Path, query and header parameters can be passed with the `-p` or `--param` flag.
+- Request bodies can be passed with the `-d` or `--data` flag.
+- Raw headers can be passed with the `-H` or `--header` flag.
+
+To gain more information about the request and response, you can use the `-i` or `--include` flag.
 
 ## Authorization
 
@@ -105,7 +100,7 @@ The call command supports most security schemes defined in OpenAPI v3.
 You can directly set headers such as api keys or `authorization` using the `-H` or `--header` flag.
 
 ```
-npx openapicmdcall https://petstore3.swagger.io/api/v3/openapi.json -o getInventory -H 'authorization: Bearer token123'
+openapi call https://petstore3.swagger.io/api/v3/openapi.json -o getInventory -H 'authorization: Bearer token123'
 ```
 
 ### Basic Auth
@@ -113,13 +108,21 @@ npx openapicmdcall https://petstore3.swagger.io/api/v3/openapi.json -o getInvent
 For basic auth, you can directly pass `--username` and `--passsword`
 
 ```
-npx openapicmdcall https://petstore3.swagger.io/api/v3/openapi.json -o getInventory --username admin --password secret123
+openapi call https://petstore3.swagger.io/api/v3/openapi.json -o getInventory --username admin --password secret123
 ```
 
-### API Key or Bearer Token
+### Bearer Token
 
-If your API defines an API Key or Bearer Token security scheme, you can directly pass the key / token using the `--token` flag.
+If your API defines a Bearer Token security scheme e.g. OAuth2, you can pass a token using the `--token` flag.
 
 ```
-npx openapicmdcall https://petstore3.swagger.io/api/v3/openapi.json -o getInventory --token=secret123
+openapi call https://petstore3.swagger.io/api/v3/openapi.json -o getInventory --token=eyJhbGciOiJIUzI1....
+```
+
+### API Key
+
+If your API defines an API Key security scheme, you can directly pass the key / token using the `--api-key` flag.
+
+```
+openapi call https://petstore3.swagger.io/api/v3/openapi.json -o getInventory --api-key=secret123
 ```

@@ -130,15 +130,19 @@ const config = {
             ],
           },
           {
-            title: 'Sponsor',
+            title: 'Links',
             items: [
               {
-                label: 'Open Collective',
-                href: 'https://opencollective.com/openapi-backend',
+                label: 'OpenAPI Initiative',
+                href: 'https://www.openapis.org/',
               },
               {
                 label: 'GitHub Sponsors',
                 href: 'https://github.com/sponsors/anttiviljami',
+              },
+              {
+                label: 'Open Collective',
+                href: 'https://opencollective.com/openapi-backend',
               },
               {
                 label: 'Buy me a coffee',

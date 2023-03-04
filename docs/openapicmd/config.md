@@ -19,13 +19,13 @@ openapicmd tries to load a `.openapiconfig` file in the current working director
 To avoid having to pass the openapi file as an argument to openapicmd commands, you can _load_ a document, which creates or updates a `.openapiconfig` file.
 
 ```
-npx openapicmd load https://petstore3.swagger.io/api/v3/openapi.json
+openapi load https://petstore3.swagger.io/api/v3/openapi.json
 ```
 
 Now you can run commands without passing the definition:
 
 ```
-$ npx openapicmd info
+$ openapi info
 Loaded: https://petstore3.swagger.io/api/v3/openapi.json
 
 title: Swagger Petstore - OpenAPI 3.0
@@ -39,7 +39,7 @@ This is a sample Pet Store Server based on the OpenAPI 3.0 specification.
 You can also set up authentication strategies for [API calls](/docs/openapicmd/call#authorization) using the `auth` command.
 
 ```
-npx openapicmd auth https://petstore3.swagger.io/api/v3/openapi.json
+openapi auth https://petstore3.swagger.io/api/v3/openapi.json
 ? use security scheme api_key
 ? api_key: Set API key (api_key) secret123
 Wrote auth config to /Users/viljamikuosmanen/Projects/openapi-stack/.openapiconfig. You can now use openapi call with the following auth configs:
@@ -51,5 +51,5 @@ Wrote auth config to /Users/viljamikuosmanen/Projects/openapi-stack/.openapiconf
 The `unload` command can be used to quickly delete an existing `.openapiconfig` file.
 
 ```
-npx openapicmd unload
+openapi unload
 ```

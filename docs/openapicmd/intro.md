@@ -29,7 +29,7 @@ sidebar_position: 1
 ## Quick Start
 
 ```
-npx openapicmd help
+openapi help
 ```
 
 ```
