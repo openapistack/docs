@@ -31,12 +31,14 @@ sidebar_position: 1
 ## Quick Start
 
 ```
+npm install -g openapicmd
 openapi help
 ```
 
+Or with npx:
+
 ```
-npm install -g openapicmd
-openapi help
+npx openapicmd
 ```
 
 ## Commands
