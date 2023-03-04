@@ -32,7 +32,7 @@ export const GithubStarsButton = ({ className }: Props) => {
   }, [starsMap])
 
   return (
-    <Link className="button button--secondary button--lg space-x-1 align-middle"
+    <Link className="button button--secondary button--lg space-x-1 mb-1 align-middle"
             to="https://github.com/anttiviljami/openapi-backend">
       <span>☆</span>
       <span>Star</span>

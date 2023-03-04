@@ -16,10 +16,10 @@ function HomepageHeader() {
         <img className="max-w-[175px]" src="/img/openapi-stack-logo.png" alt="openapi-stack logo" />
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">Full stack typesafe API-first development using OAS.<br />GraphQL-like developer experience with Typescript & OpenAPI.</p>
-        <div className="space-x-2 space-y-2">
+        <div className="space-x-2">
           <GithubStarsButton />
           <Link
-            className="button button--secondary button--lg"
+            className="button button--secondary button--lg mb-1"
             to="/docs/intro">
               Documentation
           </Link>
