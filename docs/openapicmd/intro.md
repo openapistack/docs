@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Quick Start
 hide_title: true
 sidebar_position: 1
 ---

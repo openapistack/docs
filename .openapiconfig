@@ -1,0 +1,5 @@
+definition: https://petstore3.swagger.io/api/v3/openapi.json
+security:
+  api_key:
+    header:
+      api_key: secret123
