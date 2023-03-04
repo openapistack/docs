@@ -37,3 +37,13 @@ Easily consume your API using the typesafe [openapi-client-axios](/docs/openapi-
 Design, automate and test your API using the [openapicmd](/docs/openapicmd/intro) command line tool.
 
 [Overview](/docs/openapicmd/intro) - [NPM](https://www.npmjs.com/package/openapicmd)
+
+## Features
+
+- [x] Battle-tested in production. High test coverage.
+- [x] Built with TypeScript, types included with full autocomplete support
+- [x] Framework agnostic – works with your stack
+- [x] Lightweight - small frontend bundle + optimized for serverless cold starts
+- [x] No code generation – we only generate types
+- [x] OpenAPI 3.x support
+- [x] [Samples](https://openapistack.co/docs/openapi-backend/examples) included

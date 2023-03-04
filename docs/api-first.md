@@ -18,9 +18,9 @@ The goal of openapi-stack to enable API First with great developer experience fo
 
 ## Why API First?
 
-The breakthrough idea of _API First_ is to treat API specs as a first class citizen in your software architecture, using them as part of the implementation instead of easily out-of-date documentation.
+The core idea of _API First_ is to treat API specs as a first class citizen in your software architecture, using them as part of the implementation instead of easily out-of-date documentation.
 
-This means teams using machine readable specifications like OpenAPI are able to treat the API design as a well-defined contract to rapidly iterate and parallelize their software development using cheap API mocking; not having to wait around for backend implementations to be completed.
+This means teams using machine readable specifications like OpenAPI leverage the API design as a contract to rapidly iterate and parallelize their software development using cheap API mocking; not having to wait around for backend implementations to be completed.
 
 API First software teams are also able to more effectively collaborate on API design, often using it as a primary way to design data models with well defined types used across the codebase.
 

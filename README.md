@@ -20,6 +20,18 @@ Libraries part of openapi-stack:
 - [openapi-client-axios](https://openapistack.co/docs/openapi-client-axios/intro)
 - [openapicmd](https://openapistack.co/docs/openapicmd/intro)
 
+## Features
+
+- [x] Battle-tested in production. High test coverage.
+- [x] Built with TypeScript, types included with full autocomplete support
+- [x] Framework agnostic – works with your stack
+- [x] Lightweight - small frontend bundle + optimized for serverless cold starts
+- [x] No code generation – we only generate types
+- [x] OpenAPI 3.x support
+- [x] [Samples](https://openapistack.co/docs/openapi-backend/examples) included
+
 ## API First Cycle
 
 ![API First Cycle](/img/openapi-stack.drawio.png)
+
+See [philosophy](https://openapistack.co/docs/api-first)
