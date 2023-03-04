@@ -14,7 +14,7 @@
 
 The goal is to unlock great developer experience and full stack type safety for software teams using OAS; inspired by tools like [GraphQL](https://graphql.org/) and [tRPC](https://trpc.io).
 
-Libraries part of openapi-stack:
+## Libraries part of openapi-stack:
 
 - [openapi-backend](https://openapistack.co/docs/openapi-backend/intro)
 - [openapi-client-axios](https://openapistack.co/docs/openapi-client-axios/intro)

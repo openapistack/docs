@@ -10,7 +10,9 @@ sidebar_position: 1
 <p>openapicmd - The CLI for all things OpenAPI and Swagger</p>
 
 [![CI](https://github.com/anttiviljami/openapicmd/workflows/CI/badge.svg)](https://github.com/anttiviljami/openapicmd/actions?query=workflow%3ACI)
+[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapicmd?label=github%20stars)](https://github.com/anttiviljami/openapicmd)
 [![npm version](https://img.shields.io/npm/v/openapicmd.svg)](https://www.npmjs.com/package/openapicmd)
+[![npm downloads](https://img.shields.io/npm/dw/openapicmd)](https://www.npmjs.com/package/openapicmd)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapicmd/blob/master/LICENSE)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 

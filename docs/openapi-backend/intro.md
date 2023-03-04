@@ -9,6 +9,7 @@ sidebar_position: 1
 <h1 className="mb-6">openapi-backend</h1>
 
 [![CI](https://github.com/anttiviljami/openapi-backend/workflows/CI/badge.svg)](https://github.com/anttiviljami/openapi-backend/actions?query=workflow%3ACI)
+[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend?label=github%20stars)](https://github.com/anttiviljami/openapi-backend)
 [![npm version](https://img.shields.io/npm/v/openapi-backend.svg)](https://www.npmjs.com/package/openapi-backend)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend)](https://www.npmjs.com/package/openapi-backend)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-backend/blob/master/LICENSE)

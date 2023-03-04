@@ -9,6 +9,7 @@ sidebar_position: 1
 <h1 className="mb-6">openapi-client-axios</h1>
 
 [![CI](https://github.com/anttiviljami/openapi-client-axios/workflows/CI/badge.svg)](https://github.com/anttiviljami/openapi-client-axios/actions?query=workflow%3ACI)
+[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-client-axios?label=github%20stars)](https://github.com/anttiviljami/openapi-client-axios)
 [![npm version](https://img.shields.io/npm/v/openapi-client-axios.svg)](https://www.npmjs.com/package/openapi-client-axios)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios)](https://www.npmjs.com/package/openapi-client-axios)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/openapi-client-axios?label=gzip%20bundle)](https://bundlephobia.com/package/openapi-client-axios)

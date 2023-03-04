@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
+import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -16,11 +17,7 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">Full stack typesafe API-first development using OAS.<br />GraphQL-like developer experience with Typescript & OpenAPI.</p>
         <div className="space-x-2">
-          <Link
-            className="button button--secondary button--lg"
-            to="https://github.com/anttiviljami/openapi-backend/stargazers">
-              ⭐️ Star
-          </Link>
+          <GithubStarsButton />
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
