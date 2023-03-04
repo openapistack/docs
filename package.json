@@ -1,7 +1,10 @@
 {
   "name": "openapi-stack",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
+  "description": "Full stack typesafe API-first development with OpenAPI",
+  "files": [
+    "README.md"
+  ],
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
