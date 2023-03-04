@@ -1,7 +1,6 @@
-<h1 align="center"><img alt="openapi-stack" src="./static/img/header.png" style="max-width:50rem"></h1>
-
 <div align="center">
-<h1>openapi-stack</h1>
+<img alt="openapi-stack" src="./static/img/header.png" style="max-width:50rem">
+<h1><a href="https://openapistack.co">openapistack.co</a?</h1>
 <h3>Full stack typesafe API-first development with OpenAPI.</h3>
 </div>
 
