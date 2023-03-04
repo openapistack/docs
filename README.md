@@ -10,6 +10,6 @@
 
 Libraries:
 
-- [openapi-backend](https://openapi-stack.github.io/docs/openapi-backend)
-- [openapi-client-axios](https://openapi-stack.github.io/docs/openapi-client-axios)
-- [openapicmd](https://openapi-stack.github.io/docs/openapicmd)
+- [openapi-backend](https://openapistack.co/docs/openapi-backend/intro)
+- [openapi-client-axios](https://openapistack.co/docs/openapi-client-axios/intro)
+- [openapicmd](https://openapistack.co/docs/openapicmd/intro)
