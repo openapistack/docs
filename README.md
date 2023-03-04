@@ -8,7 +8,7 @@
 
 </div>
 
-Libraries:
+Libraries part of openapi-stack:
 
 - [openapi-backend](https://openapistack.co/docs/openapi-backend/intro)
 - [openapi-client-axios](https://openapistack.co/docs/openapi-client-axios/intro)
