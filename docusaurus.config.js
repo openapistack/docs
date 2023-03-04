@@ -119,15 +119,15 @@ const config = {
             items: [
               {
                 label: 'openapi-backend',
-                href: 'https://www.npmjs.com/package/openapi-backend',
+                href: 'https://github.com/anttiviljami/openapi-backend',
               },
               {
                 label: 'openapi-client-axios',
-                href: 'https://www.npmjs.com/package/openapi-client-axios',
+                href: 'https://github.com/anttiviljami/openapi-client-axios',
               },
               {
                 label: 'openapicmd',
-                href: 'https://www.npmjs.com/package/openapicmd',
+                href: 'https://github.com/anttiviljami/openapicmd',
               },
             ],
           },

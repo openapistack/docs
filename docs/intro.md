@@ -23,21 +23,21 @@ The goal is to unlock great developer experience and full stack type safety for 
 
 ## Backend
 
-Build, Validate, Route, Authenticate, and Mock your backend using the [openapi-backend](/docs/openapi-backend/intro) library.
+Build, Validate, Route, Authenticate, and Mock your backend using the [openapi-backend](https://github.com/anttiviljami/openapi-backend) library.
 
-[Overview](/docs/openapi-backend/intro) - [NPM](https://www.npmjs.com/package/openapi-backend)
+[Quickstart](/docs/openapi-backend/intro) - [NPM](https://www.npmjs.com/package/openapi-backend)
 
 ## Client
 
-Easily consume your API using the typesafe [openapi-client-axios](/docs/openapi-client-axios/intro) library.
+Easily consume your API using the typesafe [openapi-client-axios](https://github.com/anttiviljami/openapi-client-axios) library.
 
-[Overview](/docs/openapi-client-axios/intro) - [NPM](https://www.npmjs.com/package/openapi-client-axios)
+[Quickstart](/docs/openapi-client-axios/intro) - [NPM](https://www.npmjs.com/package/openapi-client-axios)
 
 ## CLI
 
-Design, automate and test your API using the [openapicmd](/docs/openapicmd/intro) command line tool.
+Design, automate and test your API using the [openapicmd](https://github.com/anttiviljami/openapicmd) command line tool.
 
-[Overview](/docs/openapicmd/intro) - [NPM](https://www.npmjs.com/package/openapicmd)
+[Quickstart](/docs/openapicmd/intro) - [NPM](https://www.npmjs.com/package/openapicmd)
 
 ## Features
 
