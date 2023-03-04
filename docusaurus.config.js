@@ -130,7 +130,7 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Sponsor',
             items: [
               {
                 label: 'Open Collective',

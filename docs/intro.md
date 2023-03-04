@@ -4,20 +4,21 @@ hide_title: true
 sidebar_position: 1
 ---
 
-<div className="text-center mb-8">
+<div className="text-center mt-4 mb-8">
+
+<img alt="openapicmd logo" src="/img/openapi-stack-logo.png" className="max-w-[150px] mb-4" />
 
 <h1>openapi-stack</h1>
-<h2>Full stack typesafe API-first development with OpenAPI</h2>
 
-<img alt="API First Cycle" src="/img/openapi-stack.drawio.png" />
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-stack/blob/master/LICENSE)
+[![npm downloads](https://img.shields.io/npm/dw/openapi-backend)](https://www.npmjs.com/package/openapi-backend)
+[![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios)](https://www.npmjs.com/package/openapi-backend)
 
 </div>
 
-:::info
+**openapi-stack** is a collection of open source libraries and tools for full stack software development using [OpenAPI specification](https://www.openapis.org/).
 
-openapi-stack is a collection of open source libraries and tools to enable full stack software development for teams using an API Design First approach.
-
-:::
+The goal is to unlock great developer experience and full stack type safety for software teams using OAS; inspired by tools like [GraphQL](https://graphql.org/) and [tRPC](https://trpc.io).
 
 ## Backend
 
