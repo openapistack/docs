@@ -4,12 +4,20 @@ hide_title: true
 sidebar_position: 1
 ---
 
-<p>&nbsp;</p>
+<div className="text-center mb-8">
 
-<p align="center"><a href="/"><img src="/img/openapi-stack-logo.png" width="150" /></a></p>
+<h1>openapi-stack</h1>
+<h2>Full stack typesafe API-first development with OpenAPI</h2>
 
-<h1 align="center">Overview</h1>
-<h3 align="center">Full stack typesafe API-first development with OpenAPI.</h3>
+<img alt="API First Cycle" src="/img/openapi-stack.drawio.png" />
+
+</div>
+
+:::info
+
+openapi-stack is a collection of open source libraries and tools to enable full stack software development for teams using an API Design First approach.
+
+:::
 
 ## Backend
 
