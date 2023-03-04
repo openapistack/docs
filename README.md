@@ -32,6 +32,6 @@ Libraries part of openapi-stack:
 
 ## API First Cycle
 
-![API First Cycle](/img/openapi-stack.drawio.png)
+![API First Cycle](./static/img/openapi-stack.drawio.png)
 
 See [philosophy](https://openapistack.co/docs/api-first)
