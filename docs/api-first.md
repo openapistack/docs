@@ -20,15 +20,15 @@ openapi-stack is built to enable API First worklows and great developer experien
 
 The core idea of _API First_ is to treat API specs as a first class citizen in your software architecture, using them as part of the implementation instead of easily out-of-date documentation.
 
-This means teams using machine readable specifications like OpenAPI leverage the API design as a contract to rapidly iterate and parallelize their software development using cheap API mocking; not having to wait around for backend implementations to be completed.
+In practice this means teams use machine readable specifications like OpenAPI as contracts to rapidly iterate and parallelize work during development using cheap API mocking; not having to wait around for backend implementations to be completed or changed.
 
-API First software teams are also able to more effectively collaborate on API design, often using it as a primary way to design data models with well defined types used across the codebase.
+API First software teams are also able to effectively collaborate on software design and data modeling using API schemas as a source of truth for types across the entire codebase.
 
 ## Type Safety
 
 Since OpenAPI specification already leverages JSON Schema to define types for data in your software, teams should be able to directly utilise them in the codebase as Typescript types.
 
-Use of types significantly improves developer experience and code qualtiy, especially when shared and used across the stack both in backend implementation and client-side.
+Use of types significantly improves developer experience and code quality – especially when shared and used across the stack both in backend implementation and client-side.
 
 openapi-stack comes batteries included with [typegen](/docs/openapi-client-axios/typegen) built exactly for this purpose.
 
@@ -45,5 +45,3 @@ The only thing we generate are types from your API specs.
 openapi-stack is not an opinionated framework, nor does it require you to pick any specific framework.
 
 You choose whether to build your frontend in React, Angular, Vue, Svelte, your backend with Express, Nest.js, AWS Lambda, Google Cloud Function, etc.
-
-These libraries are built to be simple, generic and work on pure Typescript or Javascript.
