@@ -20,6 +20,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'anttiviljami', // Usually your GitHub org/user name.
   projectName: 'openapi-stack', // Usually your repo name.
+  deploymentBranch: 'gh-pages', // The branch that GitHub pages deploys from.
   trailingSlash: true,
 
   onBrokenLinks: 'throw',
@@ -96,8 +97,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Overview',
-                to: '/docs/intro',
+                label: 'Why API First?',
+                to: '/docs/api-first',
               },
               {
                 label: 'Backend',

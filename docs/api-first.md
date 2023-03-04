@@ -1,7 +1,7 @@
 ---
 title: Philosophy
 hide_title: true
-sidebar_position: 10
+sidebar_position: 2
 ---
 
 # Philosophy
