@@ -34,7 +34,7 @@ openapi-stack comes batteries included with [typegen](/docs/openapi-client-axios
 
 ## No Code Generation
 
-Lots of code generation tools out there for OAS, but developers don't always enjoy working with code generation tools. Achieving great developer experience in a codebase with generated code is not always easy and often requires significant investment.
+Lots of code generation tools out there for OAS, but developers don't always enjoy working with code generation. Achieving great developer experience in a codebase with generated code is not always easy and often requires significant investment.
 
 With openapi-stack you can say goodbye to generated client implementations or annoying backend boilerplate.
 
