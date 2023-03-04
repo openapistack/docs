@@ -1,14 +1,14 @@
 ---
 title: Philosophy
 hide_title: true
-sidebar_position: 2
+sidebar_position: 10
 ---
 
 # Philosophy
 
 :::info
 
-The goal of openapi-stack to enable API First with great developer experience for software teams using OAS and Typescript; inspired by tools like GraphQL and tRPC.
+openapi-stack is built to enable API First worklows and great developer experience for software teams using OAS and Typescript.
 
 :::
 
