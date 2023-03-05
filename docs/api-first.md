@@ -8,7 +8,7 @@ sidebar_position: 2
 
 :::info
 
-While modern alternatives like GraphQL and tRPC are awesome, REST keeps growing and improving as an industry standard API design pattern largely thanks to the widely supported [OpenAPI specification](https://www.openapis.org/).
+While modern alternatives like GraphQL and tRPC are awesome, REST keeps growing and improving as an industry standard API design pattern largely thanks to the widely adopted [OpenAPI specification](https://www.openapis.org/).
 
 openapi-stack is an open source toolkit to bring full stack developer experience up to modern standards for software teams using OpenAPI and Typescript, enabling software teams to go API First.
 
