@@ -73,7 +73,6 @@ typegen https://petstore3.swagger.io/api/v3/openapi.json > openapi.d.ts # remote
 You can import schemas and response/request models defined in your openapi definition as Typescript types:
 
 ```ts
-//
 import { Components } from "./openapi.d.ts";
 
 export type Pet = Components.Schemas.Pet;
