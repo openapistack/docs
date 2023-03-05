@@ -4,20 +4,6 @@ sidebar_position: 3
 
 # Generating types
 
-:::tip
-
-You can set up a script in package.json to easily update types when the openapi spec is changed.
-
-```json
-{
-  "scripts": {
-    "openapi": "npx openapi-client-axios-typegen typegen ./openapi.yaml > src/types/openapi.d.ts"
-  }
-}
-```
-
-:::
-
 `openapi-client-axios-typegen` is a command line tool to generate easy to use Typescript types from
 OpenAPI files.
 
@@ -48,6 +34,13 @@ Examples:
   typegen https://openapistack.co/petstore.openapi.json > openapi.d.ts
 ```
 
+`typegen` supports both local and remote files:
+
+```
+typegen ./openapi.yaml > openapi.d.ts # local file
+typegen https://petstore3.swagger.io/api/v3/openapi.json > openapi.d.ts # remote url
+```
+
 ## Typesafe Clients
 
 The output of `typegen` exports a type called `Client`, which can be directly used with clients created with `OpenAPIClientAxios`.
@@ -59,13 +52,6 @@ import { Client as PetStoreClient } from "./openapi.d.ts";
 
 const client = await api.init<PetStoreClient>();
 const client = await api.getClient<PetStoreClient>();
-```
-
-`typegen` supports both local and remote URLs:
-
-```
-typegen ./openapi.yaml > openapi.d.ts # local file
-typegen https://petstore3.swagger.io/api/v3/openapi.json > openapi.d.ts # remote url
 ```
 
 ## Importing Schemas
