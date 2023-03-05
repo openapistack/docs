@@ -1,5 +1,5 @@
 ---
-title: Quick Start
+title: "Quick Start: Client"
 hide_title: true
 sidebar_position: 1
 ---
@@ -87,7 +87,7 @@ npx openapi-client-axios-typegen ./openapi.yaml > src/types/openapi.d.ts
 The output file exports a type called `Client`, which can directly be used with instances created with `OpenAPIClientAxios`.
 
 ```typescript
-import { Client as PetStoreClient } from './openapi.d.ts';
+import { Client as PetStoreClient } from "./openapi.d.ts";
 
 const client = await api.getClient<PetStoreClient>();
 ```

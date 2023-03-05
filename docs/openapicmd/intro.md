@@ -1,5 +1,5 @@
 ---
-title: Quick Start
+title: "Quick Start: CLI"
 hide_title: true
 sidebar_position: 1
 ---
