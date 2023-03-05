@@ -11,9 +11,9 @@ sidebar_position: 1
 <h1>openapi-stack</h1>
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-stack/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend?label=github%20stars)](https://github.com/anttiviljami/openapi-stack)
-[![npm downloads](https://img.shields.io/npm/dw/openapi-backend)](https://www.npmjs.com/package/openapi-backend)
-[![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios)](https://www.npmjs.com/package/openapi-backend)
+[![npm downloads](https://img.shields.io/npm/dw/openapi-backend?label=backend)](https://www.npmjs.com/package/openapi-backend)
+[![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios?label=client)](https://www.npmjs.com/package/openapi-backend)
+[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-stack?label=github%20stars)](https://github.com/anttiviljami/openapi-stack)
 
 </div>
 
