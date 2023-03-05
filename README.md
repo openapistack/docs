@@ -12,7 +12,7 @@
 
 **openapi-stack** is a collection of open source libraries and tools for full stack software development using [OpenAPI specification](https://www.openapis.org/) with an API Design First philosophy.
 
-The goal is to unlock great developer experience and full stack type safety for software teams using OAS; inspired by tools like [GraphQL](https://graphql.org/) and [tRPC](https://trpc.io).
+The goal is to unlock great developer experience and full stack type safety for software teams using REST; inspired by tools like [GraphQL](https://graphql.org/) and [tRPC](https://trpc.io).
 
 ## Libraries part of openapi-stack:
 

@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'openapi-stack',
-  tagline: 'Full stack typesafe API-first development with OpenAPI.',
+  tagline: 'Full stack typesafe API-first development with REST.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
