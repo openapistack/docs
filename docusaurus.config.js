@@ -55,7 +55,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/openapi-stack-social-card.jpg',
+      image: 'img/openapistack-social.jpg',
       navbar: {
         title: 'openapi-stack',
         logo: {
