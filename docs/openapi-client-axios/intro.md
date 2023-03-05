@@ -72,3 +72,22 @@ async function createPet() {
   console.log("Pet created", res.data);
 }
 ```
+
+## Type Safe Clients
+
+![TypeScript IntelliSense](/img/intellisense.gif)
+
+`openapi-client-axios` comes with a tool called `typegen` to generate typescript type files (.d.ts) for
+OpenAPIClient instances using an OpenAPI definition file.
+
+```
+npx openapi-client-axios-typegen ./openapi.yaml > src/types/openapi.d.ts
+```
+
+The output file exports a type called `Client`, which can directly be used with instances created with `OpenAPIClientAxios`.
+
+```typescript
+import { Client as PetStoreClient } from './openapi.d.ts';
+
+const client = await api.getClient<PetStoreClient>();
+```
