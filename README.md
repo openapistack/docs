@@ -1,7 +1,7 @@
 <div align="center">
 <img alt="openapi-stack" src="./static/img/header.png" style="max-width:50rem">
 <h1><a href="https://openapistack.co">openapistack.co</a></h1>
-<h3>Full stack typesafe API-first development with OpenAPI.</h3>
+<h3>Full stack typesafe API-first development for REST.</h3>
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-stack/blob/master/LICENSE)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend)](https://www.npmjs.com/package/openapi-backend)
