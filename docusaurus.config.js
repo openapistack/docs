@@ -153,7 +153,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()}. Built with Docusaurus.`,
+        copyright: `OpenAPI Stack is Free and Open Source Software (FOSS) licensed under the MIT license.`,
       },
       prism: {
         theme: lightCodeTheme,
