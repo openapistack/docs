@@ -23,7 +23,7 @@ OpenAPI definition at http://localhost:9000/openapi.json
 
 ## Proxy (Avoiding CORS)
 
-Ofter remote APIs do not support calling from localhost due to CORS configuration. To work around that, you can use the `--proxy` option to route API requests from Swagger UI via a local proxy to the remote API.
+Often remote APIs do not support calling from localhost due to CORS configuration. To work around that, you can use the `--proxy` option to route API requests from Swagger UI via a local proxy to the remote API.
 
 ```
 openapi swagger-ui ./openapi.yml --proxy
