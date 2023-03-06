@@ -8,7 +8,10 @@ sidebar_position: 1
 
 <img alt="openapicmd logo" src="/img/openapi-stack-logo.png" className="max-w-[150px] mb-4" />
 
-<h1>openapi-stack</h1>
+<h1>
+  openapi-stack
+  <a href="https://github.com/anttiviljami/openapi-stack" target="_blank"><img className="w-[1em] ml-2 relative top-1" src="https://img.icons8.com/material-sharp/96/000000/github.png" alt="GitHub" /></a>
+</h1>
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-stack/blob/master/LICENSE)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend?label=backend)](https://www.npmjs.com/package/openapi-backend)
