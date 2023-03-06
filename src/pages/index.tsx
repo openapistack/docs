@@ -13,13 +13,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <img className="max-w-[175px]" src="/img/openapi-stack-logo.png" alt="openapi-stack logo" />
+        <img className="max-w-[150px]" src="/img/openapi-stack-logo.png" alt="openapi-stack logo" />
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">Full stack typesafe API-first development for REST.<br />GraphQL-like developer experience with Typescript & OpenAPI.</p>
+        <p className="hero__subtitle">Full stack typesafe API-first development for <strong>REST</strong>.<br />GraphQL-like developer experience with Typescript & OpenAPI.</p>
         <div className="space-x-2">
           <GithubStarsButton />
           <Link
-            className="button button--secondary button--lg mb-1"
+            className="button button--secondary button--lg mb-2"
             to="/docs/intro">
               Documentation
           </Link>

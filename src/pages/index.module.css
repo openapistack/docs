@@ -8,8 +8,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(
-    -19deg,rgb(196, 138, 222), rgb(102, 90, 231), rgb(173, 226, 112));
+  background-image: linear-gradient(-9deg,#c48ade,#665ae7,#665ae7,#70e2b5);
   color: white;
 }
 
