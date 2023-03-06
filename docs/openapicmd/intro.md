@@ -6,7 +6,10 @@ sidebar_position: 1
 
 <div align="center">
 <img alt="openapicmd logo" src="/img/openapi-stack-logo.png" className="max-w-[150px]" />
-<h1 className="mb-6">openapicmd</h1>
+<h1 className="mb-6">
+  openapicmd
+  <a href="https://github.com/anttiviljami/openapicmd" target="_blank"><img className="w-[1em] ml-2 relative top-1" src="https://img.icons8.com/material-sharp/96/000000/github.png" alt="GitHub" /></a>
+</h1>
 <p>openapicmd - The CLI for all things OpenAPI and Swagger</p>
 
 [![CI](https://github.com/anttiviljami/openapicmd/workflows/CI/badge.svg)](https://github.com/anttiviljami/openapicmd/actions?query=workflow%3ACI)

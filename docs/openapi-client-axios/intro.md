@@ -6,7 +6,10 @@ sidebar_position: 1
 
 <div align="center">
 <img alt="openapi-client-axios logo" src="/img/openapi-stack-logo.png" className="max-w-[150px]" />
-<h1 className="mb-6">openapi-client-axios</h1>
+<h1 className="mb-6">
+  openapi-client-axios
+  <a href="https://github.com/anttiviljami/openapi-client-axios" target="_blank"><img className="w-[1em] ml-2 relative top-1" src="https://img.icons8.com/material-sharp/96/000000/github.png" alt="GitHub" /></a>
+</h1>
 
 [![CI](https://github.com/anttiviljami/openapi-client-axios/workflows/CI/badge.svg)](https://github.com/anttiviljami/openapi-client-axios/actions?query=workflow%3ACI)
 [![npm version](https://img.shields.io/npm/v/openapi-client-axios.svg)](https://www.npmjs.com/package/openapi-client-axios)
