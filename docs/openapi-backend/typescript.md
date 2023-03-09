@@ -15,7 +15,7 @@ You can set up a script in package.json to easily update types when the openapi 
 ```json
 {
   "scripts": {
-    "openapi": "npx openapi-client-axios-typegen typegen ./openapi.yaml > src/types/openapi.d.ts"
+    "openapi": "npx openapi-client-axios-typegen ./openapi.yaml > src/types/openapi.d.ts"
   }
 }
 ```
