@@ -1,6 +1,4 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -10,30 +8,21 @@ const config = {
   tagline: 'Full stack typesafe API-first development with REST.',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
   url: 'https://openapistack.co',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'anttiviljami', // Usually your GitHub org/user name.
-  projectName: 'openapi-stack', // Usually your repo name.
-  deploymentBranch: 'gh-pages', // The branch that GitHub pages deploys from.
+  organizationName: 'anttiviljami',
+  projectName: 'openapi-stack',
+  deploymentBranch: 'gh-pages',
   trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
       'classic',
@@ -41,8 +30,6 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/anttiviljami/openapi-stack/edit/main/',
         },
         theme: {
@@ -51,7 +38,6 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -160,14 +146,12 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-
     plugins: [
       require.resolve('@cmfcmf/docusaurus-search-local'),
       async function tailwind(context, options) {
         return {
           name: "docusaurus-tailwindcss",
           configurePostCss(postcssOptions) {
-            // Appends TailwindCSS and AutoPrefixer.
             postcssOptions.plugins.push(require("tailwindcss"));
             postcssOptions.plugins.push(require("autoprefixer"));
             return postcssOptions;

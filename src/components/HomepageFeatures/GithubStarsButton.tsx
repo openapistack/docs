@@ -1,11 +1,7 @@
 import Link from '@docusaurus/Link';
 import React, { useEffect, useMemo, useState } from 'react';
 
-type Props = {
-  className?: string;
-};
-
-export const GithubStarsButton = ({ className }: Props) => {
+export const GithubStarsButton = () => {
   const [starsMap, setStarsMap] = useState<{ [key: string]: number }>({});
 
   const fetchStars = async () => {
