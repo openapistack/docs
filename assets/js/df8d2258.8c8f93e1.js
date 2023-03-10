@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkopenapi_stack=self.webpackChunkopenapi_stack||[]).push([[7845],{1816:a=>{a.exports=JSON.parse('{"label":"openapi","permalink":"/blog/tags/openapi","allTagsPath":"/blog/tags","count":1}')}}]);

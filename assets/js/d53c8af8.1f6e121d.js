@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkopenapi_stack=self.webpackChunkopenapi_stack||[]).push([[2734],{9178:(e,n,t)=>{t.r(n),t.d(n,{default:()=>p});var a=t(6550),c=t(7294);const p=function(){return c.createElement(a.l_,{to:"/docs/openapi-backend/intro"})}}}]);
