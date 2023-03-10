@@ -13,15 +13,21 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container flex justify-center">
         <div className="max-w-3xl">
-          <h1 className="hero__title">Full stack typesafe API-first development for REST.</h1>
+          <h1 className="text-7xl">
+            Full stack typesafe API-first development for REST.
+          </h1>
           
-          <p className="hero__subtitle">OpenAPI Stack is a collection of open source libraries and tools for full stack Typescript development inspired by modern alternatives like GraphQL and tRPC.</p>
+          <p className="hero__subtitle">
+            OpenAPI Stack is a collection of open source libraries and tools for full stack Typescript development inspired by modern alternatives like GraphQL and tRPC.
+          </p>
 
           <div className="space-x-2">
             <GithubStarsButton />
+
             <Link
               className="button button--secondary button--lg mb-2"
-              to="/docs/intro">
+              to="/docs/intro"
+            >
                 Documentation
             </Link>
           </div>
@@ -32,12 +38,15 @@ function HomepageHeader() {
 }
 
 export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
+
   return (
     <Layout
       title={siteConfig.title}
-      description={siteConfig.tagline}>
+      description={siteConfig.tagline}
+    >
       <HomepageHeader />
+
       <main>
         <HomepageFeatures />
       </main>

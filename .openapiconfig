@@ -1,4 +1,4 @@
-definition: https://petstore3.swagger.io/api/v3/openapi.json
+definition: https://openapistack.co/petstore.openapi.json
 security:
   api_key:
     header:
