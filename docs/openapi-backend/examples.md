@@ -132,3 +132,5 @@ fastify.route({
 });
 await fastify.listen({ port: 9000 });
 ```
+
+[See full Fastify example](https://github.com/anttiviljami/openapi-backend/tree/master/examples/fastify)
