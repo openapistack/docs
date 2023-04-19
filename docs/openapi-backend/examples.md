@@ -108,8 +108,9 @@ app.listen(9000);
 
 ### Fastify
 
-```javascript
+```typescript
 import Fastify from 'fastify';
+import type { Request } from 'openapi-backend';
 
 const fastify = Fastify();
 
@@ -122,8 +123,8 @@ fastify.route({
         method: request.method,
         path: request.url,
         body: request.body,
-        query: request.query,
-        headers: request.headers,
+        query: request.query as NonNullable<Request['query']>,
+        headers: request.headers as Request['headers'],
       },
       request,
       reply,
