@@ -105,3 +105,32 @@ app.listen(9000);
 ```
 
 [See full Koa example](https://github.com/anttiviljami/openapi-backend/tree/master/examples/koa)
+
+### Fastify
+
+```typescript
+import Fastify from 'fastify';
+import type { Request } from 'openapi-backend';
+
+const fastify = Fastify();
+
+fastify.route({
+  method: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  url: '/*',
+  handler: async (request, reply) =>
+    api.handleRequest(
+      {
+        method: request.method,
+        path: request.url,
+        body: request.body,
+        query: request.query as NonNullable<Request['query']>,
+        headers: request.headers as Request['headers'],
+      },
+      request,
+      reply,
+    ),
+});
+await fastify.listen({ port: 9000 });
+```
+
+[See full Fastify example](https://github.com/anttiviljami/openapi-backend/tree/master/examples/fastify)
