@@ -73,7 +73,7 @@ async function updatePetHandler(
   return res.status(200).json(response);
 }
 
-api.register("updatePet", getPetByIdHandler);
+api.register("updatePet", updatePetHandler);
 ```
 
 ## Generic Types
