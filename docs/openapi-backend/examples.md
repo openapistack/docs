@@ -64,6 +64,32 @@ module.exports = (context, req) =>
 
 [See full Azure Function example](https://github.com/anttiviljami/openapi-backend/tree/master/examples/azure-function)
 
+### Fastify
+
+```ts
+import fastify from "fastify";
+
+fastify.route({
+  method: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  url: "/*",
+  handler: async (request, reply) =>
+    api.handleRequest(
+      {
+        method: request.method,
+        path: request.url,
+        body: request.body,
+        query: request.query,
+        headers: request.headers,
+      },
+      request,
+      reply
+    ),
+});
+fastify.listen();
+```
+
+[See full Fastify example](https://github.com/anttiviljami/openapi-backend/tree/master/examples/fastify)
+
 ### Hapi
 
 ```javascript
@@ -109,25 +135,25 @@ app.listen(9000);
 ### Fastify
 
 ```typescript
-import Fastify from 'fastify';
-import type { Request } from 'openapi-backend';
+import Fastify from "fastify";
+import type { Request } from "openapi-backend";
 
 const fastify = Fastify();
 
 fastify.route({
-  method: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-  url: '/*',
+  method: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  url: "/*",
   handler: async (request, reply) =>
     api.handleRequest(
       {
         method: request.method,
         path: request.url,
         body: request.body,
-        query: request.query as NonNullable<Request['query']>,
-        headers: request.headers as Request['headers'],
+        query: request.query as NonNullable<Request["query"]>,
+        headers: request.headers as Request["headers"],
       },
       request,
-      reply,
+      reply
     ),
 });
 await fastify.listen({ port: 9000 });
