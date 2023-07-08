@@ -8,6 +8,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
 import { Sandbox } from '../components/Sandbox/Sandbox';
+import { GithubSponsorButton } from '../components/GithubSponsorButton';
 
 function HomepageHeader() {
   return (
@@ -41,8 +42,6 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
-
-
   return (
     <Layout
       title={siteConfig.title}
@@ -54,6 +53,8 @@ export default function Home(): JSX.Element {
         <HomepageFeatures />
 
         <Sandbox />
+
+        <GithubSponsorButton />
       </main>
     </Layout>
   );
