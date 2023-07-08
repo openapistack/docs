@@ -17,7 +17,7 @@ export const Sandbox = () => {
   previewParams.append('file', 'pages/api/[openapi].ts');
 
   return (
-    <div className="container mt-12">
+    <div className="container mt-12 mb-6">
 
       <h2 className="scroll-mt-20 text-center text-2xl font-bold text-black hover:no-underline dark:text-white lg:text-3xl">Interactive Example</h2>
       <p className="mx-auto max-w-[60ch] pt-2 text-center text-sm text-zinc-600 dark:text-zinc-300 md:text-base">This is a minimal full-stack React application using openapi-stack and Next.js.</p>
