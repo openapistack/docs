@@ -7,6 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
+import { Sandbox } from '../components/Sandbox/Sandbox';
 
 function HomepageHeader() {
   return (
@@ -16,7 +17,7 @@ function HomepageHeader() {
           <h1 className="text-7xl">
             Full stack typesafe API-first development for REST.
           </h1>
-          
+
           <p className="hero__subtitle">
             OpenAPI Stack is a collection of open source libraries and tools for full stack Typescript development inspired by modern alternatives like GraphQL and tRPC.
           </p>
@@ -28,7 +29,7 @@ function HomepageHeader() {
               className="button button--secondary button--lg mb-2"
               to="/docs/intro"
             >
-                Documentation
+              Documentation
             </Link>
           </div>
         </div>
@@ -40,6 +41,8 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
+
+
   return (
     <Layout
       title={siteConfig.title}
@@ -49,7 +52,10 @@ export default function Home(): JSX.Element {
 
       <main>
         <HomepageFeatures />
+
+        <Sandbox />
       </main>
     </Layout>
   );
 }
+
