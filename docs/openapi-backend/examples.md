@@ -160,3 +160,11 @@ await fastify.listen({ port: 9000 });
 ```
 
 [See full Fastify example](https://github.com/anttiviljami/openapi-backend/tree/master/examples/fastify)
+
+### NextJS Starter
+
+**New!**
+
+[Try it out on Stackblitz]https://stackblitz.com/fork/openapi-stack-nextjs-starter?file=public%2Fopenapi.yml&file=app%2Fpage.tsx&file=pages%2Fapi%2F%5Bopenapi%5D.ts)
+
+[GitHub](https://github.com/anttiviljami/openapi-stack-nextjs-starter)
