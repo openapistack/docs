@@ -2,7 +2,7 @@ import React from 'react';
 import { Iframe } from './Iframe';
 
 export const Sandbox = () => {
-  const previewURL = 'https://stackblitz.com/edit/stackblitz-starters-wwvp54';
+  const previewURL = 'https://stackblitz.com/edit/openapi-stack-nextjs-starter';
 
   const previewParams = new URLSearchParams({
     embed: '1',
