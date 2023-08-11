@@ -38,7 +38,7 @@ all unnecessary metadata from your openapi file before bundling for use with ope
 To create an optimized runtime version of your openapi definition:
 
 ```sh
-npx openapicmd read --strip openapi_client_axios openapi.json > openapi-runtime.json
+npx openapicmd read --strip openapi_client_axios --format=json openapi.json > openapi-runtime.json
 ```
 
 This file can then be included in your runtime bundle:
