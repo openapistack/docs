@@ -14,7 +14,7 @@
 
 The goal is to unlock great developer experience and full stack type safety for software teams using REST; inspired by tools like [GraphQL](https://graphql.org/) and [tRPC](https://trpc.io).
 
-## Libraries part of openapi-stack:
+## Packages part of openapi-stack:
 
 - [openapi-backend ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend?style=social)](https://github.com/anttiviljami/openapi-backend)
 - [openapi-client-axios ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-client-axios?style=social)](https://github.com/anttiviljami/openapi-client-axios)
