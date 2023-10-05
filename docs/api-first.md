@@ -1,10 +1,10 @@
 ---
-title: Philosophy
+title: API First
 hide_title: true
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Philosophy
+# API First
 
 :::info
 

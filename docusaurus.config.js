@@ -50,6 +50,11 @@ const config = {
         },
         items: [
           {
+            to: '/docs/examples',
+            position: 'left',
+            label: 'Examples',
+          },
+          {
             to: '/docs/intro',
             position: 'left',
             label: 'Documentation',

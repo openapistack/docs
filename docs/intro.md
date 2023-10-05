@@ -1,7 +1,7 @@
 ---
 title: Overview
 hide_title: true
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 <div className="text-center mt-4 mb-8">
