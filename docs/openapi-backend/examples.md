@@ -2,9 +2,11 @@
 sidebar_position: 2
 ---
 
-# Examples
+# Framework Examples
 
 OpenAPI backend is framework agnostic, which means you can use it with pretty much any javascript backend framework and hosting you're familiar with.
+
+Full, tested examples can be found the openapi-backend GitHub repository: [https://github.com/anttiviljami/openapi-backend/tree/master/examples/](https://github.com/anttiviljami/openapi-backend/tree/master/examples/)
 
 ### Express
 
