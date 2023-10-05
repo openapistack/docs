@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Javascript API
+# Reference
 
 ## Class OpenAPIBackend
 

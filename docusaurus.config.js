@@ -92,17 +92,13 @@ const config = {
                 to: '/docs/api-first',
               },
               {
-                label: 'Backend',
-                href: '/docs/openapi-backend/intro',
+                label: 'Examples',
+                to: '/docs/examples',
               },
               {
-                label: 'Client',
-                href: '/docs/openapi-client-axios/intro',
-              },
-              {
-                label: 'CLI',
-                href: '/docs/openapicmd/intro',
-              },
+                label: 'Backend Reference',
+                href: '/docs/openapi-backend/api'
+              }
             ],
           },
           {
