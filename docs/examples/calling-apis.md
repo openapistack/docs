@@ -83,7 +83,7 @@ async function main() {
 
   const petsResponse = await client.getPets();
   const pets = petsResponse.data; // Pet[] inferred as type
-  console.log('getPets response', petsResponse.status, data);
+  console.log('getPets response', petsResponse.status, pets);
 }
 main();
 ```
