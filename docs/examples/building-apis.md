@@ -3,11 +3,30 @@ title: Building APIs
 sidebar_position: 2
 ---
 
-In this example, we will design and build a simple REST API using express and openapi-backend.
+:::info
 
-Let's start by setting up a basic express server:
+In this example, we will design and build a minimal Node.js REST API using [openapi-backend](/docs/openapi-backend) and the [express](https://expressjs.com) framework.
+
+See [framework examples](/docs/openapi-backend/examples/) to get started with openapi stack using your favourite framework.
+
+:::
+
+## Prerequisites
+
+This guide assumes you already know how to set up a Node.js project with Typescript. You can find a minimal sample project [here](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-typescript).
+
+Before starting, make sure to install `openapi-backend` and `express` as dependencies:
+
+```
+npm i openapi-backend express
+```
+
+## Setting up express
+
+We will start by setting up a basic express server listening on port `9000`:
 
 ```ts
+// src/server.ts
 import express from 'express';
 
 const app = express();
@@ -19,7 +38,9 @@ app.use(express.json());
 app.listen(9000, () => console.info('api listening at http://localhost:9000'));
 ```
 
-We can then import `openapi-backend` and initialize it:
+## Setting up openapi-backend
+
+We can then import `openapi-backend` and initialize it with an openapi definition file:
 
 ```ts
 import { OpenAPIBackend } from 'openapi-backend';
@@ -31,9 +52,12 @@ const api = new OpenAPIBackend({
 api.init();
 ```
 
-We are loading our API definition from `openapi.yml`, so let's write a simple API design with a `getPets` operation:
+## Writing our API spec
+
+We load our API definition from `openapi.yml`, so let's populate it with a simple API design with a `getPets` operation:
 
 ```yaml
+# src/openapi.yml
 openapi: 3.0.2
 info:
   title: "Pet API"
@@ -63,26 +87,36 @@ components:
           enum: ["cat", "dog"]
         name:
           type: string
-      required:
-        - id
-        - type
+      required: ["id", "type"]
 ```
 
-Let's then implement `getPets` and some default handlers in our code:
+## Implementing Handlers
+
+Let's then implement an [operation handler](/docs/openapi-backend/operation-handlers/) for the `getPets` operation defined in our spec.
 
 ```ts
-api.register('getPets', async (c, req: Express.Request, res: Express.Response) =>
+api.register('getPets', async (c, req: express.Request, res: express.Response) =>
   res.status(200).json([{ id: '1', type: 'cat', name: 'Garfield' }])
 )
-api.register('validationFail', (c, req: Express.Request, res: Express.Response) =>
+```
+
+To enable routing and validation, we'll add some default handlers in our code for common exceptions:
+
+```ts
+// return 400 when request validation fails
+api.register('validationFail', (c, req: express.Request, res: express.Response) =>
   res.status(400).json({ err: c.validation.errors }),
 )
-api.register('notFound', (c, req: Express.Request, res: Express.Response) =>
+// return 404 when route doesn't match any operation in openapi.yml
+api.register('notFound', (c, req: express.Request, res: express.Response) =>
   res.status(404).json({ err: 'not found' }),
 )
 ```
 
-Finally we can use openapi-backend as an express middleware to route, validate and handle API requests:
+
+## Use as express middleware
+
+Finally we wire up openapi-backend to route, validate and handle API requests with express:
 
 ```ts
 app.use((req, res) => api.handleRequest(req, req, res));
@@ -90,10 +124,10 @@ app.use((req, res) => api.handleRequest(req, req, res));
 
 ## Full Example
 
-Putting everything together, here is our full code example:
+Putting everything together, here is our complete example server code:
 
 ```ts
-// server.ts
+// src/server.ts
 import { OpenAPIBackend, Request } from 'openapi-backend';
 import express from 'express';
 
@@ -103,20 +137,40 @@ const api = new OpenAPIBackend({
 
 api.init();
 
+// handler for getPets operation in openapi.yml
 api.register('getPets', async (c, req: express.Request, res: express.Response) =>
   res.status(200).json([{ id: '1', type: 'cat', name: 'Garfield' }])
 )
+// return 400 when request validation fails
 api.register('validationFail', (c, req: express.Request, res: express.Response) =>
   res.status(400).json({ err: c.validation.errors }),
 )
+// return 404 when route doesn't match any operation in openapi.yml
 api.register('notFound', (c, req: express.Request, res: express.Response) =>
   res.status(404).json({ err: 'not found' }),
 )
 
 const app = express();
 
+// use the json middleware
 app.use(express.json());
+
+// use openapi-backend to handle requests
 app.use((req, res) => api.handleRequest(req as Request, req, res));
 
+// start server
 app.listen(9000, () => console.info('api listening at http://localhost:9000'));
+```
+
+## Optional: Mocking Responses
+
+Instead of implementing a handler for `getPets`, you can register a `notImplemented` handler to mock the response based
+on the OpenAPI schema:
+
+```ts
+// mock responses for operations with no registered handlers
+api.register('notImplemented', (c, req: express.Request, res: express.Response) => {
+  const { status, mock } = c.api.mockResponseForOperation(c.operation.operationId);
+  return res.status(status).json(mock);
+});
 ```
