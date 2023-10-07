@@ -8,7 +8,6 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
 import { Sandbox } from '../components/Sandbox/Sandbox';
-import { GithubSponsorButton } from '../components/GithubSponsorButton';
 
 function HomepageHeader() {
   return (
@@ -53,8 +52,6 @@ export default function Home(): JSX.Element {
         <HomepageFeatures />
 
         <Sandbox />
-
-        <GithubSponsorButton />
       </main>
     </Layout>
   );
