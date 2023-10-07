@@ -4,6 +4,12 @@ sidebar_position: 8
 
 # Auth with Security Handlers
 
+:::tip
+
+Check out [boilerplate projects](/docs/examples/boilerplate/) for working examples of authorization with security handlers. ([JWT](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-jwt-auth), [API Key](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-apikey-auth))
+
+:::
+
 When your OpenAPI document contains [Security Schemes](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#securitySchemeObject)
 you can register security handlers to handle authorization for your API:
 
