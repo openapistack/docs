@@ -84,13 +84,13 @@ async function createPet() {
 OpenAPIClient instances using an OpenAPI definition file.
 
 ```
-npx openapi-client-axios-typegen ./openapi.yaml > src/types/openapi.d.ts
+npx openapicmd typegen ./openapi.yaml > src/types/openapi.d.ts
 ```
 
 The output file exports a type called `Client`, which can directly be used with instances created with `OpenAPIClientAxios`.
 
 ```typescript
-import { Client as PetStoreClient } from "./openapi.d.ts";
+import type { Client as PetStoreClient } from "./openapi.d.ts";
 
 const client = await api.getClient<PetStoreClient>();
 ```

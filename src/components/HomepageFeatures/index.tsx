@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_developer_activity_re_39tg.svg').default,
     description: (
       <>
-        Design, automate and test your API using the <Link to={'/docs/openapicmd/intro'}>openapicmd</Link> command line tool.
+        Generate types, design and test your API using the <Link to={'/docs/openapicmd/intro'}>openapicmd</Link> command line tool.
       </>
     ),
   },

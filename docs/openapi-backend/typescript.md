@@ -6,7 +6,7 @@ sidebar_position: 9
 
 OpenAPI Backend is entirely built with typescript and supports using types in operation handlers.
 
-The [typegen CLI](/docs/openapi-client-axios/typegen/) from `openapi-client-axios` is designed to also be used to generate types to for use on the backend side.
+The [`openapi typegen`](/docs/openapicmd/typegen) command can be used to generate types to for use on the backend side.
 
 :::tip
 
@@ -15,18 +15,18 @@ You can set up a script in package.json to easily update types when the openapi 
 ```json
 {
   "scripts": {
-    "openapi": "npx openapi-client-axios-typegen typegen ./openapi.yaml > src/types/openapi.d.ts"
+    "openapi": "openapi typegen ./openapi.yaml > src/types/openapi.d.ts"
   }
 }
 ```
 
 :::
 
-`openapi-client-axios-typegen` supports both local and remote files:
+`openapi typegen` supports both local and remote files:
 
 ```
-npx openapi-client-axios-typegen ./openapi.yaml > src/types/openapi.d.ts # local file
-npx openapi-client-axios-typegen https://petstore3.swagger.io/api/v3/openapi.json > src/types/openapi.d.ts # remote url
+npx openapicmd typegen ./openapi.yaml > src/types/openapi.d.ts # local file
+npx openapicmd typegen https://petstore3.swagger.io/api/v3/openapi.json > src/types/openapi.d.ts # remote url
 ```
 
 ## Using types in operation handlers
@@ -35,7 +35,7 @@ You can import schemas and response/request models defined in your openapi defin
 
 ```ts
 // types.ts
-import { Components } from "./openapi.d.ts";
+import type { Components, Paths } from "./openapi.d.ts";
 
 export type Pet = Components.Schemas.Pet;
 export type User = Components.Schemas.User;

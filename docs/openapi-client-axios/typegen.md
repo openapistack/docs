@@ -1,8 +1,15 @@
 ---
 sidebar_position: 3
+title: Typegen
 ---
 
-# Generating types
+# Typegen package
+
+:::tip
+
+It's recommended to use [`openapicmd typegen`](/docs/openapicmd/typegen/) to generate types instead of directly installing the typegen package. 
+
+:::
 
 `openapi-client-axios-typegen` is a command line tool to generate easy to use Typescript types from
 OpenAPI files.
@@ -59,7 +66,7 @@ const client = await api.getClient<PetStoreClient>();
 You can import schemas and response/request models defined in your openapi definition as Typescript types:
 
 ```ts
-import { Components } from "./openapi.d.ts";
+import { Components, Paths } from "./openapi.d.ts";
 
 export type Pet = Components.Schemas.Pet;
 export type User = Components.Schemas.User;

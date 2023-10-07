@@ -9,6 +9,12 @@ In this example we will write code to interact with a public mock API available 
 
 :::
 
+:::tip
+
+If you're looking to invoke APIs via CLI, see [`openapicmd call`](/docs/openapicmd/call/)
+
+:::
+
 ## Prerequisites
 
 Before starting, make sure to install `openapi-client-axios` and `axios` as dependencies in your project:
@@ -29,7 +35,7 @@ const api = new OpenAPIClientAxios({
 });
 ```
 
-*Note: You may also pass a definition object or path to a definition file depending on your setup.*
+*Note: For optimal performance, it's recommended to pass the definition as a JS object instead or fetching it from a URL in runtime.*
 
 To initialise a client instance, we call `api.init()`:
 

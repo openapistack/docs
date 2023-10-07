@@ -96,6 +96,10 @@ const config = {
                 to: '/docs/examples',
               },
               {
+                label: 'Generating Types',
+                to: '/docs/openapicmd/typegen',
+              },
+              {
                 label: 'Backend Reference',
                 href: '/docs/openapi-backend/api'
               }

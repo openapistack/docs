@@ -3,6 +3,12 @@ title: Boilerplate projects
 sidebar_position: 3
 ---
 
+:::tip
+
+See [Framework Examples](/docs/openapi-backend/examples/) for how openapi-backend integrates with any Node.js server or framework.
+
+:::
+
 A list of example projects using openapi-stack with different frameworks:
 
 - **Next.js**

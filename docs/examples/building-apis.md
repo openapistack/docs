@@ -7,7 +7,11 @@ sidebar_position: 2
 
 In this example, we will design and build a minimal Node.js REST API using [openapi-backend](/docs/openapi-backend) and the [express](https://expressjs.com) framework.
 
-See [framework examples](/docs/openapi-backend/examples/) to get started with openapi stack using your favourite framework.
+:::
+
+:::tip
+
+Not using express? The `openapi-backend` package can be used with any other Node.js framework or server. See [boilerplate projects](/docs/examples/boilerplate/) for examples of using OpenAPI stack with other frameworks.
 
 :::
 

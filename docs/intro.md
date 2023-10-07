@@ -38,7 +38,7 @@ Easily consume your API using the typesafe [openapi-client-axios](https://github
 
 ## CLI
 
-Design, automate and test your API using the [openapicmd](https://github.com/anttiviljami/openapicmd) command line tool.
+Generate types, design and test your API using the [openapicmd](https://github.com/anttiviljami/openapicmd) command line tool.
 
 [Quickstart](/docs/openapicmd/intro) - [NPM](https://www.npmjs.com/package/openapicmd)
 
