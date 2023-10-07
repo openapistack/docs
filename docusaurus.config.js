@@ -110,15 +110,15 @@ const config = {
             items: [
               {
                 label: 'openapi-backend',
-                href: 'https://github.com/anttiviljami/openapi-backend',
+                href: '/docs/openapi-backend/intro',
               },
               {
                 label: 'openapi-client-axios',
-                href: 'https://github.com/anttiviljami/openapi-client-axios',
+                href: '/docs/openapi-client-axios/intro',
               },
               {
                 label: 'openapicmd',
-                href: 'https://github.com/anttiviljami/openapicmd',
+                href: '/docs/openapicmd/intro',
               },
             ],
           },

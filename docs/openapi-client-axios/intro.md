@@ -76,7 +76,7 @@ async function createPet() {
 }
 ```
 
-## Type Safe Clients
+## Typesafe Clients
 
 ![TypeScript IntelliSense](/img/intellisense.gif)
 
