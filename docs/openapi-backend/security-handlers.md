@@ -6,7 +6,7 @@ sidebar_position: 8
 
 :::tip
 
-Check out [boilerplate projects](/docs/examples/boilerplate/) for working examples of authorization with security handlers. ([JWT](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-jwt-auth), [API Key](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-apikey-auth))
+Check out [boilerplate projects](/docs/examples/boilerplate/) for working examples of authorization with security handlers. ([JWT](https://github.com/openapistack/openapi-backend/tree/master/examples/express-jwt-auth), [API Key](https://github.com/openapistack/openapi-backend/tree/master/examples/express-apikey-auth))
 
 :::
 
@@ -48,8 +48,8 @@ api.register("unauthorizedHandler", (c, req, res) => {
 
 See examples using security handlers:
 
-- [API Key auth (express)](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-apikey-auth)
-- [JWT auth (express)](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-jwt-auth)
+- [API Key auth (express)](https://github.com/openapistack/openapi-backend/tree/master/examples/express-apikey-auth)
+- [JWT auth (express)](https://github.com/openapistack/openapi-backend/tree/master/examples/express-jwt-auth)
 
 ## Security Handlers
 

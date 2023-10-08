@@ -17,7 +17,7 @@ Not using express? The `openapi-backend` package can be used with any other Node
 
 ## Prerequisites
 
-This guide assumes you already know how to set up a Node.js project with Typescript. You can find a minimal sample project [here](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-typescript).
+This guide assumes you already know how to set up a Node.js project with Typescript. You can find a minimal sample project [here](https://github.com/openapistack/openapi-backend/tree/master/examples/express-typescript).
 
 Before starting, make sure to install `openapi-backend` and `express` as dependencies:
 

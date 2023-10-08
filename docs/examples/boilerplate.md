@@ -12,27 +12,27 @@ See [Framework Examples](/docs/openapi-backend/examples/) for how openapi-backen
 A list of example projects using openapi-stack with different frameworks:
 
 - **Next.js**
-  - openapi-stack-fullstack-nextjs-starter ([GitHub](https://github.com/anttiviljami/openapi-stack-nextjs-starter), [Playground](https://stackblitz.com/fork/openapi-stack-nextjs-starter?file=public%2Fopenapi.yml&file=app%2Fpage.tsx&file=pages%2Fapi%2F%5Bopenapi%5D.ts))
+  - openapi-stack-fullstack-nextjs-starter ([GitHub](https://github.com/openapistack/docs-nextjs-starter), [Playground](https://stackblitz.com/fork/openapi-stack-nextjs-starter?file=public%2Fopenapi.yml&file=app%2Fpage.tsx&file=pages%2Fapi%2F%5Bopenapi%5D.ts))
 - **Express**
-  - openapi-backend-express ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express))
-  - openapi-backend-express-typescript ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-typescript))
-  - openapi-backend-express-ts-mock ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-ts-mock))
-  - openapi-backend-express-apikey-auth ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-apikey-auth))
-  - openapi-backend-express-jwt-auth ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/express-jwt-auth))
+  - openapi-backend-express ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/express))
+  - openapi-backend-express-typescript ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/express-typescript))
+  - openapi-backend-express-ts-mock ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/express-ts-mock))
+  - openapi-backend-express-apikey-auth ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/express-apikey-auth))
+  - openapi-backend-express-jwt-auth ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/express-jwt-auth))
 - **SST** 
   - openapi-stack-sst-sample ([GitHub](https://github.com/anttiviljami/openapistack-sst-sample))
-  - openapi-backend-sst-sample ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/aws-sst))
+  - openapi-backend-sst-sample ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/aws-sst))
 - **Hapi**
-  - openapi-backend-hapi-typescript ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/hapi-typescript))
+  - openapi-backend-hapi-typescript ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/hapi-typescript))
 - **Koa**
-  - openapi-backend-koa ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/koa))
+  - openapi-backend-koa ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/koa))
 - **Fastify**
-  - openapi-backend-fastify ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/fastify))
+  - openapi-backend-fastify ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/fastify))
 - **AWS SAM**
-  - openapi-backend-aws-sam ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/aws-sam))
+  - openapi-backend-aws-sam ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/aws-sam))
 - **AWS CDK**
-  - openapi-backend-aws-cdk ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/aws-cdk))
+  - openapi-backend-aws-cdk ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/aws-cdk))
 - **Serverless Framework**
-  - openapi-backend-serverless-aws ([Github](https://github.com/anttiviljami/openapi-backend/tree/master/examples/serverless-framework))
+  - openapi-backend-serverless-aws ([Github](https://github.com/openapistack/openapi-backend/tree/master/examples/serverless-framework))
 - **Azure Function**
-  - openapi-backend-azure-function ([GitHub](https://github.com/anttiviljami/openapi-backend/tree/master/examples/azure-function))
+  - openapi-backend-azure-function ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/azure-function))

@@ -10,13 +10,13 @@ sidebar_position: 0
 
 <h1>
   openapi-stack
-  <a href="https://github.com/anttiviljami/openapi-stack" target="_blank"><img className="w-[1em] ml-2 relative top-1" src="https://img.icons8.com/material-sharp/96/000000/github.png" alt="GitHub" /></a>
+  <a href="https://github.com/openapistack/docs" target="_blank"><img className="w-[1em] ml-2 relative top-1" src="https://img.icons8.com/material-sharp/96/000000/github.png" alt="GitHub" /></a>
 </h1>
 
-[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-stack/blob/master/LICENSE)
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/openapistack/docs/blob/master/LICENSE)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend?label=backend)](https://www.npmjs.com/package/openapi-backend)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios?label=client)](https://www.npmjs.com/package/openapi-backend)
-[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-stack?label=github%20stars)](https://github.com/anttiviljami/openapi-stack)
+[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-stack?label=github%20stars)](https://github.com/openapistack/docs)
 
 </div>
 
@@ -26,19 +26,19 @@ The goal is to unlock great developer experience and full stack type safety for 
 
 ## Backend
 
-Build, Validate, Route, Authenticate, and Mock your backend using the [openapi-backend](https://github.com/anttiviljami/openapi-backend) library.
+Build, Validate, Route, Authenticate, and Mock your backend using the [openapi-backend](https://github.com/openapistack/openapi-backend) library.
 
 [Quickstart](/docs/openapi-backend/intro) - [NPM](https://www.npmjs.com/package/openapi-backend)
 
 ## Client
 
-Easily consume your API using the typesafe [openapi-client-axios](https://github.com/anttiviljami/openapi-client-axios) library.
+Easily consume your API using the typesafe [openapi-client-axios](https://github.com/openapistack/openapi-client-axios) library.
 
 [Quickstart](/docs/openapi-client-axios/intro) - [NPM](https://www.npmjs.com/package/openapi-client-axios)
 
 ## CLI
 
-Generate types, design and test your API using the [openapicmd](https://github.com/anttiviljami/openapicmd) command line tool.
+Generate types, design and test your API using the [openapicmd](https://github.com/openapistack/openapicmd) command line tool.
 
 [Quickstart](/docs/openapicmd/intro) - [NPM](https://www.npmjs.com/package/openapicmd)
 

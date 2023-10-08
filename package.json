@@ -1,6 +1,6 @@
 {
   "name": "openapi-stack",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Full stack typesafe API-first development with OpenAPI",
   "author": "Viljami Kuosmanen <viljami@viljami.io>",
   "files": [
@@ -10,10 +10,10 @@
   "homepage": "https://openapistack.co",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anttiviljami/openapi-stack.git"
+    "url": "git+https://github.com/openapistack/docs.git"
   },
   "bugs": {
-    "url": "https://github.com/anttiviljami/openapi-stack/issues"
+    "url": "https://github.com/openapistack/docs/issues"
   },
   "scripts": {
     "docusaurus": "docusaurus",

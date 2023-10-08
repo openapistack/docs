@@ -8,14 +8,14 @@ sidebar_position: 1
 <img alt="openapi-backend logo" src="/img/openapi-stack-logo.png" className="max-w-[150px]" />
 <h1 className="mb-6">
   openapi-backend
-  <a href="https://github.com/anttiviljami/openapi-backend" target="_blank"><img className="w-[1em] ml-2 relative top-1" src="https://img.icons8.com/material-sharp/96/000000/github.png" alt="GitHub" /></a>
+  <a href="https://github.com/openapistack/openapi-backend" target="_blank"><img className="w-[1em] ml-2 relative top-1" src="https://img.icons8.com/material-sharp/96/000000/github.png" alt="GitHub" /></a>
 </h1>
 
-[![CI](https://github.com/anttiviljami/openapi-backend/workflows/CI/badge.svg)](https://github.com/anttiviljami/openapi-backend/actions?query=workflow%3ACI)
+[![CI](https://github.com/openapistack/openapi-backend/workflows/CI/badge.svg)](https://github.com/openapistack/openapi-backend/actions?query=workflow%3ACI)
 [![npm version](https://img.shields.io/npm/v/openapi-backend.svg)](https://www.npmjs.com/package/openapi-backend)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend)](https://www.npmjs.com/package/openapi-backend)
-[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend)](https://github.com/anttiviljami/openapi-backend)
-[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-backend/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend)](https://github.com/openapistack/openapi-backend)
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/openapistack/openapi-backend/blob/master/LICENSE)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 
 <p><b>Build, Validate, Route, Authenticate, and Mock using OpenAPI definitions.</b></p>

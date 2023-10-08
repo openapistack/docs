@@ -3,7 +3,7 @@
 <h1><a href="https://openapistack.co">openapistack.co</a></h1>
 <h3>Full stack typesafe API-first development for REST.</h3>
 
-[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/anttiviljami/openapi-stack/blob/master/LICENSE)
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/openapistack/docs/blob/master/LICENSE)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend)](https://www.npmjs.com/package/openapi-backend)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios)](https://www.npmjs.com/package/openapi-client-axios)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
@@ -16,9 +16,9 @@ The goal is to unlock great developer experience and full stack type safety for 
 
 ## Packages part of openapi-stack:
 
-- [openapi-backend ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend?style=social)](https://github.com/anttiviljami/openapi-backend)
-- [openapi-client-axios ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-client-axios?style=social)](https://github.com/anttiviljami/openapi-client-axios)
-- [openapicmd ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapicmd?style=social)](https://github.com/anttiviljami/openapicmd)
+- [openapi-backend ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend?style=social)](https://github.com/openapistack/openapi-backend)
+- [openapi-client-axios ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-client-axios?style=social)](https://github.com/openapistack/openapi-client-axios)
+- [openapicmd ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapicmd?style=social)](https://github.com/openapistack/openapicmd)
 
 ## Features
 

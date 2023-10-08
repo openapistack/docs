@@ -2,10 +2,10 @@ import Link from '@docusaurus/Link';
 import React, { useEffect, useMemo, useState } from 'react';
 
 const REPOSITORIES = [
-  'anttiviljami/openapi-stack',
-  'anttiviljami/openapi-backend',
-  'anttiviljami/openapi-client-axios',
-  'anttiviljami/openapicmd',
+  'openapistack/docs',
+  'openapistack/openapi-backend',
+  'openapistack/openapi-client-axios',
+  'openapistack/openapicmd',
 ]
 
 export const GithubStarsButton = () => {
@@ -37,7 +37,7 @@ export const GithubStarsButton = () => {
   return (
     <Link
       className="button button--secondary button--lg space-x-1 mb-2 align-middle"
-      to="https://github.com/anttiviljami/openapi-stack"
+      to="https://github.com/openapistack/docs"
     >
       <span>☆</span>
       <span>Star</span>
