@@ -16,9 +16,9 @@ The goal is to unlock great developer experience and full stack type safety for 
 
 ## Packages part of openapi-stack:
 
-- [openapi-backend ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend?style=social)](https://github.com/openapistack/openapi-backend)
-- [openapi-client-axios ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapi-client-axios?style=social)](https://github.com/openapistack/openapi-client-axios)
-- [openapicmd ![GitHub Repo stars](https://img.shields.io/github/stars/anttiviljami/openapicmd?style=social)](https://github.com/openapistack/openapicmd)
+- [openapi-backend ![GitHub Repo stars](https://img.shields.io/github/stars/openapistack/openapi-backend?style=social)](https://github.com/openapistack/openapi-backend)
+- [openapi-client-axios ![GitHub Repo stars](https://img.shields.io/github/stars/openapistack/openapi-client-axios?style=social)](https://github.com/openapistack/openapi-client-axios)
+- [openapicmd ![GitHub Repo stars](https://img.shields.io/github/stars/openapistack/openapicmd?style=social)](https://github.com/openapistack/openapicmd)
 
 ## Features
 

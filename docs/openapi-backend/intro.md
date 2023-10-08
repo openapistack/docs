@@ -14,7 +14,7 @@ sidebar_position: 1
 [![CI](https://github.com/openapistack/openapi-backend/workflows/CI/badge.svg)](https://github.com/openapistack/openapi-backend/actions?query=workflow%3ACI)
 [![npm version](https://img.shields.io/npm/v/openapi-backend.svg)](https://www.npmjs.com/package/openapi-backend)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend)](https://www.npmjs.com/package/openapi-backend)
-[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapi-backend)](https://github.com/openapistack/openapi-backend)
+[![GitHub stars](https://img.shields.io/github/stars/openapistack/openapi-backend)](https://github.com/openapistack/openapi-backend)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/openapistack/openapi-backend/blob/master/LICENSE)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 

@@ -15,7 +15,7 @@ sidebar_position: 0
 [![CI](https://github.com/openapistack/openapicmd/workflows/CI/badge.svg)](https://github.com/openapistack/openapicmd/actions?query=workflow%3ACI)
 [![npm version](https://img.shields.io/npm/v/openapicmd.svg)](https://www.npmjs.com/package/openapicmd)
 [![npm downloads](https://img.shields.io/npm/dw/openapicmd)](https://www.npmjs.com/package/openapicmd)
-[![GitHub stars](https://img.shields.io/github/stars/anttiviljami/openapicmd)](https://github.com/openapistack/openapicmd)
+[![GitHub stars](https://img.shields.io/github/stars/openapistack/openapicmd)](https://github.com/openapistack/openapicmd)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/openapistack/openapicmd/blob/master/LICENSE)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 
