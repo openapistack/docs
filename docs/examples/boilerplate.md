@@ -12,7 +12,7 @@ See [Framework Examples](/docs/openapi-backend/examples/) for how openapi-backen
 A list of example projects using openapi-stack with different frameworks:
 
 - **Next.js**
-  - openapi-stack-fullstack-nextjs-starter ([GitHub](https://github.com/openapistack/docs-nextjs-starter), [Playground](https://stackblitz.com/fork/openapi-stack-nextjs-starter?file=public%2Fopenapi.yml&file=app%2Fpage.tsx&file=pages%2Fapi%2F%5Bopenapi%5D.ts))
+  - openapi-stack-fullstack-nextjs-starter ([GitHub](https://github.com/anttiviljami/docs-nextjs-starter), [Playground](https://stackblitz.com/fork/openapi-stack-nextjs-starter?file=public%2Fopenapi.yml&file=app%2Fpage.tsx&file=pages%2Fapi%2F%5Bopenapi%5D.ts))
 - **Express**
   - openapi-backend-express ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/express))
   - openapi-backend-express-typescript ([GitHub](https://github.com/openapistack/openapi-backend/tree/master/examples/express-typescript))
