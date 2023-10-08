@@ -103,7 +103,7 @@ const config = {
             position: 'left',
           },
           {
-            href: 'https://github.com/openapistack/docs',
+            href: 'https://github.com/openapistack',
             label: 'GitHub',
             position: 'right',
           },
