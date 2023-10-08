@@ -28,7 +28,7 @@ The goal is to unlock great developer experience and full stack type safety for 
 - [x] 🏎 Lightweight - small frontend bundle + optimized for serverless cold starts
 - [x] 🧙‍♂️ No code generation – we only generate types
 - [x] ❤️ OpenAPI 3.x support
-- [x] 👀 [Samples](https://openapistack.co/docs/openapi-backend/examples) included
+- [x] 👀 [Samples](https://openapistack.co/docs/examples/boilerplate/) included
 
 ## API First Cycle
 
