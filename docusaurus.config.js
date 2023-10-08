@@ -35,8 +35,8 @@ const config = {
   url: 'https://openapistack.co',
   baseUrl: '/',
 
-  organizationName: 'anttiviljami',
-  projectName: 'openapi-stack',
+  organizationName: 'openapistack',
+  projectName: 'docs',
   deploymentBranch: 'gh-pages',
   trailingSlash: true,
 
