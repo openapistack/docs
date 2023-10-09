@@ -41,7 +41,7 @@ Similar to [OpenAPI specification](https://www.openapis.org/), GraphQL APIs defi
 
 OpenAPI stack achieves the same type safety and great developer experience by using the OpenAPI specification as a single source of truth for the API contract, used to generate types for both client and server side and utilising it for routing and validation during runtime.
 
-Both GraphQL and openapi-stack encourage an [API First](/docs/api-first/) approach where the API contract is treated as a first class citizen in software design instead of treating it as merely documentation.
+Both GraphQL and openapi-stack encourage an [API First](https://openapistack.co/docs/api-first/) approach where the API contract is treated as a first class citizen in software design instead of treating it as merely documentation.
 
 While REST APIs don't generally provide the same level of control to clients as GraphQL, many times this could be seen as a benefit especially in scenarios where strict control over data access and operations is crucial.
 
