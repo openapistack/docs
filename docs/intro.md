@@ -55,6 +55,24 @@ While the lightweight tRPC approach is optimal for teams just looking to build f
 
 </details>
 
+<details>
+<summary><b>How does openapi-stack compare to <i>Fern</i>?</b></summary>
+
+[Fern](https://buildwithfern.com/?ref=openapistack.co) is an open source toolkit for building REST APIs.
+
+Like openapi-stack, Fern embraces the [Schema First API Design](https://buildwithfern.com/docs/why-fern) approach. You first define your API in Fern. After that, you implement your API and generate client SDKs and types.
+
+Fern simplifies the OpenAPI Specification with its developer friendly [Fern Definition](https://buildwithfern.com/docs/definition) to make it easier to develop and work with API designs.
+
+Leveraging this simple but powerful format, Fern is able to provide best-in-class tooling and developer experience with baked-in best practices and cater to languages beyond Typescript only.
+
+Since Fern also outputs OpenAPI you are never locked in and still able to use openapi-stack libraries and other OpenAPI compatible tooling.
+
+*❤️ The Fern team supports the development of `openapi-stack` pushing together our common effort to make API First development accessible to all software companies.*
+
+*Learn more about Fern here: [buildwithfern.com](https://buildwithfern.com/)*
+</details>
+
 ## Backend
 
 Build, Validate, Route, Authenticate, and Mock your backend using the [openapi-backend](https://github.com/openapistack/openapi-backend) library.
