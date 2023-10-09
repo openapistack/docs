@@ -81,4 +81,4 @@ Generate types, design and test your API using the [openapicmd](https://github.c
 - [x] 🏎 Lightweight - small frontend bundle + optimized for serverless cold starts
 - [x] 🧙‍♂️ No code generation – we only generate types
 - [x] ❤️ OpenAPI 3.x support
-- [x] 👀 [Samples](/docs/openapi-backend/examples) included
+- [x] 👀 [Samples](/docs/examples/boilerplate/) included
