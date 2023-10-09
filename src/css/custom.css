@@ -29,3 +29,10 @@
   --ifm-color-primary-lighter: #a9f500;
   --ifm-color-primary-lightest: #b7ff16;
 }
+
+.details--sponsor {
+  --ifm-alert-background-color: var(--ifm-color-success-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(0, 164, 0, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-success-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-success-dark);
+}
