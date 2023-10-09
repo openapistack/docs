@@ -41,6 +41,26 @@ function HomepageHeader() {
   );
 }
 
+function Sponsors() {
+  return (
+    <div className="container mt-12 mb-6 pb-6 border-b border-gray-400 grid grid-flow-row items-center justify-center justify-items-center gap-4">
+      <h2 className="text-lg font-extrabold uppercase tracking-wider opacity-50">
+        Supported by
+      </h2>
+
+      <div className="flex">
+        <a href="https://buildwithfern.com?ref=openapistack.co" className="text-slate-800 hover:text-slate-800 group">
+          <div className="flex flex-row items-center w-32">
+            <img src="/img/sponsors/fern.svg" alt="Fern" className="h-16 p-2 group-hover:scale-110 transition-all" />
+
+            <div className="text-xl font-bold">Fern</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  )
+}
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
@@ -50,6 +70,8 @@ export default function Home(): JSX.Element {
       description={siteConfig.tagline}
     >
       <HomepageHeader />
+
+      <Sponsors />
 
       <main>
         <HomepageFeatures />
