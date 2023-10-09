@@ -32,7 +32,7 @@ The goal is to unlock great developer experience and full stack type safety for 
 
 ## Comparisons
 
-details>
+<details>
 <summary><b>How does openapi-stack compare to <i>GraphQL</i>?</b></summary>
 
 [*GraphQL*](https://graphql.org/) is a query language for APIs developed by Facebook. It gives API clients full control over the data they query, making it extremely flexible and efficient for client-centric use cases.
