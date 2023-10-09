@@ -68,4 +68,4 @@ api.mockResponseForOperation("getPets"); // => { status: 200, mock: [{ id: 1, na
 api.mockResponseForOperation("getPetById"); // => { status: 200, mock: { id: 1, name: 'Garfield' }}
 ```
 
-[See full Mock API example on Express](https://github.com/openapistack/openapi-backend/tree/master/examples/express-ts-mock)
+[See full Mock API example on Express](https://github.com/openapistack/openapi-backend/tree/main/examples/express-ts-mock)

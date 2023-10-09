@@ -6,7 +6,7 @@ sidebar_position: 2
 
 OpenAPI backend is framework agnostic, which means you can use it with pretty much any javascript backend framework and hosting you're familiar with.
 
-Full, tested examples can be found the openapi-backend GitHub repository: [https://github.com/openapistack/openapi-backend/tree/master/examples/](https://github.com/openapistack/openapi-backend/tree/master/examples/)
+Full, tested examples can be found the openapi-backend GitHub repository: [https://github.com/openapistack/openapi-backend/tree/main/examples/](https://github.com/openapistack/openapi-backend/tree/main/examples/)
 
 ### Express
 
@@ -19,9 +19,9 @@ app.use((req, res) => api.handleRequest(req, req, res));
 app.listen(9000);
 ```
 
-[See full Express example](https://github.com/openapistack/openapi-backend/tree/master/examples/express)
+[See full Express example](https://github.com/openapistack/openapi-backend/tree/main/examples/express)
 
-[See full Express TypeScript example](https://github.com/openapistack/openapi-backend/tree/master/examples/express-typescript)
+[See full Express TypeScript example](https://github.com/openapistack/openapi-backend/tree/main/examples/express-typescript)
 
 ### AWS Serverless (Lambda)
 
@@ -41,13 +41,13 @@ module.exports.handler = (event, context) =>
   );
 ```
 
-[See full AWS SAM example](https://github.com/openapistack/openapi-backend/tree/master/examples/aws-sam)
+[See full AWS SAM example](https://github.com/openapistack/openapi-backend/tree/main/examples/aws-sam)
 
-[See full AWS CDK example](https://github.com/openapistack/openapi-backend/tree/master/examples/aws-cdk)
+[See full AWS CDK example](https://github.com/openapistack/openapi-backend/tree/main/examples/aws-cdk)
 
-[See full SST example](https://github.com/openapistack/openapi-backend/tree/master/examples/aws-sst)
+[See full SST example](https://github.com/openapistack/openapi-backend/tree/main/examples/aws-sst)
 
-[See full Serverless Framework example](https://github.com/openapistack/openapi-backend/tree/master/examples/serverless-framework)
+[See full Serverless Framework example](https://github.com/openapistack/openapi-backend/tree/main/examples/serverless-framework)
 
 ### Azure Function
 
@@ -66,7 +66,7 @@ module.exports = (context, req) =>
   );
 ```
 
-[See full Azure Function example](https://github.com/openapistack/openapi-backend/tree/master/examples/azure-function)
+[See full Azure Function example](https://github.com/openapistack/openapi-backend/tree/main/examples/azure-function)
 
 ### Fastify
 
@@ -92,7 +92,23 @@ fastify.route({
 fastify.listen();
 ```
 
-[See full Fastify example](https://github.com/openapistack/openapi-backend/tree/master/examples/fastify)
+[See full Fastify example](https://github.com/openapistack/openapi-backend/tree/main/examples/fastify)
+
+
+### Koa
+
+```javascript
+import Koa from "koa";
+import bodyparser from "koa-bodyparser";
+
+const app = new Koa();
+
+app.use(bodyparser());
+app.use((ctx) => api.handleRequest(ctx.request, ctx));
+app.listen(9000);
+```
+
+[See full Koa example](https://github.com/openapistack/openapi-backend/tree/main/examples/koa)
 
 ### Hapi
 
@@ -119,52 +135,7 @@ server.route({
 server.start();
 ```
 
-[See full Hapi example](https://github.com/openapistack/openapi-backend/tree/master/examples/hapi-typescript)
-
-### Koa
-
-```javascript
-import Koa from "koa";
-import bodyparser from "koa-bodyparser";
-
-const app = new Koa();
-
-app.use(bodyparser());
-app.use((ctx) => api.handleRequest(ctx.request, ctx));
-app.listen(9000);
-```
-
-[See full Koa example](https://github.com/openapistack/openapi-backend/tree/master/examples/koa)
-
-### Fastify
-
-```typescript
-import Fastify from "fastify";
-import type { Request } from "openapi-backend";
-
-const fastify = Fastify();
-
-fastify.route({
-  method: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  url: "/*",
-  handler: async (request, reply) =>
-    api.handleRequest(
-      {
-        method: request.method,
-        path: request.url,
-        body: request.body,
-        query: request.query as NonNullable<Request["query"]>,
-        headers: request.headers as Request["headers"],
-      },
-      request,
-      reply
-    ),
-});
-await fastify.listen({ port: 9000 });
-```
-
-[See full Fastify example](https://github.com/openapistack/openapi-backend/tree/master/examples/fastify)
-
+[See full Hapi example](https://github.com/openapistack/openapi-backend/tree/main/examples/hapi-typescript)
 
 ## More Examples
 
