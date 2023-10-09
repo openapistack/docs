@@ -166,6 +166,6 @@ await fastify.listen({ port: 9000 });
 [See full Fastify example](https://github.com/openapistack/openapi-backend/tree/master/examples/fastify)
 
 
-## More Example
+## More Examples
 
 A full list of openapi-stack boilerplate projects available here: [openapistack.co/docs/examples/boilerplate/](/docs/examples/boilerplate/)
