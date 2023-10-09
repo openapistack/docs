@@ -24,6 +24,7 @@ sidebar_position: 0
 
 The goal is to unlock great developer experience and full stack type safety for software teams using REST; inspired by tools like [GraphQL](https://graphql.org/) and [tRPC](https://trpc.io).
 
+
 <details>
 <summary><b>How does openapi-stack compare to <i>GraphQL</i>?</b></summary>
 
@@ -54,6 +55,12 @@ OpenAPI stack achieves type safety using a similar workflow to tRPC's procedures
 While the lightweight tRPC approach is optimal for teams just looking to build full stack applications, teams looking to build robust APIs are better served by the API design first approach of openapi-stack or GraphQL.
 
 </details>
+
+## Benefits
+
+1. **Single source of truth for your API contract.** No more manually updating your OpenAPI specs to keep up with your backend code. Always keep your API documentation up to date!
+1. **Type safety and validation**. Build your product faster and with a better developer experience using strongly typed Typescript and runtime validation both in the server and client side.
+1. **Testing & Collaboration**. Leverage API mocks to make testing and development easier and iterate fast on your API design as you build your app's interface. Being blocked by the backend team is a thing of the past!
 
 ## Backend
 
