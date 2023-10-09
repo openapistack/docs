@@ -3,7 +3,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(-9deg,#c48ade,#665ae7,#665ae7,#70e2b5);
+  background-image: linear-gradient(-9deg, #c48ade, #665ae7, #665ae7, #70e2b5);
   color: white;
 }
 
@@ -13,10 +13,15 @@
   }
 
   .heroBanner h1 {
-    font-size: 2.75rem; 
+    font-size: 2.75rem;
   }
 
   .heroBanner p {
     font-size: 1rem;
+  }
+
+  .heroBanner svg {
+    width: 15px;
+    height: 15px;
   }
 }

@@ -1,5 +1,5 @@
 ---
-title: API First
+title: Why API First?
 hide_title: true
 sidebar_position: 1
 ---

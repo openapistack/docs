@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import { FiArrowRight } from 'react-icons/fi';
 
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
@@ -20,6 +21,8 @@ function HomepageHeader() {
 
           <p className="hero__subtitle">
             OpenAPI Stack is a collection of open source libraries and tools for full stack Typescript development inspired by modern alternatives like GraphQL and tRPC.
+            {' '}
+            <Link to="/docs/intro/" className="text-white hover:text-gray-300 underline">Compare<FiArrowRight className="arrow relative top-[3px] ml-[.1rem]" size={20} strokeWidth={2} /></Link>
           </p>
 
           <div className="space-x-2">
