@@ -28,7 +28,7 @@ Since OpenAPI specification already leverages [JSON Schema](https://json-schema.
 
 Use of types significantly improves developer experience and code quality – especially when shared and used across the stack both in backend implementation and client-side.
 
-openapi-stack comes batteries included with [typegen](/docs/openapi-client-axios/typegen) built exactly for this purpose.
+openapi-stack comes batteries included with [typegen](/docs/openapicmd/typegen/) built exactly for this purpose.
 
 ## No Code Generation
 

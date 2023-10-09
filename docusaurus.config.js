@@ -78,11 +78,6 @@ const config = {
         },
         items: [
           {
-            to: '/docs/examples',
-            position: 'left',
-            label: 'Examples',
-          },
-          {
             to: '/docs/intro',
             position: 'left',
             label: 'Documentation',
@@ -106,6 +101,11 @@ const config = {
             href: 'https://github.com/openapistack',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            to: '/docs/examples',
+            position: 'left',
+            label: 'Examples',
           },
         ],
       },
