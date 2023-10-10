@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkopenapi_stack=self.webpackChunkopenapi_stack||[]).push([[9011],{1278:(e,t,a)=>{a.r(t),a.d(t,{default:()=>n});var s=a(6550),c=a(7294);const n=function(){return c.createElement(s.l_,{to:"/docs/examples/boilerplate"})}}}]);
