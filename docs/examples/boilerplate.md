@@ -1,6 +1,6 @@
 ---
 title: Boilerplate projects
-sidebar_position: 0
+sidebar_position: 10
 ---
 
 :::tip
