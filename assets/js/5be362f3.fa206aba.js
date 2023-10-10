@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkopenapi_stack=self.webpackChunkopenapi_stack||[]).push([[9011],{1278:(e,a,s)=>{s.r(a),s.d(a,{default:()=>n});var t=s(6550),c=s(7294);const n=function(){return c.createElement(t.l_,{to:"/docs/examples/calling-apis"})}}}]);
