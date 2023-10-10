@@ -64,7 +64,7 @@ const server = setupServer(
         path: req.url.pathname,
         query: req.url.search,
         method: req.method,
-        body: req.bodyUsed ? await req.json() : null,
+        body: req._bodyUsed ? await req.json() : null,
         headers: { ...req.headers.raw },
       },
       res,
