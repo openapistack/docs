@@ -1,6 +1,6 @@
 ---
 title: Invoking APIs
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 :::info
@@ -35,9 +35,11 @@ const api = new OpenAPIClientAxios({
 });
 ```
 
-*Note: For optimal performance, it's recommended to pass the definition as a JS object instead or fetching it from a URL in runtime.*
+:::note
+For optimal performance, it's recommended to pass the definition as a JS object instead or fetching it from a URL in runtime.
+:::
 
-To initialise a client instance, we call `api.init()`:
+To initialise our client instance, we call `api.init()`:
 
 ```ts
 const client = await api.init();
