@@ -58,9 +58,10 @@ While the lightweight tRPC approach is optimal for teams just looking to build f
 
 ## Benefits
 
-1. **Single source of truth for your API contract.** No more manually updating your OpenAPI specs to keep up with your backend code. Always keep your API documentation and SDKs up to date!
-1. **Type safety and validation**. Build your product faster and with a better developer experience using strongly typed Typescript and runtime validation both in the server and client side.
-1. **Testing & Collaboration**. Leverage API mocks to make testing and development easier and iterate fast on your API design as you build your app's interface. Being blocked by the backend team is a thing of the past!
+1. 🚀 **No code generation.** Write your own code the way you like it. Only generate types from OpenAPI spec if you want.
+1. 🤝 **Single source of truth for your API contract.** No more manually updating your OpenAPI specs to keep up with your backend code. Ensure your API docs and SDKs stay up to date by using the spec in runtime to route and validate.
+1. 🧙‍♂️ **Type safety and validation.** Build your product faster and with a better developer experience using strongly typed Typescript and code autocomplete both in the server and client side.
+1. ❤️ **Testing & Collaboration.**. Leverage API mocks to make testing and development easier and iterate fast on your API design as you build your app's interface. Being blocked by the backend team is a thing of the past!
 
 ## Backend
 
@@ -82,10 +83,14 @@ Generate types, design and test your API using the [openapicmd](https://github.c
 
 ## Features
 
-- [x] 🚀 Battle-tested in production. High test coverage.
-- [x] 🤝 Built with TypeScript, types included with full autocomplete support
-- [x] 🥃 Framework agnostic – works with your stack
-- [x] 🏎 Lightweight - small frontend bundle + optimized for serverless cold starts
-- [x] 🧙‍♂️ No code generation – we only generate types
-- [x] ❤️ OpenAPI 3.x support
-- [x] 👀 [Samples](/docs/examples/boilerplate/) included
+- [x] Battle-tested in production. High test coverage.
+- [x] ️No code generation – we only generate types
+- [x] Built with TypeScript, types included with full autocomplete support
+- [x] Framework agnostic – works with your stack
+- [x] Lightweight - small frontend bundle + optimized for serverless cold starts
+- [x]  OpenAPI 3.x support
+- [x] [Samples](/docs/examples/boilerplate/) included
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=openapistack/openapi-backend,openapistack/openapi-client-axios,openapistack/openapicmd,openapistack/docs&type=Date)](https://star-history.com/#openapistack/openapi-backend&openapistack/openapi-client-axios&openapistack/openapicmd&openapistack/docs&Date)
