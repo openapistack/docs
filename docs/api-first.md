@@ -14,9 +14,9 @@ OpenAPI-stack is an open source toolkit to bring full stack developer experience
 <img alt="API First Cycle" src="/img/openapi-stack.drawio.png" />
 </div>
 
-## Design First Philosophy
+## Schema First Philosophy
 
-The core idea of _API First_, sometimes referred to as _Design First_ is to treat API specs as a first class citizen in your software architecture, using them as part of the implementation instead of easily out-of-date documentation.
+The core idea of _API First_, sometimes referred to as _Schema First_ is to treat API specs as a first class citizen in your software architecture, using them as part of the implementation instead of easily out-of-date documentation.
 
 In practice this means teams use machine readable specifications like OpenAPI as contracts to rapidly iterate using cheap API mocking; not blocked by backend implementations being completed or changed.
 
