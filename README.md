@@ -68,7 +68,7 @@ While the lightweight tRPC approach is optimal for teams just looking to build f
 - [x] Framework agnostic – works with your stack
 - [x] Lightweight - small frontend bundle + optimized for serverless cold starts
 - [x]  OpenAPI 3.x support
-- [x] [Samples](/docs/examples/boilerplate.md) included
+- [x] [Samples](https://openapistack.co/docs/examples/boilerplate) included
 
 ## API First Cycle
 
