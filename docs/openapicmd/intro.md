@@ -31,7 +31,7 @@ sidebar_position: 0
 - [x] Run Local Mock APIs
 - [x] Automate API tests and validate specs
 - [x] Run [Swagger UI](https://github.com/swagger-api/swagger-ui) or [ReDoc](https://github.com/Redocly/redoc) locally
-- [x] Bundle static [Swagger UI](https://github.com/swagger-api/swagger-ui) or [Redoc](https://github.com/Redocly/redoc) sites
+- [x] Bundle static [Swagger UI](https://github.com/swagger-api/swagger-ui) or [ReDoc](https://github.com/Redocly/redoc) sites
 - [x] Run [Swagger Editor](https://github.com/swagger-api/swagger-editor) locally
 - [x] Convert Swagger to OpenAPI 
 
