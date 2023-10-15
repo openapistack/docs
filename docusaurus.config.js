@@ -120,8 +120,8 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'Examples',
-                to: '/docs/examples',
+                label: 'Example Projects',
+                to: '/docs/examples/boilerplate/',
               },
               {
                 label: 'Backend Reference',
