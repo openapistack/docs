@@ -2,7 +2,7 @@
   "name": "openapi-stack",
   "version": "0.1.5",
   "description": "Full stack typesafe API-first development with OpenAPI",
-  "author": "Viljami Kuosmanen <viljami@viljami.io>",
+  "author": "Viljami Kuosmanen <viljami@openapistack.co>",
   "files": [
     "README.md"
   ],

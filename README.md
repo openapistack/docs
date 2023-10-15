@@ -70,12 +70,14 @@ While the lightweight tRPC approach is optimal for teams just looking to build f
 - [x]  OpenAPI 3.x support
 - [x] [Samples](https://openapistack.co/docs/examples/boilerplate) included
 
-## API First Cycle
-
-![API First Cycle](./static/img/openapi-stack.drawio.png)
-
-[Why API First?](https://openapistack.co/docs/api-first)
-
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=openapistack/openapi-backend,openapistack/openapi-client-axios,openapistack/openapicmd,openapistack/docs&type=Date)](https://star-history.com/#openapistack/openapi-backend&openapistack/openapi-client-axios&openapistack/openapicmd&openapistack/docs&Date)
+
+## Commercial support
+
+For assistance with integrating openapi-stack for your company, reach out at support@openapistack.co.
+
+## Contributing
+
+OpenAPI Stack is Free and Open Source Software. Issues and pull requests are more than welcome!

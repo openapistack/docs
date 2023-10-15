@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Using the client
+# Operation Methods
 
 OpenAPI Client Axios uses [operationIds](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#operation-object)
 in OpenAPIv3 definitions to call API operations.

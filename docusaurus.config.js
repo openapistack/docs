@@ -113,24 +113,28 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Content',
             items: [
               {
-                label: 'Why API First?',
-                to: '/docs/api-first',
+                label: 'Documentation',
+                to: '/docs/intro',
               },
               {
                 label: 'Examples',
                 to: '/docs/examples',
               },
               {
-                label: 'Generating Types',
-                to: '/docs/openapicmd/typegen',
-              },
-              {
                 label: 'Backend Reference',
                 href: '/docs/openapi-backend/api'
-              }
+              },
+              {
+                label: 'Client Reference',
+                href: '/docs/openapi-client-axios/api'
+              },
+              {
+                label: 'Imprint',
+                href: '/imprint',
+              },
             ],
           },
           {
@@ -163,7 +167,7 @@ const config = {
               },
               {
                 label: 'Open Collective',
-                href: 'https://opencollective.com/openapi-backend',
+                href: 'https://opencollective.com/openapi-stack',
               },
               {
                 label: 'Buy me a coffee',
