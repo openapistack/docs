@@ -17,7 +17,6 @@ sidebar_position: 0
 [![npm version](https://img.shields.io/npm/v/openapicmd.svg)](https://www.npmjs.com/package/openapicmd)
 [![npm downloads](https://img.shields.io/npm/dw/openapicmd.svg)](https://www.npmjs.com/package/openapicmd)
 ![npm type definitions](https://img.shields.io/npm/types/openapicmd.svg)
-[![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 [![GitHub stars](https://img.shields.io/github/stars/openapistack/openapicmd)](https://github.com/openapistack/openapicmd)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 
