@@ -8,11 +8,13 @@ hide_title: true
 
 :::tip
 
-You can then use `load` and `auth` commands to create a `.openapiconfig` file to avoid having to pass the openapi document when running openapicmd commands.
+You can use the `load` command to create a `.openapiconfig` file to avoid having to pass the openapi document when running openapicmd commands.
 
 :::
 
 openapicmd tries to load a `.openapiconfig` file in the current working directory or parent directories for default parameters.
+
+Supported config filenames are `.openapiconfig` `.openapiconfig.yml` `openapiconfig.yaml`
 
 ## Loading a definition file
 
