@@ -6,10 +6,6 @@ sidebar_position: 1
 
 # Why API First?
 
-While modern alternatives like GraphQL and tRPC are awesome, REST keeps growing and improving as an industry standard API design pattern not in small part thanks to the widely adopted [OpenAPI specification](https://www.openapis.org/).
-
-OpenAPI-stack is an open source toolkit to bring full stack developer experience up to modern standards for software teams using OpenAPI and Typescript, enabling software teams to go API First.
-
 <div className="text-center">
 <img alt="API First Cycle" src="/img/openapi-stack.drawio.png" />
 </div>
