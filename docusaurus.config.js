@@ -120,6 +120,10 @@ const config = {
                 to: '/docs/intro',
               },
               {
+                label: 'API First Manifesto',
+                href: '/docs/api-first',
+              },
+              {
                 label: 'Example Projects',
                 to: '/docs/examples/boilerplate/',
               },
@@ -130,10 +134,6 @@ const config = {
               {
                 label: 'Client Reference',
                 href: '/docs/openapi-client-axios/api'
-              },
-              {
-                label: 'Imprint',
-                href: '/imprint',
               },
             ],
           },
@@ -158,12 +158,12 @@ const config = {
             title: 'Links',
             items: [
               {
-                label: 'OpenAPI Initiative',
-                href: 'https://www.openapis.org/',
+                label: 'License & Imprint',
+                href: 'https://openapistack.co/imprint',
               },
               {
-                label: 'GitHub Sponsors',
-                href: 'https://github.com/sponsors/anttiviljami',
+                label: 'OpenAPI Initiative',
+                href: 'https://www.openapis.org/',
               },
               {
                 label: 'Open Collective',
