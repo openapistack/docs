@@ -6,36 +6,33 @@ sidebar_position: 1
 
 # Why API First?
 
-<div className="text-center">
-<img alt="API First Cycle" src="/img/openapi-stack.drawio.png" />
-</div>
+## Schema First
 
-## Schema First Philosophy
+The core idea of _API First_, sometimes referred to as _Design First_ or _Schema First_, is that software teams start by defining an API contract and use it as the single source of truth for data models in their application logic.
 
-The core idea of _API First_, sometimes referred to as _Schema First_ is to treat API specs as a first class citizen in your software architecture, using them as part of the implementation instead of easily out-of-date documentation.
+Teams using this approach define their API contracts using machine-readable specifications like [OpenAPI](https://www.openapis.org/) or [GraphQL](https://graphql.org/), and leverage techniques like [Generating Types](/docs/openapicmd/typegen) and [API Mocking](/docs/openapicmd/mock-server/) to rapidly iterate on the API Schema while making sure the implementation and documentation stay up to date with the API contract.
 
-In practice this means teams use machine readable specifications like OpenAPI as contracts to rapidly iterate using cheap API mocking; not blocked by backend implementations being completed or changed.
-
-API First software teams are also able to effectively collaborate on software design and data modeling using API schemas as a source of truth for types across the entire codebase.
+API First software teams are able to effectively collaborate on software design and change the established single source of truth for data models when needed, using shared types and automated tests to ensure implementation follows the API contract. **This reduces bugs and allows the team to iterate on the product faster.**
 
 ## Type Safety
 
-Since OpenAPI specification already leverages [JSON Schema](https://json-schema.org/) to define types for data in your software, teams should be able to directly utilise them in the codebase as Typescript types.
+Use of typed languages like TypeScript improve developer experience and reduce bugs by providing strict type checks and code autocomplete during development. This is especially powerful when types are shared and used across the stack in both backend implementation and client-side logic.
 
-Use of types significantly improves developer experience and code quality – especially when shared and used across the stack both in backend implementation and client-side.
+Since OpenAPI specification already leverages [JSON Schema](https://json-schema.org/) to define types for your data model, teams are able to utilise them in code as TypeScript types.
 
-openapi-stack comes batteries included with [typegen](/docs/openapicmd/typegen/) built exactly for this purpose.
+:::tip
 
-## No Code Generation
+OpenAPI Stack provides the [`openapi typegen`](/docs/openapicmd/typegen/) CLI command to generate types from OpenAPI schema, to keep your implementation up to date with the API contract.
 
-Lots of code generation tools out there for OAS, but developers don't always enjoy working with code generation. Achieving great developer experience in a codebase with generated code is not always easy and often requires significant investment.
+:::
 
-With openapi-stack you can say goodbye to generated client implementations or annoying backend boilerplate.
+## Product Velocity
 
-The only thing we generate are types from your API specs.
 
-## Framework agnostic
+Introducing [API Mocking](/docs/openapicmd/mock-server/) enables developers working on the application's frontend to develop the app against a mocked version of the backend which can quickly be adjusted by changing the API schema. This means the frontend team is never blocked waiting for the backend team to implement changes to the API.
 
-openapi-stack is not an opinionated framework, nor does it require you to pick any specific framework.
+For agile teams, focusing on the user facing parts of the application first is a great way to deliver fast and iterate on the design before investing into implementing backend logic.
 
-You choose whether to build your frontend in React, Angular, Vue, Svelte, your backend with Express, Nest.js, AWS Lambda, Google Cloud Function, etc.
+<div className="text-center">
+<img alt="API First Cycle" src="/img/openapi-stack.drawio.png" />
+</div>
