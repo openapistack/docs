@@ -50,11 +50,7 @@ function Sponsors() {
 
       <div className="flex">
         <a href="https://buildwithfern.com?ref=openapistack.co" className="text-slate-800 hover:text-slate-800 group">
-          <div className="flex flex-row items-center w-32">
-            <img src="/img/sponsors/fern.svg" alt="Fern" className="h-16 p-2 group-hover:scale-110 transition-all" />
-
-            <div className="text-xl font-bold">Fern</div>
-          </div>
+          <img src="/img/sponsors/fern_logo_tagline.png" alt="Fern" className="h-[80px] m-2 group-hover:scale-110 transition-all" />
         </a>
       </div>
     </div>
