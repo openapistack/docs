@@ -69,6 +69,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        disableSwitch: true,
+        defaultMode: 'light',
+      },
       image: 'img/openapistack-social.jpg?version=2',
       navbar: {
         title: 'openapi-stack',
