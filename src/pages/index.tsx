@@ -41,22 +41,6 @@ function HomepageHeader() {
   );
 }
 
-function Sponsors() {
-  return (
-    <div className="container mt-12 mb-6 pb-6 border-b border-gray-400 grid grid-flow-row items-center justify-center justify-items-center gap-4">
-      <h2 className="text-lg font-extrabold uppercase tracking-wider opacity-50">
-        Supported by
-      </h2>
-
-      <div className="flex">
-        <a href="https://www.devmark.ai/fern/?utm_source=openapistack&utm_loc=website&utm_type=logo" className="text-slate-800 hover:text-slate-800 group">
-          <img src="/img/sponsors/fern_logo_tagline.png" alt="Fern" className="h-[80px] m-2 group-hover:scale-110 transition-all" />
-        </a>
-      </div>
-    </div>
-  )
-}
-
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
@@ -66,8 +50,6 @@ export default function Home(): JSX.Element {
       description={siteConfig.tagline}
     >
       <HomepageHeader />
-
-      <Sponsors />
 
       <main>
         <HomepageFeatures />
