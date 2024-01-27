@@ -74,12 +74,6 @@ While the lightweight tRPC approach is optimal for teams just looking to build f
 
 [![Star History Chart](https://api.star-history.com/svg?repos=openapistack/openapi-backend,openapistack/openapi-client-axios,openapistack/openapicmd,openapistack/docs&type=Date)](https://star-history.com/#openapistack/openapi-backend&openapistack/openapi-client-axios&openapistack/openapicmd&openapistack/docs&Date)
 
-## Sponsors
-
-The openapi-stack project is supported by:
-
-<a href="https://www.devmark.ai/fern/?utm_source=openapistack-doc&utm_loc=readme&utm_type=logo"><img alt="Fern" src="./static/img/sponsors/fern_logo_tagline.png" height="80"></a>
-
 ## Commercial support
 
 For assistance with integrating openapi-stack for your company, reach out at support@openapistack.co.
