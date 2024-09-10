@@ -124,7 +124,7 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'API First Manifesto',
+                label: 'Why API First?',
                 href: '/docs/api-first',
               },
               {

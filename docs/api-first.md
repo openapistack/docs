@@ -4,7 +4,7 @@ hide_title: true
 sidebar_position: 1
 ---
 
-# API First Manifesto
+# Why API First?
 
 ## Schema First
 
