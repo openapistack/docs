@@ -32,44 +32,63 @@ openapi typegen https://example.openapistack.co/openapi.json
 Generate types from openapi definition
 
 USAGE
-  $ openapi typegen [DEFINITION]
+  $ openapi typegen [DEFINITION] [-h] [-D] [-B] [-R /] [-H <value>...] [-V] [-S http://localhost:9000...] [-I
+    {"info":{"version":"1.0.0"}}...] [-E x-internal] [-C default|all|openapi_client_axios|openapi_backend] [-U] [-b
+    <value>] [--client] [--backend] [-A]
 
 ARGUMENTS
   DEFINITION  input definition file
 
-OPTIONS
+FLAGS
+  -A, --[no-]type-aliases                                       Generate module level type aliases for schema components
+                                                                defined in spec
   -B, --bundle                                                  resolve remote $ref pointers
-
+  -C, --strip=default|all|openapi_client_axios|openapi_backend  Strip optional metadata such as examples and
+                                                                descriptions from definition
   -D, --dereference                                             resolve $ref pointers
-
-  -I, --inject={"info":{"version":"1.0.0"}}                     inject JSON to definition with deep merge
-
+  -E, --exclude-ext=x-internal                                  Specify an openapi extension to exclude parts of the
+                                                                spec
+  -H, --header=<value>...                                       add request headers when calling remote urls
+  -I, --inject={"info":{"version":"1.0.0"}}...                  inject JSON to definition with deep merge
+  -R, --root=/                                                  override API root path
+  -S, --server=http://localhost:9000...                         override servers definition
+  -U, --[no-]remove-unreferenced                                Remove unreferenced components, you can skip individual
+                                                                component being removed by setting x-openapicmd-keep to
+                                                                true
   -V, --validate                                                validate against openapi schema
+  -b, --banner=<value>                                          include a banner comment at the top of the generated
+                                                                file
+  -h, --help                                                    Show CLI help.
+      --backend                                                 Generate types for openapi-backend
+      --client                                                  Generate types for openapi-client-axios (default)
 
-  -h, --help                                                    show CLI help
-
-EXAMPLE
-  $ openapi typegen ./openapi.yml > openapi.d.ts
+EXAMPLES
+  $ openapi typegen --client ./openapi.yml > openapi.d.ts
+  $ openapi typegen --backend ./openapi.yml > openapi.d.ts
 ```
 
-## Importing Schemas
+## Importing generated types
 
-You can import schemas and response/request models defined in your openapi definition as Typescript types:
+You can directly import types defined as schemas in your openapi spec as Typescript types:
 
 ```ts
-import type { Components, Paths } from "./openapi.d.ts";
+import type { Pet, User } from "./openapi.d.ts";
 
-export type Pet = Components.Schemas.Pet;
-export type User = Components.Schemas.User;
+const myPet: Pet = {
+  id: 1,
+  name: "My Pet",
+  tag: "My Tag",
+};
 
-export type AddPetRequest = Paths.AddPet.RequestBody;
-export type AddPetResponse = Paths.AddPet.Responses.$200;
+const myUser: User = {
+  id: 1,
+  name: "My User",
+};
 ```
-
 
 ## Typesafe Clients
 
-The output of `typegen` exports a type called `Client`, which can be directly used with clients created with `OpenAPIClientAxios`.
+The output of `openapi typegen --client` exports a type called `Client`, which can be directly used with clients created with `OpenAPIClientAxios`.
 
 Both the `api.getClient()` and `api.init()` methods support passing in a Client type.
 
@@ -82,8 +101,8 @@ const client = await api.getClient<PetStoreClient>();
 
 ![TypeScript IntelliSense](/img/intellisense.gif)
 
-:::info
+## Typesafe Backends
 
-The `typegen` command uses [`openapi-client-axios-typegen`](/docs/openapi-client-axios/typegen/) under the hood.
+To generate types for the backend, use `openapi typegen --backend`.
 
-:::
+See documentation for [usage of openapi-backend with TypeScript](/docs/openapi-backend/typescript).

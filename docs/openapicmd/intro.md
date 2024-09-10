@@ -32,7 +32,7 @@ sidebar_position: 0
 - [x] Run [Swagger UI](https://github.com/swagger-api/swagger-ui) or [ReDoc](https://github.com/Redocly/redoc) locally
 - [x] Bundle static [Swagger UI](https://github.com/swagger-api/swagger-ui) or [ReDoc](https://github.com/Redocly/redoc) sites
 - [x] Run [Swagger Editor](https://github.com/swagger-api/swagger-editor) locally
-- [x] Convert Swagger to OpenAPI 
+- [x] Convert Swagger to OpenAPI
 
 ## Quick Start
 
@@ -48,23 +48,25 @@ npx openapicmd
 ```
 
 # Commands
+
 <!-- commands -->
-* [`openapi auth [DEFINITION]`](#openapi-auth-definition)
-* [`openapi call [DEFINITION]`](#openapi-call-definition)
-* [`openapi help [COMMANDS]`](#openapi-help-commands)
-* [`openapi info [DEFINITION]`](#openapi-info-definition)
-* [`openapi init`](#openapi-init)
-* [`openapi load DEFINITION`](#openapi-load-definition)
-* [`openapi mock [DEFINITION]`](#openapi-mock-definition)
-* [`openapi read [DEFINITION]`](#openapi-read-definition)
-* [`openapi redoc [DEFINITION]`](#openapi-redoc-definition)
-* [`openapi swagger-editor [DEFINITION]`](#openapi-swagger-editor-definition)
-* [`openapi swagger-ui [DEFINITION]`](#openapi-swagger-ui-definition)
-* [`openapi swagger2openapi [DEFINITION]`](#openapi-swagger2openapi-definition)
-* [`openapi test`](#openapi-test)
-* [`openapi test add [DEFINITION]`](#openapi-test-add-definition)
-* [`openapi typegen [DEFINITION]`](#openapi-typegen-definition)
-* [`openapi unload`](#openapi-unload)
+
+- [`openapi auth [DEFINITION]`](#openapi-auth-definition)
+- [`openapi call [DEFINITION]`](#openapi-call-definition)
+- [`openapi help [COMMANDS]`](#openapi-help-commands)
+- [`openapi info [DEFINITION]`](#openapi-info-definition)
+- [`openapi init`](#openapi-init)
+- [`openapi load DEFINITION`](#openapi-load-definition)
+- [`openapi mock [DEFINITION]`](#openapi-mock-definition)
+- [`openapi read [DEFINITION]`](#openapi-read-definition)
+- [`openapi redoc [DEFINITION]`](#openapi-redoc-definition)
+- [`openapi swagger-editor [DEFINITION]`](#openapi-swagger-editor-definition)
+- [`openapi swagger-ui [DEFINITION]`](#openapi-swagger-ui-definition)
+- [`openapi swagger2openapi [DEFINITION]`](#openapi-swagger2openapi-definition)
+- [`openapi test`](#openapi-test)
+- [`openapi test add [DEFINITION]`](#openapi-test-add-definition)
+- [`openapi typegen [DEFINITION]`](#openapi-typegen-definition)
+- [`openapi unload`](#openapi-unload)
 
 ## `openapi auth [DEFINITION]`
 
@@ -109,7 +111,6 @@ EXAMPLES
 
   $ openapi auth --security BasicAuth --username admin --password password
 ```
-
 
 ## `openapi call [DEFINITION]`
 
@@ -160,7 +161,6 @@ EXAMPLES
   $ openapi call -o createPet -d '{ "name": "Garfield" }'
 ```
 
-
 ## `openapi help [COMMANDS]`
 
 Display help for openapi.
@@ -178,7 +178,6 @@ FLAGS
 DESCRIPTION
   Display help for openapi.
 ```
-
 
 ## `openapi info [DEFINITION]`
 
@@ -218,7 +217,6 @@ EXAMPLES
   $ openapi info ./openapi.yml
 ```
 
-
 ## `openapi init`
 
 Initialise a definition file from scratch
@@ -250,7 +248,6 @@ EXAMPLES
   $ openapi init --title 'My API' > openapi.yml
 ```
 
-
 ## `openapi load DEFINITION`
 
 Set the default definition file for a workspace (writes to .openapiconfig)
@@ -275,7 +272,6 @@ EXAMPLES
 
   $ openapi load https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml
 ```
-
 
 ## `openapi mock [DEFINITION]`
 
@@ -312,7 +308,6 @@ EXAMPLES
 
   $ openapi mock https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml
 ```
-
 
 ## `openapi read [DEFINITION]`
 
@@ -353,7 +348,6 @@ EXAMPLES
   $ openapi read ./openapi.yml -f json > openapi.json
 ```
 
-
 ## `openapi redoc [DEFINITION]`
 
 Start or bundle a ReDoc instance
@@ -391,7 +385,6 @@ EXAMPLES
   $ openapi redoc ./openapi.yml --bundle outDir
 ```
 
-
 ## `openapi swagger-editor [DEFINITION]`
 
 Start a Swagger Editor instance
@@ -417,7 +410,6 @@ EXAMPLES
 
   $ openapi swagger-editor ./openapi.yml
 ```
-
 
 ## `openapi swagger-ui [DEFINITION]`
 
@@ -467,7 +459,6 @@ EXAMPLES
   $ openapi swagger-ui ./openapi.yml --bundle outDir
 ```
 
-
 ## `openapi swagger2openapi [DEFINITION]`
 
 Convert Swagger 2.0 definitions to OpenAPI 3.0.x
@@ -504,7 +495,6 @@ DESCRIPTION
 EXAMPLES
   $ openapi swagger2openapi --yaml ./swagger.json > openapi.yml
 ```
-
 
 ## `openapi test`
 
@@ -545,7 +535,6 @@ EXAMPLES
 
   $ openapi test -o getPets
 ```
-
 
 ## `openapi test add [DEFINITION]`
 
@@ -596,20 +585,22 @@ EXAMPLES
   $ openapi test add -o getPet --checks all
 ```
 
-
 ## `openapi typegen [DEFINITION]`
 
 Generate types from openapi definition
 
 ```
 USAGE
-  $ openapi typegen [DEFINITION] [-h] [-D] [-B] [-R <value>] [-H <value>] [-V] [-S <value>] [-I <value>] [-E
-    <value>] [-C <value>]
+  $ openapi typegen [DEFINITION] [-h] [-D] [-B] [-R /] [-H <value>...] [-V] [-S http://localhost:9000...] [-I
+    {"info":{"version":"1.0.0"}}...] [-E x-internal] [-C default|all|openapi_client_axios|openapi_backend] [-U] [-b
+    <value>] [--client] [--backend] [-A]
 
 ARGUMENTS
   DEFINITION  input definition file
 
 FLAGS
+  -A, --[no-]type-aliases                                       Generate module level type aliases for schema components
+                                                                defined in spec
   -B, --bundle                                                  resolve remote $ref pointers
   -C, --strip=default|all|openapi_client_axios|openapi_backend  Strip optional metadata such as examples and
                                                                 descriptions from definition
@@ -620,16 +611,23 @@ FLAGS
   -I, --inject={"info":{"version":"1.0.0"}}...                  inject JSON to definition with deep merge
   -R, --root=/                                                  override API root path
   -S, --server=http://localhost:9000...                         override servers definition
+  -U, --[no-]remove-unreferenced                                Remove unreferenced components, you can skip individual
+                                                                component being removed by setting x-openapicmd-keep to
+                                                                true
   -V, --validate                                                validate against openapi schema
+  -b, --banner=<value>                                          include a banner comment at the top of the generated
+                                                                file
   -h, --help                                                    Show CLI help.
+      --backend                                                 Generate types for openapi-backend
+      --client                                                  Generate types for openapi-client-axios (default)
 
 DESCRIPTION
   Generate types from openapi definition
 
 EXAMPLES
-  $ openapi typegen ./openapi.yml > openapi.d.ts
+  $ openapi typegen --client ./openapi.yml > openapi.d.ts
+  $ openapi typegen --backend ./openapi.yml > openapi.d.ts
 ```
-
 
 ## `openapi unload`
 
