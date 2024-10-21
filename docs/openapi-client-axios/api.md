@@ -160,7 +160,7 @@ Type: `Operation` or `string` (operationId)
 
 ### .getRequestConfigForOperation(operation, args)
 
-Creates a generic request config object for operation + arguments top be used for calling the API.
+Creates a generic request config object for operation + arguments to be used for calling the API.
 
 This function contains the logic that handles operation method parameters.
 
