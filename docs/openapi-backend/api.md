@@ -82,6 +82,34 @@ Optional. Enable or disable request validation (default: true)
 
 Type: `boolean`
 
+#### Parameter: opts.coerceTypes
+
+Optional. Enable or disable coerce typing (default: false)
+
+This option requires `opts.validate: true`.
+
+The effect of this is that query and path parameters will be of their specified types at run-time.
+In below example `request.query.breed` is a `string` and `request.query.age` is a `number`.
+
+```json
+{
+  "name": "breed",
+  "in": "query",
+  "schema": {
+    "type": "string"
+  }
+}
+{
+  "name": "age",
+  "in": "query",
+  "schema": {
+    "type": "integer"
+  }
+}
+```
+
+Type: `boolean`
+
 #### Parameter: opts.ignoreTrailingSlashes
 
 Optional. Whether to ignore trailing slashes when routing (default: true)
