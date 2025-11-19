@@ -570,7 +570,7 @@ Type: `Document`
 
 #### Parameter: opts.ajvOpts
 
-Optional. The default AJV options to use for validation. See [available options](https://ajv.js.org/#options)
+Optional. The default AJV options to use for validation. See [available options](https://ajv.js.org/options.html)
 
 Type: `AjvOpts`
 
