@@ -10,7 +10,7 @@ Check out [boilerplate projects](/docs/examples/boilerplate/) for working exampl
 
 :::
 
-When your OpenAPI document contains [Security Schemes](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#securitySchemeObject)
+When your OpenAPI document contains [Security Schemes](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#security-scheme-object)
 you can register security handlers to handle authorization for your API:
 
 ```yaml
