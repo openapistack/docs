@@ -80,7 +80,7 @@ async function createPet() {
 
 ![TypeScript IntelliSense](/img/intellisense.gif)
 
-`openapi-client-axios` comes with a tool called `typegen` to generate typescript type files (.d.ts) for
+Use the [`openapicmd typegen`](/docs/openapicmd/typegen/) command to generate typescript type files (.d.ts) for
 OpenAPIClient instances using an OpenAPI definition file.
 
 ```

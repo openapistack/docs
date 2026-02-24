@@ -5,52 +5,34 @@ title: Typegen
 
 # Generating Types
 
-:::tip
+:::caution Deprecated
 
-It's recommended to use [`openapicmd typegen`](/docs/openapicmd/typegen/) to generate types instead of directly installing the typegen package.
+The `openapi-client-axios-typegen` package is deprecated. Use [`openapicmd typegen`](/docs/openapicmd/typegen/) instead.
 
 :::
 
-`openapi-client-axios-typegen` is a command line tool to generate easy to use Typescript types from
-OpenAPI files.
+Use the `openapicmd typegen` command to generate TypeScript types from your OpenAPI definition.
 
 ![TypeScript IntelliSense](/img/intellisense.gif)
 
 ## Usage
 
 ```
-npm install -g openapi-client-axios-typegen
+npx openapicmd typegen ./openapi.yml > openapi.d.ts
 ```
 
-or with npx:
+`openapicmd typegen` supports both local and remote files:
 
 ```
-npx openapi-client-axios-typegen
+npx openapicmd typegen ./openapi.yaml > openapi.d.ts # local file
+npx openapicmd typegen https://petstore3.swagger.io/api/v3/openapi.json > openapi.d.ts # remote url
 ```
 
-```
-Usage: typegen [file]
-
-Options:
-      --help                    Show help                              [boolean]
-      --version                 Show version number                    [boolean]
-  -t, --transformOperationName                                          [string]
-
-Examples:
-  typegen ./openapi.yml > openapi.d.ts
-  typegen https://openapistack.co/petstore.openapi.json > openapi.d.ts
-```
-
-`typegen` supports both local and remote files:
-
-```
-typegen ./openapi.yaml > openapi.d.ts # local file
-typegen https://petstore3.swagger.io/api/v3/openapi.json > openapi.d.ts # remote url
-```
+For the full list of CLI options, see the [`openapicmd typegen` documentation](/docs/openapicmd/typegen/).
 
 ## Typesafe Clients
 
-The output of `typegen` exports a type called `Client`, which can be directly used with clients created with `OpenAPIClientAxios`.
+The output of `openapicmd typegen` exports a type called `Client`, which can be directly used with clients created with `OpenAPIClientAxios`.
 
 Both the `api.getClient()` and `api.init()` methods support passing in a Client type.
 
@@ -78,23 +60,6 @@ const myUser: User = {
   id: 1,
   name: "My User",
 };
-```
-
-## Advanced: `--transformOperationName`
-
-You can provide a predicate function to typegen to transform operation names in the output type file.
-
-The function needs to be exported from a module:
-
-```ts
-// operation-transform.ts
-export const prefix = (operationId: string) => ["$", operationId].join("");
-```
-
-Example usage:
-
-```
-typegen ./openapi.yaml --transformOperationName operation-transform.prefix > openapi.d.ts
 ```
 
 ## Example type file
