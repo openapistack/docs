@@ -4,7 +4,7 @@
    "login": "anttiviljami",
    "avatar_url": "https://avatars.githubusercontent.com/u/6105650?v=4",
    "html_url": "https://github.com/anttiviljami",
-   "total": 1460,
+   "total": 1465,
    "repos": [
     {
      "repo": "openapistack/openapi-backend",
@@ -12,7 +12,7 @@
     },
     {
      "repo": "openapistack/openapi-client-axios",
-     "contributions": 365
+     "contributions": 366
     },
     {
      "repo": "openapistack/openapicmd",
@@ -20,7 +20,7 @@
     },
     {
      "repo": "openapistack/docs",
-     "contributions": 145
+     "contributions": 149
     },
     {
      "repo": "anttiviljami/dereference-json-schema",
@@ -245,6 +245,18 @@
    ]
   },
   {
+   "login": "claude",
+   "avatar_url": "https://avatars.githubusercontent.com/u/81847?v=4",
+   "html_url": "https://github.com/claude",
+   "total": 3,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 3
+    }
+   ]
+  },
+  {
    "login": "ConorHaining",
    "avatar_url": "https://avatars.githubusercontent.com/u/1985951?v=4",
    "html_url": "https://github.com/ConorHaining",
@@ -420,6 +432,18 @@
    "login": "bkis",
    "avatar_url": "https://avatars.githubusercontent.com/u/9215743?v=4",
    "html_url": "https://github.com/bkis",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "walker-sean",
+   "avatar_url": "https://avatars.githubusercontent.com/u/114596410?v=4",
+   "html_url": "https://github.com/walker-sean",
    "total": 2,
    "repos": [
     {
@@ -768,18 +792,6 @@
    "login": "matteo-pupa",
    "avatar_url": "https://avatars.githubusercontent.com/u/22603983?v=4",
    "html_url": "https://github.com/matteo-pupa",
-   "total": 1,
-   "repos": [
-    {
-     "repo": "openapistack/docs",
-     "contributions": 1
-    }
-   ]
-  },
-  {
-   "login": "walker-sean",
-   "avatar_url": "https://avatars.githubusercontent.com/u/114596410?v=4",
-   "html_url": "https://github.com/walker-sean",
    "total": 1,
    "repos": [
     {
