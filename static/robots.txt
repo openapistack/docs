@@ -1,0 +1,5 @@
+# https://openapistack.co/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://openapistack.co/sitemap.xml

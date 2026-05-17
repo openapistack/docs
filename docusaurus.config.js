@@ -178,8 +178,8 @@ const config = {
                 to: '/users',
               },
               {
-                label: 'Add your company',
-                href: 'https://github.com/openapistack/docs/edit/main/src/data/users.ts',
+                label: 'Contributors',
+                to: '/#contributors',
               },
               {
                 label: 'Commercial support',

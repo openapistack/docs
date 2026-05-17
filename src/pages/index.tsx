@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import { LogoStrip } from '@site/src/components/LogoStrip';
+import { Contributors } from '@site/src/components/Contributors';
 import { FiArrowRight } from 'react-icons/fi';
 
 import styles from './index.module.css';
@@ -58,6 +59,8 @@ export default function Home(): JSX.Element {
         <HomepageFeatures />
 
         <Sandbox />
+
+        <Contributors />
       </main>
     </Layout>
   );

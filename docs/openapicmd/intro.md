@@ -650,3 +650,11 @@ EXAMPLES
 ```
 
 <!-- commandsstop -->
+
+## Contributors
+
+openapicmd is built by [dozens of contributors](/#contributors) across the openapi-stack project.
+
+<a href="https://github.com/openapistack/openapicmd/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=openapistack/openapicmd" alt="openapicmd contributors" />
+</a>

@@ -1,0 +1,802 @@
+{
+ "contributors": [
+  {
+   "login": "anttiviljami",
+   "avatar_url": "https://avatars.githubusercontent.com/u/6105650?v=4",
+   "html_url": "https://github.com/anttiviljami",
+   "total": 1460,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 547
+    },
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 365
+    },
+    {
+     "repo": "openapistack/openapicmd",
+     "contributions": 280
+    },
+    {
+     "repo": "openapistack/docs",
+     "contributions": 145
+    },
+    {
+     "repo": "anttiviljami/dereference-json-schema",
+     "contributions": 27
+    },
+    {
+     "repo": "anttiviljami/mock-json-schema",
+     "contributions": 43
+    },
+    {
+     "repo": "anttiviljami/glob-json-path",
+     "contributions": 53
+    }
+   ]
+  },
+  {
+   "login": "richardgarnier",
+   "avatar_url": "https://avatars.githubusercontent.com/u/8066261?v=4",
+   "html_url": "https://github.com/richardgarnier",
+   "total": 12,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 12
+    }
+   ]
+  },
+  {
+   "login": "pas-mike",
+   "avatar_url": "https://avatars.githubusercontent.com/u/7302730?v=4",
+   "html_url": "https://github.com/pas-mike",
+   "total": 10,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 10
+    }
+   ]
+  },
+  {
+   "login": "elby22",
+   "avatar_url": "https://avatars.githubusercontent.com/u/4566439?v=4",
+   "html_url": "https://github.com/elby22",
+   "total": 9,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 9
+    }
+   ]
+  },
+  {
+   "login": "dannyhaak",
+   "avatar_url": "https://avatars.githubusercontent.com/u/412945?v=4",
+   "html_url": "https://github.com/dannyhaak",
+   "total": 9,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 9
+    }
+   ]
+  },
+  {
+   "login": "mdwheele",
+   "avatar_url": "https://avatars.githubusercontent.com/u/2453394?v=4",
+   "html_url": "https://github.com/mdwheele",
+   "total": 8,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 8
+    }
+   ]
+  },
+  {
+   "login": "jeongY-Cho",
+   "avatar_url": "https://avatars.githubusercontent.com/u/34193668?v=4",
+   "html_url": "https://github.com/jeongY-Cho",
+   "total": 7,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 7
+    }
+   ]
+  },
+  {
+   "login": "sebastian-otto-axa",
+   "avatar_url": "https://avatars.githubusercontent.com/u/148773563?v=4",
+   "html_url": "https://github.com/sebastian-otto-axa",
+   "total": 6,
+   "repos": [
+    {
+     "repo": "openapistack/openapicmd",
+     "contributions": 6
+    }
+   ]
+  },
+  {
+   "login": "mikebolt",
+   "avatar_url": "https://avatars.githubusercontent.com/u/2136767?v=4",
+   "html_url": "https://github.com/mikebolt",
+   "total": 5,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 5
+    }
+   ]
+  },
+  {
+   "login": "TanukiSharp",
+   "avatar_url": "https://avatars.githubusercontent.com/u/4018313?v=4",
+   "html_url": "https://github.com/TanukiSharp",
+   "total": 4,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 4
+    }
+   ]
+  },
+  {
+   "login": "devoto13",
+   "avatar_url": "https://avatars.githubusercontent.com/u/823594?v=4",
+   "html_url": "https://github.com/devoto13",
+   "total": 4,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 4
+    }
+   ]
+  },
+  {
+   "login": "AlexandrosLagios",
+   "avatar_url": "https://avatars.githubusercontent.com/u/44926286?v=4",
+   "html_url": "https://github.com/AlexandrosLagios",
+   "total": 4,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 4
+    }
+   ]
+  },
+  {
+   "login": "JulianCataldo",
+   "avatar_url": "https://avatars.githubusercontent.com/u/603498?v=4",
+   "html_url": "https://github.com/JulianCataldo",
+   "total": 4,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    },
+    {
+     "repo": "openapistack/docs",
+     "contributions": 3
+    }
+   ]
+  },
+  {
+   "login": "lmarvaud",
+   "avatar_url": "https://avatars.githubusercontent.com/u/24732919?v=4",
+   "html_url": "https://github.com/lmarvaud",
+   "total": 4,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 4
+    }
+   ]
+  },
+  {
+   "login": "FloEdelmann",
+   "avatar_url": "https://avatars.githubusercontent.com/u/202916?v=4",
+   "html_url": "https://github.com/FloEdelmann",
+   "total": 3,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 3
+    }
+   ]
+  },
+  {
+   "login": "henhal",
+   "avatar_url": "https://avatars.githubusercontent.com/u/9608258?v=4",
+   "html_url": "https://github.com/henhal",
+   "total": 3,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 3
+    }
+   ]
+  },
+  {
+   "login": "sunkan",
+   "avatar_url": "https://avatars.githubusercontent.com/u/568492?v=4",
+   "html_url": "https://github.com/sunkan",
+   "total": 3,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 3
+    }
+   ]
+  },
+  {
+   "login": "hannupekka",
+   "avatar_url": "https://avatars.githubusercontent.com/u/4472477?v=4",
+   "html_url": "https://github.com/hannupekka",
+   "total": 3,
+   "repos": [
+    {
+     "repo": "openapistack/openapicmd",
+     "contributions": 3
+    }
+   ]
+  },
+  {
+   "login": "ConorHaining",
+   "avatar_url": "https://avatars.githubusercontent.com/u/1985951?v=4",
+   "html_url": "https://github.com/ConorHaining",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "wszydlak",
+   "avatar_url": "https://avatars.githubusercontent.com/u/6583977?v=4",
+   "html_url": "https://github.com/wszydlak",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "Crevil",
+   "avatar_url": "https://avatars.githubusercontent.com/u/6881694?v=4",
+   "html_url": "https://github.com/Crevil",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    },
+    {
+     "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "nponeccop",
+   "avatar_url": "https://avatars.githubusercontent.com/u/528415?v=4",
+   "html_url": "https://github.com/nponeccop",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "rowrowrowrow",
+   "avatar_url": "https://avatars.githubusercontent.com/u/12718130?v=4",
+   "html_url": "https://github.com/rowrowrowrow",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "henrycunh",
+   "avatar_url": "https://avatars.githubusercontent.com/u/8951736?v=4",
+   "html_url": "https://github.com/henrycunh",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "johnbeech",
+   "avatar_url": "https://avatars.githubusercontent.com/u/6341696?v=4",
+   "html_url": "https://github.com/johnbeech",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "jfpimentel",
+   "avatar_url": "https://avatars.githubusercontent.com/u/30432768?v=4",
+   "html_url": "https://github.com/jfpimentel",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "dumdiedum",
+   "avatar_url": "https://avatars.githubusercontent.com/u/29304583?v=4",
+   "html_url": "https://github.com/dumdiedum",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "npdev453",
+   "avatar_url": "https://avatars.githubusercontent.com/u/1401931?v=4",
+   "html_url": "https://github.com/npdev453",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "w3nl",
+   "avatar_url": "https://avatars.githubusercontent.com/u/3618143?v=4",
+   "html_url": "https://github.com/w3nl",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "pieterwigboldus-visma",
+   "avatar_url": "https://avatars.githubusercontent.com/u/136830043?v=4",
+   "html_url": "https://github.com/pieterwigboldus-visma",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapicmd",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "smolnikov",
+   "avatar_url": "https://avatars.githubusercontent.com/u/2079326?v=4",
+   "html_url": "https://github.com/smolnikov",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapicmd",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "Sureshkumars",
+   "avatar_url": "https://avatars.githubusercontent.com/u/6508053?v=4",
+   "html_url": "https://github.com/Sureshkumars",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapicmd",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "bkis",
+   "avatar_url": "https://avatars.githubusercontent.com/u/9215743?v=4",
+   "html_url": "https://github.com/bkis",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "klangenk",
+   "avatar_url": "https://avatars.githubusercontent.com/u/19834972?v=4",
+   "html_url": "https://github.com/klangenk",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "anttiviljami/mock-json-schema",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "TaylorBriggs",
+   "avatar_url": "https://avatars.githubusercontent.com/u/1335519?v=4",
+   "html_url": "https://github.com/TaylorBriggs",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "anttiviljami/mock-json-schema",
+     "contributions": 2
+    }
+   ]
+  },
+  {
+   "login": "danielfone",
+   "avatar_url": "https://avatars.githubusercontent.com/u/43041?v=4",
+   "html_url": "https://github.com/danielfone",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "mull",
+   "avatar_url": "https://avatars.githubusercontent.com/u/646665?v=4",
+   "html_url": "https://github.com/mull",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "monsterzz",
+   "avatar_url": "https://avatars.githubusercontent.com/u/33060?v=4",
+   "html_url": "https://github.com/monsterzz",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "Fetchinator7",
+   "avatar_url": "https://avatars.githubusercontent.com/u/51296782?v=4",
+   "html_url": "https://github.com/Fetchinator7",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "mattdistefano",
+   "avatar_url": "https://avatars.githubusercontent.com/u/6283349?v=4",
+   "html_url": "https://github.com/mattdistefano",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "micheletriaca",
+   "avatar_url": "https://avatars.githubusercontent.com/u/1183938?v=4",
+   "html_url": "https://github.com/micheletriaca",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "paulroho",
+   "avatar_url": "https://avatars.githubusercontent.com/u/721933?v=4",
+   "html_url": "https://github.com/paulroho",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "sgentle",
+   "avatar_url": "https://avatars.githubusercontent.com/u/441426?v=4",
+   "html_url": "https://github.com/sgentle",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "Yengas",
+   "avatar_url": "https://avatars.githubusercontent.com/u/3743507?v=4",
+   "html_url": "https://github.com/Yengas",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "drodil",
+   "avatar_url": "https://avatars.githubusercontent.com/u/1178319?v=4",
+   "html_url": "https://github.com/drodil",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "jej2003",
+   "avatar_url": "https://avatars.githubusercontent.com/u/2874471?v=4",
+   "html_url": "https://github.com/jej2003",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "alleksei37",
+   "avatar_url": "https://avatars.githubusercontent.com/u/18336748?v=4",
+   "html_url": "https://github.com/alleksei37",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "dremendes",
+   "avatar_url": "https://avatars.githubusercontent.com/u/756172?v=4",
+   "html_url": "https://github.com/dremendes",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "Core-entin",
+   "avatar_url": "https://avatars.githubusercontent.com/u/23618114?v=4",
+   "html_url": "https://github.com/Core-entin",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "davidnewcomb",
+   "avatar_url": "https://avatars.githubusercontent.com/u/951359?v=4",
+   "html_url": "https://github.com/davidnewcomb",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "gfortaine",
+   "avatar_url": "https://avatars.githubusercontent.com/u/15104841?v=4",
+   "html_url": "https://github.com/gfortaine",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "gterral",
+   "avatar_url": "https://avatars.githubusercontent.com/u/24732773?v=4",
+   "html_url": "https://github.com/gterral",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "genehack",
+   "avatar_url": "https://avatars.githubusercontent.com/u/42126?v=4",
+   "html_url": "https://github.com/genehack",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "josx",
+   "avatar_url": "https://avatars.githubusercontent.com/u/791137?v=4",
+   "html_url": "https://github.com/josx",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "lgtm-migrator",
+   "avatar_url": "https://avatars.githubusercontent.com/u/116650770?v=4",
+   "html_url": "https://github.com/lgtm-migrator",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "leeroyrose",
+   "avatar_url": "https://avatars.githubusercontent.com/u/3706842?v=4",
+   "html_url": "https://github.com/leeroyrose",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "frmrm",
+   "avatar_url": "https://avatars.githubusercontent.com/u/72413166?v=4",
+   "html_url": "https://github.com/frmrm",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "dankeroni",
+   "avatar_url": "https://avatars.githubusercontent.com/u/16510338?v=4",
+   "html_url": "https://github.com/dankeroni",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-client-axios",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "d2s",
+   "avatar_url": "https://avatars.githubusercontent.com/u/135053?v=4",
+   "html_url": "https://github.com/d2s",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapicmd",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "learnitmyway",
+   "avatar_url": "https://avatars.githubusercontent.com/u/12038670?v=4",
+   "html_url": "https://github.com/learnitmyway",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "abd777",
+   "avatar_url": "https://avatars.githubusercontent.com/u/36910128?v=4",
+   "html_url": "https://github.com/abd777",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "matteo-pupa",
+   "avatar_url": "https://avatars.githubusercontent.com/u/22603983?v=4",
+   "html_url": "https://github.com/matteo-pupa",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "walker-sean",
+   "avatar_url": "https://avatars.githubusercontent.com/u/114596410?v=4",
+   "html_url": "https://github.com/walker-sean",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  }
+ ],
+ "repos": [
+  "openapistack/openapi-backend",
+  "openapistack/openapi-client-axios",
+  "openapistack/openapicmd",
+  "openapistack/docs",
+  "anttiviljami/dereference-json-schema",
+  "anttiviljami/mock-json-schema",
+  "anttiviljami/glob-json-path"
+ ],
+ "generated_at": "2026-05-17"
+}

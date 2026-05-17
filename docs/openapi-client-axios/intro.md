@@ -96,3 +96,11 @@ import type { Client as PetStoreClient } from "./openapi.d.ts";
 
 const client = await api.getClient<PetStoreClient>();
 ```
+
+## Contributors
+
+openapi-client-axios is built by [dozens of contributors](/#contributors) across the openapi-stack project.
+
+<a href="https://github.com/openapistack/openapi-client-axios/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=openapistack/openapi-client-axios" alt="openapi-client-axios contributors" />
+</a>

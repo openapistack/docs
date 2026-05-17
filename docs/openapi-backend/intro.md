@@ -67,3 +67,11 @@ api.register({
 // initalize the backend
 api.init();
 ```
+
+## Contributors
+
+openapi-backend is built by [dozens of contributors](/#contributors) across the openapi-stack project.
+
+<a href="https://github.com/openapistack/openapi-backend/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=openapistack/openapi-backend" alt="openapi-backend contributors" />
+</a>

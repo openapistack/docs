@@ -1,8 +1,14 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import { FiExternalLink, FiGithub, FiPlus } from 'react-icons/fi';
 import { USERS, REPO_EDIT_URL, logoUrl, OpenapistackPackage } from '@site/src/data/users';
+
+const PAGE_URL = 'https://openapistack.co/users/';
+const PAGE_TITLE = 'Who uses openapi-stack — Microsoft, IBM, SAP, GitHub, Visma, Notion and others';
+const PAGE_DESCRIPTION =
+  'A curated list of 30+ verified production users of the openapi-stack libraries: openapi-backend, openapi-client-axios, openapicmd, dereference-json-schema, mock-json-schema. Used by Microsoft, IBM, SAP, GitHub Docs, Visma, Red Hat, Notion, Conductor, Intel, Fastly, Prisma and many others.';
 
 const PACKAGE_LABEL: Record<OpenapistackPackage, string> = {
   'openapi-backend': 'openapi-backend',
@@ -22,11 +28,48 @@ export default function UsersPage(): JSX.Element {
   const featured = USERS.filter((u) => u.tier === 'featured');
   const community = USERS.filter((u) => u.tier !== 'featured');
 
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Production users of openapi-stack',
+    description: PAGE_DESCRIPTION,
+    url: PAGE_URL,
+    numberOfItems: USERS.length,
+    itemListElement: USERS.map((user, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'Organization',
+        name: user.name,
+        url: user.website,
+        logo: logoUrl(user),
+        description: user.description,
+        ...(user.githubLink ? { sameAs: [user.githubLink] } : {}),
+      },
+    })),
+  };
+
   return (
     <Layout
       title="Who uses openapi-stack"
-      description="Teams and companies building production software with the openapi-stack libraries."
+      description={PAGE_DESCRIPTION}
     >
+      <Head>
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} />
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
+        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content={PAGE_TITLE} />
+        <meta name="twitter:description" content={PAGE_DESCRIPTION} />
+        <link rel="canonical" href={PAGE_URL} />
+        <meta
+          name="keywords"
+          content="openapi-stack users, openapi-backend production, openapi-client-axios adopters, who uses openapi, OpenAPI typescript clients, Node.js OpenAPI, OpenAPI mocking, OpenAPI validation"
+        />
+        <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+      </Head>
       <main className="py-16 md:py-24 bg-white dark:bg-zinc-950">
         <div className="container max-w-5xl mx-auto px-4">
           <header className="mb-16 text-center">

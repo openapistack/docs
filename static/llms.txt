@@ -1,0 +1,32 @@
+# openapi-stack
+
+> openapi-stack is a collection of open-source libraries and tools for full-stack typesafe API-first development using the [OpenAPI Specification](https://www.openapis.org/). MIT-licensed. Maintained by [Viljami Kuosmanen](https://viljami.io) and [MRR Copilot Oy](https://openapistack.co/imprint/). ~250,000 weekly direct npm downloads across the stack; used in production by Microsoft, IBM, SAP, GitHub Docs, Visma, Red Hat, Notion, Conductor, Intel, Fastly, Prisma, AWS samples, Kong, and 20+ others.
+
+## Libraries
+
+- [openapi-backend](https://openapistack.co/docs/openapi-backend/intro): Framework-agnostic middleware to build, validate, route, authenticate, and mock APIs from an OpenAPI definition. Works with Express, Hapi, Koa, AWS Lambda.
+- [openapi-client-axios](https://openapistack.co/docs/openapi-client-axios/intro): Runtime-introspecting OpenAPI client built on axios. Returns a typed axios instance decorated with one method per `operationId`. No codegen required; optional `.d.ts` types via `openapicmd typegen`.
+- [openapicmd](https://openapistack.co/docs/openapicmd/intro): CLI for OpenAPI workflows — type generation, mock servers, bundling, linting, ad-hoc API calls.
+- [dereference-json-schema](https://openapistack.co/docs/utilities/dereference-json-schema): Fast in-memory `$ref` dereferencing for JSON Schema / OpenAPI documents. Used directly by GitHub Docs, Zitadel, Prisma's docs pipeline.
+- [mock-json-schema](https://openapistack.co/docs/utilities/mock-json-schema): Deterministic mock-data generation from JSON Schema. Used directly by Conductor (Netflix/Orkes), Etherpad, Mojaloop.
+- [glob-json-path](https://openapistack.co/docs/utilities/glob-json-path): Bash-style glob matching over nested JSON paths.
+
+## Documentation
+
+- [Overview & comparisons (GraphQL, tRPC, openapi-typescript)](https://openapistack.co/docs/intro/)
+- [API-First philosophy](https://openapistack.co/docs/api-first/)
+- [openapi-backend docs](https://openapistack.co/docs/openapi-backend/intro/) — request lifecycle, validation, security handlers, mocking
+- [openapi-client-axios docs](https://openapistack.co/docs/openapi-client-axios/intro/) — usage, operation methods, paths dictionary, typesafe clients
+- [openapicmd docs](https://openapistack.co/docs/openapicmd/intro/) — call, config, generating documentation, mock-server, typegen
+- [Examples & boilerplates](https://openapistack.co/docs/examples/boilerplate/)
+
+## Users & references
+
+- [Who uses openapi-stack](https://openapistack.co/users/) — 30+ verified production users with SHA-pinned source-code links: Microsoft (M365 Agents Toolkit), IBM (Node.js Reference Architecture), SAP (Cloud SDK), Visma, Red Hat Developer Hub, GitHub Docs, Notion (official MCP server), Conductor, Intel Geti, Fastly, Prisma, Zitadel, Qdrant, StackBlitz, Drupal, Etherpad, Mojaloop, WSO2, Mender, Holochain, AWS samples, Kong (OpenMeter), Anytype, Klavis AI, agnesoft, fumadocs, EXXETA, Digital Asset, City of Helsingborg, Government of British Columbia, Opetushallitus (Finnish National Agency for Education), Polis.
+- [openapi-stack on GitHub](https://github.com/openapistack)
+- [Contributors](https://openapistack.co/#contributors) — 60+ engineers across the project's 7 repositories.
+
+## Commercial
+
+- [Commercial support](https://openapistack.co/support/) — provided by MRR Copilot Oy (VAT FI35240143). Contact: support@openapistack.co.
+- [License & imprint](https://openapistack.co/imprint/)
