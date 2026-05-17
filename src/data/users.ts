@@ -120,7 +120,7 @@ export const USERS: User[] = [
     name: 'Pennylane',
     website: 'https://www.pennylane.com',
     domain: 'pennylane.com',
-    logo: 'https://upload.wikimedia.org/wikipedia/fr/5/58/Logo_Pennylane.png',
+    logo: '/img/users/pennylane.svg',
     description:
       'French accounting and financial management unicorn for SMBs and chartered accountants.',
     packages: ['openapi-client-axios'],
