@@ -24,6 +24,8 @@ sidebar_position: 0
 
 The goal is to unlock great developer experience and full stack type safety for software teams using REST; inspired by tools like [GraphQL](https://graphql.org/) and [tRPC](https://trpc.io).
 
+*Battle-tested in production. [See who uses openapi-stack →](/users)*
+
 
 <details>
 <summary><b>How does openapi-stack compare to <i>GraphQL</i>?</b></summary>

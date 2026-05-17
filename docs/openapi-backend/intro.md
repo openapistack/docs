@@ -21,6 +21,8 @@ sidebar_position: 1
 <p><b>Build, Validate, Route, Authenticate, and Mock using OpenAPI definitions.</b></p>
 
 <p>OpenAPI Backend is a Framework-agnostic middleware tool for building beautiful APIs with <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a>.</p>
+
+<p><i>Battle-tested in production. <a href="/users">See who uses openapi-stack →</a></i></p>
 </div>
 
 ## Features

@@ -20,6 +20,8 @@ sidebar_position: 1
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 
 <p>JavaScript client library for consuming OpenAPI-enabled APIs with <a href="https://github.com/axios/axios" target="_blank">axios</a>. Types included.</p>
+
+<p><i>Battle-tested in production. <a href="/users">See who uses openapi-stack →</a></i></p>
 </div>
 
 ## Features

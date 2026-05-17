@@ -20,6 +20,8 @@ sidebar_position: 0
 [![GitHub stars](https://img.shields.io/github/stars/openapistack/openapicmd)](https://github.com/openapistack/openapicmd)
 [![Buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange)](https://buymeacoff.ee/anttiviljami)
 
+<p><i>Battle-tested in production. <a href="/users">See who uses openapi-stack →</a></i></p>
+
 </div>
 
 ## Features
