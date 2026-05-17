@@ -129,6 +129,19 @@ export const USERS: User[] = [
     tier: 'featured',
   },
   {
+    id: 'aws',
+    name: 'AWS',
+    website: 'https://github.com/aws-samples/berkeley-room-designer',
+    domain: 'aws.amazon.com',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+    description:
+      'Amazon Web Services — the official aws-samples organisation hosts reference architectures and demo apps for AWS customers.',
+    packages: ['openapi-backend'],
+    githubLink: 'https://github.com/aws-samples/berkeley-room-designer/blob/5bc832053b71918ac2b29ca9d3e2df966692392d/package-lock.json#L2072',
+    useCase: 'Powers the Berkeley Room Designer sample app — a generator for synthetic room layouts built on the Amazon Berkeley Objects Dataset.',
+    tier: 'featured',
+  },
+  {
     id: 'redhat',
     name: 'Red Hat',
     website: 'https://developers.redhat.com/rhdh/overview',
