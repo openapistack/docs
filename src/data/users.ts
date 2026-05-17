@@ -71,7 +71,7 @@ export const USERS: User[] = [
       'French accounting and financial management unicorn for SMBs and chartered accountants.',
     packages: ['openapi-client-axios'],
     githubLink: 'https://github.com/pennylane-hq/jean_test_mobile/blob/483ad8d0fc2c8920dbc9d95d9e7bcd2ce33c8ab8/package.json#L30',
-    useCase: 'Long-time openapi-stack backer — Pennylane engineers shipped bug-fix PRs to openapi-client-axios (#75, #90) and the company sponsored the project in 2022. Still used in their public Jean React Native hiring template.',
+    useCase: 'Long-time openapi-stack backer — Pennylane engineers shipped bug-fix PRs to openapi-client-axios and the company sponsored the project in 2022. Still used in their public Jean React Native hiring template.',
     tier: 'featured',
   },
   {
@@ -233,6 +233,18 @@ export const USERS: User[] = [
     packages: ['mock-json-schema'],
     githubLink: 'https://github.com/conductor-oss/conductor/blob/2533d445031b2c066b087fa0a113d4529cbb347e/ui-next/src/pages/definition/EditorPanel/TaskFormTab/helpers.ts#L17',
     useCase: 'Mocks task input forms in the Conductor UI from each task\'s JSON Schema definition.',
+    tier: 'featured',
+  },
+  {
+    id: 'parabola',
+    name: 'Parabola',
+    website: 'https://parabola.io',
+    domain: 'parabola.io',
+    logo: 'https://avatars.githubusercontent.com/u/10320114?s=200&v=4',
+    description:
+      'No-code data-workflow automation platform for ops and finance teams. $34M+ raised (Series B, 2023); customers include Flexport, Sonos, Uber Freight, Brooklinen.',
+    packages: ['openapi-client-axios'],
+    useCase: 'Self-attested by a Parabola engineer in a July 2025 Buy Me A Coffee message: "our team are building with openapi-client-axios — thank you!!"',
     tier: 'featured',
   },
   {
