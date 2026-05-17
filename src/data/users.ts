@@ -62,6 +62,19 @@ export const USERS: User[] = [
     tier: 'featured',
   },
   {
+    id: 'pennylane',
+    name: 'Pennylane',
+    website: 'https://www.pennylane.com',
+    domain: 'pennylane.com',
+    logo: '/img/users/pennylane.svg',
+    description:
+      'French accounting and financial management unicorn for SMBs and chartered accountants.',
+    packages: ['openapi-client-axios'],
+    githubLink: 'https://github.com/pennylane-hq/jean_test_mobile/blob/483ad8d0fc2c8920dbc9d95d9e7bcd2ce33c8ab8/package.json#L30',
+    useCase: 'Long-time openapi-stack backer — Pennylane engineers shipped bug-fix PRs to openapi-client-axios (#75, #90) and the company sponsored the project in 2022. Still used in their public Jean React Native hiring template.',
+    tier: 'featured',
+  },
+  {
     id: 'microsoft',
     name: 'Microsoft',
     website: 'https://github.com/OfficeDev/microsoft-365-agents-toolkit',
