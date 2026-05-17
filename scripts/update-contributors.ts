@@ -34,6 +34,8 @@ const EXCLUDE_BOTS = new Set([
   'github-actions[bot]',
   'snyk-bot',
   'allcontributors[bot]',
+  'claude',
+  'lgtm-migrator',
 ]);
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));

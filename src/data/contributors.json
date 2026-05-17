@@ -245,18 +245,6 @@
    ]
   },
   {
-   "login": "claude",
-   "avatar_url": "https://avatars.githubusercontent.com/u/81847?v=4",
-   "html_url": "https://github.com/claude",
-   "total": 3,
-   "repos": [
-    {
-     "repo": "openapistack/docs",
-     "contributions": 3
-    }
-   ]
-  },
-  {
    "login": "ConorHaining",
    "avatar_url": "https://avatars.githubusercontent.com/u/1985951?v=4",
    "html_url": "https://github.com/ConorHaining",
@@ -696,18 +684,6 @@
    "login": "josx",
    "avatar_url": "https://avatars.githubusercontent.com/u/791137?v=4",
    "html_url": "https://github.com/josx",
-   "total": 1,
-   "repos": [
-    {
-     "repo": "openapistack/openapi-client-axios",
-     "contributions": 1
-    }
-   ]
-  },
-  {
-   "login": "lgtm-migrator",
-   "avatar_url": "https://avatars.githubusercontent.com/u/116650770?v=4",
-   "html_url": "https://github.com/lgtm-migrator",
    "total": 1,
    "repos": [
     {
