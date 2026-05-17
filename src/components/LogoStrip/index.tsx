@@ -14,7 +14,7 @@ export const LogoStrip = (): JSX.Element => {
             openapistack
           </p>
           <h2 className="text-2xl md:text-3xl font-semibold text-zinc-900 dark:text-zinc-100 m-0">
-            Trusted by teams at
+            Used by teams at
           </h2>
         </div>
 
