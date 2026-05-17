@@ -56,6 +56,66 @@ While the lightweight tRPC approach is optimal for teams just looking to build f
 
 </details>
 
+<details>
+<summary><b>How does openapi-stack compare to <i>openapi-typescript</i>?</b></summary>
+
+[*openapi-typescript*](https://openapi-ts.dev/) is a popular tool that converts an OpenAPI spec into a TypeScript `.d.ts` file. It usually pairs with [*openapi-fetch*](https://openapi-ts.dev/openapi-fetch/), a thin `fetch` wrapper that consumes those generated types via a generic. Both are excellent — and they sit closer to openapi-stack than GraphQL or tRPC do, so the comparison is worth doing carefully.
+
+**The three real differences:**
+
+**1. SDK-style methods vs path-based requests.**
+
+```ts
+// openapi-fetch — generic path-based client
+const { data, error } = await client.GET("/pets/{id}", {
+  params: { path: { id: 1 } },
+});
+
+// openapi-client-axios — an axios instance, shaped like an SDK for your API
+const { data } = await client.getPetById(1);
+```
+
+`openapi-client-axios` returns a fully-featured **axios instance** decorated with one typed method per `operationId` in your spec — so the client looks and feels like a hand-written SDK for *your* API. You get `client.getPetById(1)` *and* every axios primitive (`client.get('/pets/1')`, `client.interceptors.request.use(...)`, `client.defaults.headers.common.Authorization = ...`) on the same object, ready to pass around your codebase. The path-based axios API is always available as a fallback for operations you'd rather not call via `operationId` — so it's *both* SDK-style and path-based, not one or the other.
+
+`openapi-fetch` is a generic, path-based client where the HTTP verb and URL template stay explicit at the call site. Method-based code is easier to grep, jump-to-definition, and rename through your editor; path-based code mirrors the HTTP shape more literally and surfaces a TypeScript error if the path string drifts from the spec. Both are typesafe; pick the surface you prefer.
+
+**2. Axios vs fetch — and the ecosystems around them.**
+
+`openapi-client-axios` is built on [axios](https://axios-http.com/), so every interceptor, adapter, and plugin in the axios ecosystem works out of the box: auth header injection, token refresh, retry, request cancellation, upload progress, response transformers. Adding `axios-retry` or `axios-cache-interceptor` is one line.
+
+`openapi-fetch` is built on the platform `fetch`, with its own middleware API. It's clean, but you bring more of the building blocks yourself — axios's specific plugin model has accumulated a larger set of off-the-shelf middlewares than fetch wrappers typically have.
+
+Both libraries themselves are small. Pick based on which HTTP foundation suits your project, not bundle size.
+
+**3. Runtime spec loading.**
+
+```ts
+// openapi-client-axios — spec resolved at runtime
+const api = new OpenAPIClientAxios({
+  definition: 'https://api.example.com/openapi.json',
+});
+const client = await api.init();
+```
+
+`openapi-client-axios` can take a URL, a JSON object, or a YAML string and build the client dynamically. That's load-bearing for plugin systems, admin tools that talk to many APIs, multi-tenant backends where each tenant exposes a slightly different surface, or LLM-driven agents that discover capabilities from a spec at run time.
+
+`openapi-typescript` runs ahead-of-time and bakes the API surface into your TypeScript build. If you need the surface to change without redeploying, you have to ship a new build.
+
+**4. One stack, two ends of the wire.**
+
+`openapi-stack` includes [openapi-backend](/docs/openapi-backend/intro) for the server side — request/response validation, routing by `operationId`, security handlers, and built-in mocking against the *same* spec your client uses. With `openapi-typescript` you bring your own server framework and validation library; the typegen layer does not participate at runtime on the backend.
+
+---
+
+**Picking between them:**
+
+- Choose **openapi-typescript + openapi-fetch** when you want zero runtime spec coupling and prefer a path-based API surface. Especially clean if you're allergic to axios or building a thin frontend SDK where the spec rarely changes.
+- Choose **openapi-stack** when you want method-based ergonomics, axios's mature interceptor ecosystem, runtime spec introspection, *and* a single library that covers both sides of the API.
+
+You can also mix — use `openapi-typescript` for types in one part of your codebase and `openapi-backend` on the server for validation. They share OpenAPI as the source of truth.
+
+</details>
+
 ## Benefits
 
 1. 🚀 **No code generation.** Write your own code the way you like it. Only generate types from OpenAPI spec if you want.

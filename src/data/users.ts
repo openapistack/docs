@@ -210,6 +210,19 @@ export const USERS: User[] = [
     tier: 'featured',
   },
   {
+    id: 'kong',
+    name: 'Kong',
+    website: 'https://konghq.com',
+    domain: 'konghq.com',
+    iconSlug: 'kong',
+    description:
+      'Kong powers the world\'s most innovative API platforms. The team behind OpenMeter (Kong\'s open-source usage-based billing and metering product) shipped openapi-stack as part of their integration examples.',
+    packages: ['openapi-client-axios'],
+    githubLink: 'https://github.com/openmeterio/openmeter/blob/c3c299335c176bcb935813e251484819186d08e6/examples/export-stripe-node/package.json#L25',
+    useCase: 'Used (via openapi-client-axios-typegen) in OpenMeter\'s Stripe integration example for typed API client generation.',
+    tier: 'featured',
+  },
+  {
     id: 'zitadel',
     name: 'Zitadel',
     website: 'https://zitadel.com',
@@ -255,6 +268,20 @@ export const USERS: User[] = [
     packages: ['openapi-client-axios'],
     githubLink: 'https://github.com/drupal/cms-launcher',
     useCase: 'Used in the Drupal CMS Launcher application.',
+    tier: 'featured',
+  },
+  {
+    id: 'fumadocs',
+    name: 'Fumadocs',
+    website: 'https://fumadocs.dev',
+    domain: 'fumadocs.dev',
+    // TODO: replace with an official Fumadocs brand-mark URL.
+    logo: 'https://avatars.githubusercontent.com/u/76995514?s=400&v=4',
+    description:
+      'The flexible React.js docs framework powering OpenAPI documentation for Prisma, Better Auth and many others.',
+    packages: ['dereference-json-schema'],
+    githubLink: 'https://github.com/fuma-nama/fumadocs/blob/e2e07824c3b4f0296a3614899eafc81ebea3be20/packages/openapi/package.json#L73',
+    useCase: 'Used inside fumadocs-openapi to resolve $ref pointers when rendering OpenAPI schemas as MDX docs.',
     tier: 'featured',
   },
   {
@@ -358,7 +385,7 @@ export const USERS: User[] = [
       'Maker of agdb, an in-process graph database for embedded and cloud workloads.',
     packages: ['openapi-client-axios', 'openapicmd'],
     githubLink: 'https://github.com/agnesoft/agdb/blob/d64abdf061c1340fa94089cea760e19a21a95727/agdb_api/typescript/package.json#L40',
-    useCase: 'Powers @agnesoft/agdb_api, the official TypeScript/JavaScript client for the agdb graph database.',
+    useCase: 'Generates types via openapicmd and ships @agnesoft/agdb_api on openapi-client-axios; agdb_studio (their web UI) consumes the same client via pnpm catalog.',
     tier: 'featured',
   },
   {
