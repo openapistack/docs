@@ -102,14 +102,14 @@ const config = {
             position: 'left',
           },
           {
-            href: 'https://github.com/openapistack',
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
             to: '/docs/examples',
             position: 'left',
             label: 'Examples',
+          },
+          {
+            href: 'https://github.com/openapistack',
+            label: 'GitHub',
+            position: 'right',
           },
         ],
       },
@@ -155,6 +155,35 @@ const config = {
               {
                 label: 'openapicmd',
                 href: '/docs/openapicmd/intro',
+              },
+              {
+                label: 'dereference-json-schema',
+                href: '/docs/utilities/dereference-json-schema',
+              },
+              {
+                label: 'mock-json-schema',
+                href: '/docs/utilities/mock-json-schema',
+              },
+              {
+                label: 'glob-json-path',
+                href: '/docs/utilities/glob-json-path',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Who uses openapi-stack',
+                to: '/users',
+              },
+              {
+                label: 'Add your company',
+                href: 'https://github.com/openapistack/docs/edit/main/src/data/users.ts',
+              },
+              {
+                label: 'Commercial support',
+                to: '/support',
               },
             ],
           },

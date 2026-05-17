@@ -6,6 +6,9 @@ const REPOSITORIES = [
   'openapistack/openapi-backend',
   'openapistack/openapi-client-axios',
   'openapistack/openapicmd',
+  'anttiviljami/dereference-json-schema',
+  'anttiviljami/mock-json-schema',
+  'anttiviljami/glob-json-path',
 ]
 
 export const GithubStarsButton = () => {
