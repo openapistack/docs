@@ -15,7 +15,7 @@ sidebar_position: 0
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/openapistack/docs/blob/master/LICENSE)
 [![npm downloads](https://img.shields.io/npm/dw/openapi-backend?label=backend)](https://www.npmjs.com/package/openapi-backend)
-[![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios?label=client)](https://www.npmjs.com/package/openapi-backend)
+[![npm downloads](https://img.shields.io/npm/dw/openapi-client-axios?label=client)](https://www.npmjs.com/package/openapi-client-axios)
 [![GitHub stars](https://img.shields.io/github/stars/openapistack/docs?label=github%20stars)](https://github.com/openapistack/docs)
 
 </div>
