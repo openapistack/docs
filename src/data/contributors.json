@@ -4,15 +4,15 @@
    "login": "anttiviljami",
    "avatar_url": "https://avatars.githubusercontent.com/u/6105650?v=4",
    "html_url": "https://github.com/anttiviljami",
-   "total": 1465,
+   "total": 1483,
    "repos": [
     {
      "repo": "openapistack/openapi-backend",
-     "contributions": 547
+     "contributions": 555
     },
     {
      "repo": "openapistack/openapi-client-axios",
-     "contributions": 366
+     "contributions": 369
     },
     {
      "repo": "openapistack/openapicmd",
@@ -20,11 +20,11 @@
     },
     {
      "repo": "openapistack/docs",
-     "contributions": 149
+     "contributions": 153
     },
     {
      "repo": "anttiviljami/dereference-json-schema",
-     "contributions": 27
+     "contributions": 30
     },
     {
      "repo": "anttiviljami/mock-json-schema",
@@ -280,6 +280,22 @@
     },
     {
      "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "kriptoburak",
+   "avatar_url": "https://avatars.githubusercontent.com/u/8755484?v=4",
+   "html_url": "https://github.com/kriptoburak",
+   "total": 2,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    },
+    {
+     "repo": "openapistack/openapi-client-axios",
      "contributions": 1
     }
    ]
@@ -775,6 +791,18 @@
      "contributions": 1
     }
    ]
+  },
+  {
+   "login": "onematchfox",
+   "avatar_url": "https://avatars.githubusercontent.com/u/878612?v=4",
+   "html_url": "https://github.com/onematchfox",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "anttiviljami/dereference-json-schema",
+     "contributions": 1
+    }
+   ]
   }
  ],
  "repos": [
@@ -786,5 +814,5 @@
   "anttiviljami/mock-json-schema",
   "anttiviljami/glob-json-path"
  ],
- "generated_at": "2026-05-17"
+ "generated_at": "2026-07-25"
 }
