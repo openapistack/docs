@@ -80,13 +80,28 @@ Type: `boolean`
 
 Optional. Enable or disable request validation (default: true)
 
-Type: `boolean`
+Setting this to `false` disables validation entirely and skips building the Ajv validators at startup.
+
+You can also pass a predicate to decide per request. It receives the [context object](#context-object) followed by the
+same handler arguments you pass to [`.handleRequest()`](#handlerequestreq-handlerargs), and validation runs only when it
+returns `true`.
+
+```ts
+const api = new OpenAPIBackend({
+  definition,
+  // skip validation for internal traffic, validate everything else
+  validate: (c, req: Request, res: Response) => !req.headers["x-internal-request"],
+});
+```
+
+Type: `boolean | ContextPredicate`
 
 #### Parameter: opts.coerceTypes
 
 Optional. Enable or disable coerce typing (default: false)
 
-This option requires `opts.validate: true`.
+Coercion happens as part of validation, so it only applies to requests that actually get validated. With
+`opts.validate: false` nothing is coerced, and with a predicate the requests it skips aren't coerced either.
 
 The effect of this is that query and path parameters will be of their specified types at run-time.
 In below example `request.query.breed` is a `string` and `request.query.age` is a `number`.
@@ -172,7 +187,7 @@ api.init();
 Handles a request
 
 1. Routing: Matches the request to an API operation
-1. Validation: Validates the request against the API operation schema (skipped when .validate is set to false)
+1. Validation: Validates the request against the API operation schema (skipped when .validate is set to false, or when a .validate predicate returns false for the request)
 1. Handling: Passes the request on to a registered operation handler
 
 Example usage:

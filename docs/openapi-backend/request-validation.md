@@ -17,6 +17,26 @@ Once registered, this handler gets called if any JSON Schemas in either operatio
 
 The context object `c` gets a `validation` property with the [validation result](/docs/openapi-backend/api#validationresult-object).
 
+## Controlling when requests get validated
+
+Request validation is enabled by default. Pass [`validate: false`](/docs/openapi-backend/api#parameter-optsvalidate) to turn it off entirely, which also skips building the Ajv validators at startup.
+
+```ts
+const api = new OpenAPIBackend({ definition, validate: false });
+```
+
+You can also pass a predicate to decide per request. It receives the context object followed by the same handler arguments you pass to `handleRequest()`, and validation runs only when it returns `true`.
+
+```ts
+const api = new OpenAPIBackend({
+  definition,
+  // skip validation for internal traffic, validate everything else
+  validate: (c, req: Request, res: Response) => !req.headers["x-internal-request"],
+});
+```
+
+Note that type coercion happens as part of validation, so when [`coerceTypes`](/docs/openapi-backend/api#parameter-optscoercetypes) is enabled, requests your predicate skips won't have their path and query parameters coerced either.
+
 ## Extended Formats
 
 To add validation for JSON Schema formats like `email`, `uri`, `date-time`, `uuid` you can use the [`customizeAjv`](/docs/openapi-backend/api/#parameter-optscustomizeajvoriginalajv-ajvopts-validationcontext) option when creating your OpenAPIIBackend instance to extend Ajv.
