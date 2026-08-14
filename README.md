@@ -72,7 +72,7 @@ While the lightweight tRPC approach is optimal for teams just looking to build f
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=openapistack/openapi-backend,openapistack/openapi-client-axios,openapistack/openapicmd,openapistack/docs&type=Date)](https://star-history.com/#openapistack/openapi-backend&openapistack/openapi-client-axios&openapistack/openapicmd&openapistack/docs&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=openapistack/openapi-backend,openapistack/openapi-client-axios,openapistack/openapicmd,openapistack/docs&type=Date)](https://star-history.dera.page/#openapistack/openapi-backend&openapistack/openapi-client-axios&openapistack/openapicmd&openapistack/docs&Date)
 
 ## Commercial support
 
