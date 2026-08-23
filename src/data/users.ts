@@ -492,6 +492,19 @@ export const USERS: User[] = [
     tier: 'featured',
   },
   {
+    id: 'defra',
+    name: 'DEFRA',
+    website: 'https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs',
+    domain: 'defra.gov.uk',
+    logo: 'https://avatars.githubusercontent.com/DEFRA',
+    description:
+      'The UK Department for Environment, Food & Rural Affairs. Uses openapi-backend in the Wildlife Licensing Service for European Protected Species.',
+    packages: ['openapi-backend'],
+    githubLink: 'https://github.com/DEFRA/wildlife-licencing/blob/c7a594578c786fefb6018786d538399c228a55b3/packages/api/package.json#L41',
+    useCase: 'Powers the API layer of the wildlife licencing service (@defra/wls-api), which processes European Protected Species licence applications.',
+    tier: 'featured',
+  },
+  {
     id: 'polis',
     name: 'Polis',
     website: 'https://pol.is',
