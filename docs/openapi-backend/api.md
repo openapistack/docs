@@ -168,11 +168,11 @@ Initializes the OpenAPIBackend instance for use.
 1. Loads and parses the OpenAPI document passed in constructor options
 1. Validates the OpenAPI document
 1. Builds validation schemas for all API operations
-1. Marks member property `initalized` to true
+1. Marks member property `initialized` to true
 1. Registers all [Operation Handlers](#operation-handlers) passed in constructor options
 
 The `init()` method should be called right after creating a new instance of OpenAPIBackend. Although for ease of use,
-some methods like `handleRequest()` will call the method if the initalized member property is set to false.
+some methods like `handleRequest()` will call the method if the initialized member property is set to false.
 
 Returns the initialized OpenAPI backend instance.
 
