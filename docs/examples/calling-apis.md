@@ -23,7 +23,7 @@ Before starting, make sure to install `openapi-client-axios` and `axios` as depe
 npm i openapi-client-axios axios
 ```
 
-## Creating a client instace
+## Creating a client instance
 
 To call our API, we import `openapi-client-axios` and configure it by passing the OpenAPI definition URL:
 

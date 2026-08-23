@@ -7,7 +7,7 @@ sidebar_position: 10
 ## Class OpenAPIBackend
 
 OpenAPIBackend is the main class you can interact with. You can create a new
-instance and initalize it with your OpenAPI document and handlers.
+instance and initialize it with your OpenAPI document and handlers.
 
 OpenAPIBackend is also the default import of the `openapi-backend` module. It
 can be imported in any of the following ways:
@@ -163,7 +163,7 @@ Type: `{ [operationId: string]: Handler }`
 
 ### .init()
 
-Initalizes the OpenAPIBackend instace for use.
+Initializes the OpenAPIBackend instance for use.
 
 1. Loads and parses the OpenAPI document passed in constructor options
 1. Validates the OpenAPI document
@@ -174,7 +174,7 @@ Initalizes the OpenAPIBackend instace for use.
 The `init()` method should be called right after creating a new instance of OpenAPIBackend. Although for ease of use,
 some methods like `handleRequest()` will call the method if the initalized member property is set to false.
 
-Returns the initalized OpenAPI backend instance.
+Returns the initialized OpenAPI backend instance.
 
 Example:
 
@@ -1013,7 +1013,7 @@ const operation: Operation = {
   },
   responses: {
     200: {
-      description: "Pet updated succesfully",
+      description: "Pet updated successfully",
     },
   },
 };

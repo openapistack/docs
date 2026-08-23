@@ -64,7 +64,7 @@ api.register({
     res.status(400).json({ err: c.validation.errors }),
 });
 
-// initalize the backend
+// initialize the backend
 api.init();
 ```
 
