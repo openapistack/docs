@@ -84,14 +84,14 @@ const api = new OpenAPIClientAxios({
 
 ### .init()
 
-Initalizes OpenAPIClientAxios
+Initializes OpenAPIClientAxios
 
 Returns a promise of the created member axios instance.
 
 1. Parses the input definition into a JS object. If the input definition is a URL, it will be resolved
 2. Dereferences the definition for use.
 3. Creates the member axios instance
-4. Sets `api.initialised = true` and returns the created axios instance
+4. Sets `api.initialized = true` and returns the created axios instance
 
 Example:
 ```javascript
@@ -102,7 +102,7 @@ await api.init();
 
 Synchronous version of [`.init()`](#init)
 
-Initalizes OpenAPIClientAxios and creates the axios client instance.
+Initializes OpenAPIClientAxios and creates the axios client instance.
 
 Note: Only works when the input definition is a valid OpenAPI v3 object.
 
@@ -113,7 +113,7 @@ api.initSync();
 
 ### .getClient()
 
-Returns a promise of the member axios instance. Will run .init() if API is not initalised yet.
+Returns a promise of the member axios instance. Will run .init() if API is not initialised yet.
 
 Example:
 ```javascript
@@ -185,9 +185,9 @@ Type: `OperationMethodArguments`
 
 Creates a new axios instance, extends it and returns it.
 
-While initalising with [`.init()`](#init) or [.initSync()](#initsync) OpenAPIClientAxios calls this function to create the member client.
+While initialising with [`.init()`](#init) or [.initSync()](#initsync) OpenAPIClientAxios calls this function to create the member client.
 
-Note: Requires the API to be initalised first if run outside of .init() methods.
+Note: Requires the API to be initialised first if run outside of .init() methods.
 
 ### .getAxiosConfigForOperation(operation, args)
 
@@ -216,7 +216,7 @@ Type: `OperationMethodArguments`
 
 ## Axios Client Instance
 
-When OpenAPIClientAxios is initalised, a member
+When OpenAPIClientAxios is initialised, a member
 [axios client instance](https://github.com/axios/axios#creating-an-instance) is created.
 
 The client instance can be accessed either directly via `api.client` getter, or `api.getClient()`.
