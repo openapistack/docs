@@ -8,10 +8,6 @@ export const Iframe = (
   return (
     <iframe
       loading="lazy"
-      // the page is cross-origin isolated (COEP) for the StackBlitz sandbox,
-      // which blocks cross-origin frames that don't serve COEP themselves;
-      // the credentialless attribute (Chromium) exempts this frame from that check
-      {...{ credentialless: 'true' }}
       {...props}
       onLoad={() => {
         setLoaded(true);
