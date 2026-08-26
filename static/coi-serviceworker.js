@@ -1,8 +1,5 @@
 /*! coi-serviceworker v0.1.7 - Guido Zuidhof and contributors, licensed under MIT */
-// patched: default to credentialless so the first controlled document load
-// already gets COEP: credentialless (require-corp would block cross-origin
-// logo images, since opaque responses can't be given a CORP header)
-let coepCredentialless = true;
+let coepCredentialless = false;
 if (typeof window === 'undefined') {
     self.addEventListener("install", () => self.skipWaiting());
     self.addEventListener("activate", (event) => event.waitUntil(self.clients.claim()));
