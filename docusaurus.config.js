@@ -40,12 +40,6 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: true,
 
-  // GitHub Pages can't set COOP/COEP response headers, which the embedded
-  // StackBlitz sandbox (WebContainers) requires for cross-origin isolation.
-  // This service worker shim injects them client-side.
-  // https://developer.stackblitz.com/platform/webcontainers/browser-support#embedding
-  scripts: ['/coi-serviceworker.js'],
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
