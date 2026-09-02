@@ -327,7 +327,9 @@ export const USERS: User[] = [
     name: 'Etherpad',
     website: 'https://etherpad.org',
     domain: 'etherpad.org',
-    logo: 'https://etherpad.org/_next/static/media/brand.9923586b.svg',
+    // Self-hosted copy of the official brand mark: etherpad.org serves it from a
+    // content-hashed Next.js asset path that changes on every site rebuild.
+    logo: '/img/users/etherpad.svg',
     description:
       'The original real-time collaborative document editor, used by Wikimedia, Mozilla and many governments.',
     packages: ['openapi-backend', 'dereference-json-schema', 'mock-json-schema'],
