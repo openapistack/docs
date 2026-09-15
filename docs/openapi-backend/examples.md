@@ -6,7 +6,7 @@ sidebar_position: 2
 
 OpenAPI backend is framework agnostic, which means you can use it with pretty much any javascript backend framework and hosting you're familiar with.
 
-Full, tested examples can be found the openapi-backend GitHub repository: [https://github.com/openapistack/openapi-backend/tree/main/examples/](https://github.com/openapistack/openapi-backend/tree/main/examples/)
+Full, tested examples can be found on the `examples` branch of the openapi-backend GitHub repository: [https://github.com/openapistack/openapi-backend/tree/examples](https://github.com/openapistack/openapi-backend/tree/examples)
 
 ### Express
 
@@ -19,9 +19,9 @@ app.use((req, res) => api.handleRequest(req, req, res));
 app.listen(9000);
 ```
 
-[See full Express example](https://github.com/openapistack/openapi-backend/tree/main/examples/express)
+[See full Express example](https://github.com/openapistack/openapi-backend/tree/examples/express)
 
-[See full Express TypeScript example](https://github.com/openapistack/openapi-backend/tree/main/examples/express-typescript)
+[See full Express TypeScript example](https://github.com/openapistack/openapi-backend/tree/examples/express-typescript)
 
 ### AWS Serverless (Lambda)
 
@@ -41,13 +41,13 @@ module.exports.handler = (event, context) =>
   );
 ```
 
-[See full AWS SAM example](https://github.com/openapistack/openapi-backend/tree/main/examples/aws-sam)
+[See full AWS SAM example](https://github.com/openapistack/openapi-backend/tree/examples/aws-sam)
 
-[See full AWS CDK example](https://github.com/openapistack/openapi-backend/tree/main/examples/aws-cdk)
+[See full AWS CDK example](https://github.com/openapistack/openapi-backend/tree/examples/aws-cdk)
 
-[See full SST example](https://github.com/openapistack/openapi-backend/tree/main/examples/aws-sst)
+[See full SST example](https://github.com/openapistack/openapi-backend/tree/examples/aws-sst)
 
-[See full Serverless Framework example](https://github.com/openapistack/openapi-backend/tree/main/examples/serverless-framework)
+[See full Serverless Framework example](https://github.com/openapistack/openapi-backend/tree/examples/serverless-framework)
 
 ### Azure Function
 
@@ -66,7 +66,7 @@ module.exports = (context, req) =>
   );
 ```
 
-[See full Azure Function example](https://github.com/openapistack/openapi-backend/tree/main/examples/azure-function)
+[See full Azure Function example](https://github.com/openapistack/openapi-backend/tree/examples/azure-function)
 
 ### Fastify
 
@@ -92,7 +92,7 @@ fastify.route({
 fastify.listen();
 ```
 
-[See full Fastify example](https://github.com/openapistack/openapi-backend/tree/main/examples/fastify)
+[See full Fastify example](https://github.com/openapistack/openapi-backend/tree/examples/fastify)
 
 
 ### Koa
@@ -108,7 +108,7 @@ app.use((ctx) => api.handleRequest(ctx.request, ctx));
 app.listen(9000);
 ```
 
-[See full Koa example](https://github.com/openapistack/openapi-backend/tree/main/examples/koa)
+[See full Koa example](https://github.com/openapistack/openapi-backend/tree/examples/koa)
 
 ### Hapi
 
@@ -135,7 +135,7 @@ server.route({
 server.start();
 ```
 
-[See full Hapi example](https://github.com/openapistack/openapi-backend/tree/main/examples/hapi-typescript)
+[See full Hapi example](https://github.com/openapistack/openapi-backend/tree/examples/hapi-typescript)
 
 ## More Examples
 
