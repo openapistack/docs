@@ -64,7 +64,19 @@ Type: `string`
 
 #### Parameter: opts.strict
 
-Optional. Strict mode, throw errors or warn on OpenAPI spec validation errors (default: false)
+Optional. Strict mode: fail closed instead of warning (default: false)
+
+In strict mode:
+
+- `.init()` throws on OpenAPI definition errors
+- `.register()` throws for unknown operationIds and security scheme names
+- `.handleRequest()` rejects with a `401-unauthorized: ...` error when a request fails its security requirements and
+  no `unauthorizedHandler` is registered, and with a `400-validationFail: ...` error when a request fails validation
+  and no `validationFail` handler is registered (since 5.21.0)
+
+Without strict mode, all of these log a warning, and requests that fail their security requirements or validation
+still reach the operation handler. Strict mode is recommended in production. See
+[Security Best Practices](/docs/openapi-backend/security).
 
 Type: `boolean`
 
@@ -799,6 +811,9 @@ The `validationFail` handler gets called by `.handleRequest()` if the input vali
 
 HINT: You should probably return a 400 status code from this handler.
 
+If no `validationFail` handler is registered and [`strict`](#parameter-optsstrict) mode is off, requests that fail
+validation still reach the operation handler. Check `c.validation.valid` there, or set `strict: true`.
+
 Example handler:
 
 ```javascript
@@ -883,6 +898,9 @@ api.register("unauthorizedHandler", unauthorizedHandler);
 If no `unauthorizedHandler` is registered, the Security Handlers will still be
 called and their output and the authorization status for the request can be
 checked in operation handlers via the [`context.security` property](#context-object).
+
+In that case, unless [`strict`](#parameter-optsstrict) mode is on, **the operation handler runs even for unauthorized
+requests**, and has to check `c.security.authorized` itself. See [Security Best Practices](/docs/openapi-backend/security).
 
 ### postResponseHandler Handler
 

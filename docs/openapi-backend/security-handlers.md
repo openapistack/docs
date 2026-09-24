@@ -46,6 +46,14 @@ api.register("unauthorizedHandler", (c, req, res) => {
 });
 ```
 
+:::warning
+
+Security handlers don't reject requests on their own. Without an `unauthorizedHandler` or
+[`strict: true`](/docs/openapi-backend/api#parameter-optsstrict), the operation handler still runs for unauthorized
+requests, and has to check `c.security.authorized` itself. See [Security Best Practices](/docs/openapi-backend/security).
+
+:::
+
 See examples using security handlers:
 
 - [API Key auth (express)](https://github.com/openapistack/openapi-backend/tree/examples/express-apikey-auth)
