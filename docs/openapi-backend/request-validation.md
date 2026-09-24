@@ -17,6 +17,13 @@ Once registered, this handler gets called if any JSON Schemas in either operatio
 
 The context object `c` gets a `validation` property with the [validation result](/docs/openapi-backend/api#validationresult-object).
 
+:::warning
+
+Without a `validationFail` handler or [`strict: true`](/docs/openapi-backend/api#parameter-optsstrict), requests that
+fail validation still reach your operation handlers. See [Security Best Practices](/docs/openapi-backend/security).
+
+:::
+
 ## Controlling when requests get validated
 
 Request validation is enabled by default. Pass [`validate: false`](/docs/openapi-backend/api#parameter-optsvalidate) to turn it off entirely, which also skips building the Ajv validators at startup.
@@ -31,9 +38,16 @@ You can also pass a predicate to decide per request. It receives the context obj
 const api = new OpenAPIBackend({
   definition,
   // skip validation for internal traffic, validate everything else
-  validate: (c, req: Request, res: Response) => !req.headers["x-internal-request"],
+  validate: (c, req: Request, res: Response) => !isInternalNetwork(req.socket.remoteAddress),
 });
 ```
+
+:::caution
+
+Don't base this decision on anything the client sends, like a header or a query parameter. Otherwise any client can
+turn off validation for its own requests.
+
+:::
 
 Note that type coercion happens as part of validation, so when [`coerceTypes`](/docs/openapi-backend/api#parameter-optscoercetypes) is enabled, requests your predicate skips won't have their path and query parameters coerced either.
 
