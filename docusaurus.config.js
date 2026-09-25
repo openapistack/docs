@@ -136,6 +136,10 @@ const config = {
                 href: '/docs/openapi-backend/api'
               },
               {
+                label: 'Security Best Practices',
+                to: '/docs/openapi-backend/security',
+              },
+              {
                 label: 'Client Reference',
                 href: '/docs/openapi-client-axios/api'
               },
