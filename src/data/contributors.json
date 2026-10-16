@@ -4,23 +4,23 @@
    "login": "anttiviljami",
    "avatar_url": "https://avatars.githubusercontent.com/u/6105650?v=4",
    "html_url": "https://github.com/anttiviljami",
-   "total": 1483,
+   "total": 1565,
    "repos": [
     {
      "repo": "openapistack/openapi-backend",
-     "contributions": 555
+     "contributions": 612
     },
     {
      "repo": "openapistack/openapi-client-axios",
-     "contributions": 369
+     "contributions": 379
     },
     {
      "repo": "openapistack/openapicmd",
-     "contributions": 280
+     "contributions": 281
     },
     {
      "repo": "openapistack/docs",
-     "contributions": 153
+     "contributions": 167
     },
     {
      "repo": "anttiviljami/dereference-json-schema",
@@ -803,6 +803,42 @@
      "contributions": 1
     }
    ]
+  },
+  {
+   "login": "PingouinFerreux",
+   "avatar_url": "https://avatars.githubusercontent.com/u/212632237?v=4",
+   "html_url": "https://github.com/PingouinFerreux",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "vaibhav8a",
+   "avatar_url": "https://avatars.githubusercontent.com/u/173471846?v=4",
+   "html_url": "https://github.com/vaibhav8a",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/docs",
+     "contributions": 1
+    }
+   ]
+  },
+  {
+   "login": "wangyusheng1985",
+   "avatar_url": "https://avatars.githubusercontent.com/u/11242728?v=4",
+   "html_url": "https://github.com/wangyusheng1985",
+   "total": 1,
+   "repos": [
+    {
+     "repo": "openapistack/openapi-backend",
+     "contributions": 1
+    }
+   ]
   }
  ],
  "repos": [
@@ -814,5 +850,5 @@
   "anttiviljami/mock-json-schema",
   "anttiviljami/glob-json-path"
  ],
- "generated_at": "2026-07-25"
+ "generated_at": "2026-10-16"
 }
