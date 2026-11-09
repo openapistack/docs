@@ -71,3 +71,13 @@ const api = new OpenAPIBackend({
 You can simply opt to add all formats with `addFormats(ajv)`. Warning: this may slow down the initialisation of openapi-backend, and is not recommended in FaaS environments.
 
 See [ajv-formats documentation](https://ajv.js.org/packages/ajv-formats.html) for more configuration options.
+
+## Testing request validation
+
+Use [`toFailValidation()`](/docs/openapi-backend/testing/validation) to test that invalid requests are rejected:
+
+```ts
+const res = await client.createPet({ body: { type: "cat" } });
+
+expect(res).toFailValidation("body.name");
+```

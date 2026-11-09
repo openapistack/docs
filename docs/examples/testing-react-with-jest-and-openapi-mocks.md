@@ -10,6 +10,12 @@ sidebar_position: 4
 
 :::
 
+:::tip
+
+Testing your backend instead? See [Testing](/docs/openapi-backend/testing).
+
+:::
+
 ### Setting up msw
 
 Here is the basic setup for a rest api mock using msw:

@@ -25,6 +25,7 @@ Use [openapi-backend-codeql](#static-analysis-with-codeql) to find these problem
 - Register an [`unauthorizedHandler`](/docs/openapi-backend/api#unauthorizedhandler-handler) and a
   [`validationFail`](/docs/openapi-backend/api#validationfail-handler) handler if you want custom error responses.
 - Wrap `handleRequest()` in `try` / `catch`.
+- [Test](#test-your-security-setup) that protected operations reject anonymous requests.
 
 ## Enforce security requirements
 
@@ -186,6 +187,22 @@ app.use((req, res, next) => api.handleRequest(req, req, res).catch(next));
 
 `mockResponseForOperation()` returns the `example` values in your definition as they are. If you mock unimplemented
 operations with a `notImplemented` handler, check the environment first, so production clients don't get your examples.
+
+## Test your security setup
+
+The [test client](/docs/openapi-backend/testing/security) catches most of the problems on this page in your tests.
+`toBeUnauthorized()` and `toFailValidation()` fail when a rejected request still reaches your operation handler, and a
+single test can check that every protected operation in your spec rejects anonymous requests:
+
+```javascript
+test.each(protectedOperations)("%s requires authentication", async (operationId) => {
+  const res = await client.call(operationId, { example: true });
+
+  expect(res).toBeUnauthorized();
+});
+```
+
+See [Testing Security](/docs/openapi-backend/testing/security#every-protected-operation).
 
 ## Static analysis with CodeQL
 
