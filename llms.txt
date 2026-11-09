@@ -15,7 +15,7 @@
 
 - [Overview & comparisons (GraphQL, tRPC, openapi-typescript)](https://openapistack.co/docs/intro/)
 - [API-First philosophy](https://openapistack.co/docs/api-first/)
-- [openapi-backend docs](https://openapistack.co/docs/openapi-backend/intro/) — request lifecycle, validation, security handlers, mocking
+- [openapi-backend docs](https://openapistack.co/docs/openapi-backend/intro/) — request lifecycle, validation, security handlers, mocking, testing
 - [openapi-client-axios docs](https://openapistack.co/docs/openapi-client-axios/intro/) — usage, operation methods, paths dictionary, typesafe clients
 - [openapicmd docs](https://openapistack.co/docs/openapicmd/intro/) — call, config, generating documentation, mock-server, typegen
 - [Examples & boilerplates](https://openapistack.co/docs/examples/boilerplate/)
