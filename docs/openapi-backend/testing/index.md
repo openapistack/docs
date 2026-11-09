@@ -3,14 +3,10 @@ title: Testing
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Testing
 
 openapi-backend comes with tools for testing your API the way your OpenAPI definition describes it. Call operations by
-their `operationId`, and assert on routing, validation and security with matchers for [Vitest](https://vitest.dev) and
-[Jest](https://jestjs.io):
+their `operationId`, and assert on routing, validation and security with [Vitest](https://vitest.dev) matchers:
 
 ```ts title="test/pets.test.ts"
 import { describe, test, expect } from 'vitest';
@@ -60,20 +56,18 @@ without an `id`, the first test would fail, even though it never asserts on `id`
   away from your API documentation. See [Contract testing](/docs/openapi-backend/testing/contract).
 - **Fast, and works with your framework.** Requests go into your Express, Fastify, Koa, Hapi, AWS Lambda or fetch app
   in-process. No server to start, no ports, no network.
-- **Built for Vitest.** Jest works too. Types come from [`openapi typegen`](/docs/openapicmd/typegen).
+- **Built for Vitest.** Custom matchers, readable snapshots, and types from
+  [`openapi typegen`](/docs/openapicmd/typegen).
 
 ## Quick start
 
-The testing tools are part of the `openapi-backend` package. All you need to add is a test runner:
+The testing tools are part of the `openapi-backend` package. All you need to add is Vitest:
 
 ```
 npm install --save-dev vitest
 ```
 
 ### 1. Register the matchers
-
-<Tabs groupId="test-runner">
-<TabItem value="vitest" label="Vitest" default>
 
 ```ts title="vitest.setup.ts"
 import 'openapi-backend/vitest';
@@ -88,18 +82,6 @@ export default defineConfig({
   },
 });
 ```
-
-</TabItem>
-<TabItem value="jest" label="Jest">
-
-```js title="jest.config.js"
-module.exports = {
-  setupFilesAfterEnv: ['openapi-backend/jest'],
-};
-```
-
-</TabItem>
-</Tabs>
 
 This registers the [matchers](/docs/openapi-backend/testing/reference#matchers) and their TypeScript types, and a
 snapshot serializer for responses.
@@ -130,9 +112,6 @@ export default defineConfig({
 
 Create the client once, in a module your tests can share:
 
-<Tabs groupId="test-runner">
-<TabItem value="vitest" label="Vitest" default>
-
 ```ts title="test/client.ts"
 import { createTestClient } from 'openapi-backend/testing';
 import { api, app } from '../src/app';
@@ -143,23 +122,6 @@ await api.init();
 export { api };
 export const client = createTestClient(api, { app });
 ```
-
-</TabItem>
-<TabItem value="jest" label="Jest">
-
-```ts title="test/client.ts"
-import { createTestClient } from 'openapi-backend/testing';
-import { api, app } from '../src/app';
-
-// load the API definition before the tests start
-beforeAll(() => api.init());
-
-export { api };
-export const client = createTestClient(api, { app });
-```
-
-</TabItem>
-</Tabs>
 
 Here `app` is the Express app that serves your API. The client sends requests straight into it, in the same process.
 For Fastify, Koa, Hapi, AWS Lambda and others, see [Frameworks](/docs/openapi-backend/testing/frameworks). If your

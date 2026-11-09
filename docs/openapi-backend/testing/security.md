@@ -58,7 +58,6 @@ operation. Operations you add later are tested automatically.
 
 Test tables built from `api.getOperations()` need the API to be initialized when the test file loads. The shared
 [test client module](/docs/openapi-backend/testing#2-create-a-test-client) does that with a top-level `await api.init()`.
-In Jest, top-level `await` requires [ESM mode](https://jestjs.io/docs/ecmascript-modules).
 
 :::
 

@@ -9,14 +9,11 @@ sidebar_position: 9
 
 | Import | Contents |
 | --- | --- |
-| `openapi-backend/testing` | [`createTestClient()`](#createtestclientapi-options), [`createContext()`](#createcontextapi-operationid-request), [`lambda()`](#lambdahandler-options), [`matchers`](#other-test-runners), the error classes and types |
+| `openapi-backend/testing` | [`createTestClient()`](#createtestclientapi-options), [`createContext()`](#createcontextapi-operationid-request), [`lambda()`](#lambdahandler-options), the error classes and types |
 | `openapi-backend/vitest` | Registers the [matchers](#matchers) and the [snapshot serializer](#snapshot-serializer) with Vitest. Import it in a [setup file](https://vitest.dev/config/setupfiles). |
-| `openapi-backend/jest` | Registers the matchers and the snapshot serializer with Jest. Add it to [`setupFilesAfterEnv`](https://jestjs.io/docs/configuration#setupfilesafterenv-array). |
-| `openapi-backend/vitest/reporter` | The [`apiCoverage()`](#apicoverageoptions) reporter for Vitest |
-| `openapi-backend/jest/reporter` | The API coverage reporter for Jest |
 
-The setup entry points also add the matchers' TypeScript types. If your editor doesn't pick them up, add
-`openapi-backend/vitest` or `openapi-backend/jest` to `compilerOptions.types` in your `tsconfig.json`.
+`openapi-backend/vitest` also adds the matchers' TypeScript types. If your editor doesn't pick them up, add
+`openapi-backend/vitest` to `compilerOptions.types` in your `tsconfig.json`.
 
 ## createTestClient(api, options?)
 
@@ -231,7 +228,7 @@ they are.
 | [`toMatchApiSpec()`](#tomatchapispec) | a response | the response matches the responses documented in the spec |
 | [`toRoute(request, operationId?)`](#torouterequest-operationid) | an API or a client | the request is routed to the operation |
 
-All matchers work with `.not`, and with [`expect.soft()`](https://vitest.dev/api/expect#soft) in Vitest.
+All matchers work with `.not` and [`expect.soft()`](https://vitest.dev/api/expect#soft).
 
 ### toHaveStatus(status)
 
@@ -297,20 +294,9 @@ Only runs the router: no handlers are called. `api` must be initialized.
 `request` is a string with the method, path and an optional query string, or a
 [Request object](/docs/openapi-backend/api#request-object).
 
-### Other test runners
-
-The matchers are also exported as an object, for test runners with a Jest compatible `expect.extend()`, like Bun:
-
-```ts
-import { expect } from 'bun:test';
-import { matchers } from 'openapi-backend/testing';
-
-expect.extend(matchers);
-```
-
 ## Snapshot serializer
 
-The setup entry points register a snapshot serializer for responses. Snapshots show the status line, the
+`openapi-backend/vitest` registers a snapshot serializer for responses. Snapshots show the status line, the
 `content-type`, any response headers documented in the spec, and the body:
 
 ```
@@ -347,25 +333,3 @@ The response doesn't match the spec. See [Contract testing](/docs/openapi-backen
 | --- | --- |
 | `response` | The [TestResponse](#testresponse) |
 | `errors` | What didn't match, each with a `location` like `body.name` and a `message` |
-
-## apiCoverage(options?)
-
-Creates the [API coverage](/docs/openapi-backend/testing/contract#api-coverage) reporter for Vitest.
-
-```ts title="vitest.config.ts"
-import { apiCoverage } from 'openapi-backend/vitest/reporter';
-
-export default defineConfig({
-  test: {
-    reporters: ['default', apiCoverage({ thresholds: { operations: 100 } })],
-  },
-});
-```
-
-For Jest, add `['openapi-backend/jest/reporter', options]` to `reporters`.
-
-| Option | Type | Description |
-| --- | --- | --- |
-| `thresholds.operations` | `number` | Fail the test run when less than this percentage of operations is covered |
-| `thresholds.responses` | `number` | Fail the test run when less than this percentage of documented responses is covered |
-| `outputFile` | `string` | Also write the report as JSON to this file |

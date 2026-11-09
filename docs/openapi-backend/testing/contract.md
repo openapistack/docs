@@ -3,9 +3,6 @@ title: Contract Testing
 sidebar_position: 6
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Contract Testing
 
 Your OpenAPI definition is a contract between your API and its clients. Every test that uses the test client also
@@ -111,81 +108,3 @@ test.each(examples)('%s accepts example %s', async (operationId, name) => {
 ```
 
 These tests call your handlers, so run them against test data.
-
-## API coverage
-
-The API coverage reporter shows which operations and documented responses your tests never exercised:
-
-<Tabs groupId="test-runner">
-<TabItem value="vitest" label="Vitest" default>
-
-```ts title="vitest.config.ts"
-import { defineConfig } from 'vitest/config';
-import { apiCoverage } from 'openapi-backend/vitest/reporter';
-
-export default defineConfig({
-  test: {
-    setupFiles: ['./vitest.setup.ts'],
-    reporters: ['default', apiCoverage()],
-  },
-});
-```
-
-</TabItem>
-<TabItem value="jest" label="Jest">
-
-```js title="jest.config.js"
-module.exports = {
-  setupFilesAfterEnv: ['openapi-backend/jest'],
-  reporters: ['default', 'openapi-backend/jest/reporter'],
-};
-```
-
-</TabItem>
-</Tabs>
-
-After the test run, you get a report:
-
-```
- API coverage
-
-  getPets         ✓ 200
-  createPet       ✓ 201   ✓ 400   ✗ 401
-  getPetsMeta     ✗ never called
-  getPetById      ✓ 200   ✗ 400   ✓ 404
-  deletePetById   ✓ 204   ✓ 401   ✓ 403   ✗ 404
-
-  Operations  4/5 (80%)   Responses  8/12 (67%)
-```
-
-An operation is covered when a test sent a request that was routed to it, and a response is covered when a test
-received it. A `4XX` or `default` response is covered by any status code it matches. Requests from all test files
-count, no matter which client sent them.
-
-Set thresholds to fail the test run when coverage drops:
-
-<Tabs groupId="test-runner">
-<TabItem value="vitest" label="Vitest" default>
-
-```ts title="vitest.config.ts"
-reporters: [
-  'default',
-  apiCoverage({ thresholds: { operations: 100, responses: 80 } }),
-],
-```
-
-</TabItem>
-<TabItem value="jest" label="Jest">
-
-```js title="jest.config.js"
-reporters: [
-  'default',
-  [
-    'openapi-backend/jest/reporter',
-    { thresholds: { operations: 100, responses: 80 } },
-  ],
-],
-```
-
-</TabItem>
-</Tabs>
