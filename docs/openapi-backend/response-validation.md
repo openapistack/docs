@@ -45,3 +45,8 @@ api.register({
   },
 });
 ```
+
+## Testing response validation
+
+In tests, the [test client](/docs/openapi-backend/testing/contract) checks every response against your API definition
+automatically, so you don't need a `postResponseHandler` for it.
