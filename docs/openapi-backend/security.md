@@ -190,15 +190,14 @@ operations with a `notImplemented` handler, check the environment first, so prod
 
 ## Test your security setup
 
-The [test client](/docs/openapi-backend/testing/security) catches most of the problems on this page in your tests.
-`toBeUnauthorized()` and `toFailValidation()` fail when a rejected request still reaches your operation handler, and a
-single test can check that every protected operation in your spec rejects anonymous requests:
+With the [test client](/docs/openapi-backend/testing/security), you can check that requests which should be rejected
+really are. A single test can check that every protected operation in your spec rejects anonymous requests:
 
 ```javascript
 test.each(protectedOperations)("%s requires authentication", async (operationId) => {
   const res = await client.call(operationId, { example: true });
 
-  expect(res).toBeUnauthorized();
+  expect(res.status).toBe(401);
 });
 ```
 

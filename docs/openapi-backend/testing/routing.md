@@ -11,11 +11,12 @@ and `/pets/{id}`.
 
 ## Routing tables
 
-`expect(api).toRoute()` checks which operation a request is routed to:
+Send requests with [`client.request()`](/docs/openapi-backend/testing/requests#raw-requests), and check which operation
+handled them with `res.operationId`:
 
 ```ts title="test/routing.test.ts"
 import { test, expect } from 'vitest';
-import { api } from './client';
+import { client } from './client';
 
 test.each([
   ['GET /pets', 'getPets'],
@@ -24,40 +25,33 @@ test.each([
   ['GET /pets/1', 'getPetById'],
   ['DELETE /pets/1', 'deletePetById'],
   ['GET /pets/1/', 'getPetById'], // trailing slashes are ignored by default
-])('%s routes to %s', (request, operationId) => {
-  expect(api).toRoute(request, operationId);
+])('%s routes to %s', async (request, operationId) => {
+  const res = await client.request(request);
+
+  expect(res.operationId).toBe(operationId);
 });
 ```
 
-The request is a string with the method and path, and an optional query string. You can also pass a
-[Request object](/docs/openapi-backend/api#request-object).
+The requests go through your app, so this tests routing the way it works in production. `res.operationId` is the
+operation openapi-backend matched for the request.
 
-`toRoute()` only runs the router. No handlers are called, so routing tests run instantly and don't need a database or
-anything else. When one fails, you see where the request went instead:
+To check the router alone, without sending requests, use [`api.matchOperation()`](/docs/openapi-backend/api#matchoperationreq):
 
-```
-AssertionError: expected GET /pets/meta to route to getPetsMeta,
-but it was routed to getPetById (GET /pets/{id})
+```ts
+const operation = api.matchOperation({ method: 'GET', path: '/pets/meta', headers: {} });
+
+expect(operation?.operationId).toBe('getPetsMeta');
 ```
 
 ## Requests that don't match
 
-`.not.toRoute()` without an `operationId` checks that no operation matches at all:
-
-```ts
-test('there is no /cats', () => {
-  expect(api).not.toRoute('GET /cats');
-  expect(api).not.toRoute('PATCH /pets');
-});
-```
-
-To test how your app responds to them, send them with [`client.request()`](/docs/openapi-backend/testing/requests#raw-requests):
+When no operation matches, `res.operationId` is `undefined`, and the response comes from your `notFound` handler:
 
 ```ts
 test('responds with 404 to unknown paths', async () => {
   const res = await client.request('GET /cats');
 
-  expect(res).toHaveStatus(404);
+  expect(res.status).toBe(404);
   expect(res.operationId).toBeUndefined();
 });
 ```
@@ -82,9 +76,9 @@ Path parameters are strings, unless you enable [`coerceTypes`](/docs/openapi-bac
 
 ## Operation methods check routing too
 
-When you call an operation method, the client also checks that the request it built is routed back to that same
+When you call an operation method, the client checks that the request it built is routed back to that same
 operation. If it isn't, real clients could never reach the operation's handler with those parameters, and the call
-throws.
+throws a `RoutingError`.
 
 Say your API has both `/users/me` and `/users/{username}`:
 
@@ -93,8 +87,7 @@ await client.getUserByUsername({ params: { username: 'me' } });
 ```
 
 ```
-RoutingError: client.getUserByUsername() sent GET /users/me, but the router
-matched getCurrentUser (GET /users/me) instead.
+RoutingError: client.getUserByUsername() sent GET /users/me, but the router matched getCurrentUser (GET /users/me) instead.
 getUserByUsername can't be reached with { username: "me" }.
 ```
 
@@ -103,17 +96,17 @@ such a request on purpose, use [`client.request()`](/docs/openapi-backend/testin
 
 ## API root
 
-Raw requests and `toRoute()` take the full path, including the [`apiRoot`](/docs/openapi-backend/api#parameter-optsapiroot):
+Raw requests take the full path, including the [`apiRoot`](/docs/openapi-backend/api#parameter-optsapiroot):
 
 ```ts
 const api = new OpenAPIBackend({ definition, apiRoot: '/v1' });
 
-expect(api).toRoute('GET /v1/pets', 'getPets');
-expect(api).not.toRoute('GET /pets');
+const res = await client.request('GET /v1/pets');
+expect(res.operationId).toBe('getPets');
 ```
 
 Operation methods add the `apiRoot` for you. If your app serves openapi-backend under a different path, set the
-client's [`basePath`](/docs/openapi-backend/testing/reference#createtestclientapi-options).
+client's [`basePath`](/docs/openapi-backend/testing/frameworks#base-path).
 
 ## Every operation has a handler
 

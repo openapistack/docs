@@ -6,7 +6,7 @@ sidebar_position: 8
 # Frameworks
 
 The test client sends requests into your app in the same process as your tests. Requests go through the same
-middleware, error handlers and framework glue as in production, but without starting a server or opening a port.
+middleware, error handlers and framework glue as in production, without deploying anything.
 
 Pass your app as the `app` option, and the client works out what kind of app it is:
 
@@ -19,9 +19,9 @@ Pass your app as the `app` option, and the client works out what kind of app it 
 | [Node.js](#nodejs-http) | an `http.Server`, or a `(req, res)` request listener |
 | [Hono, Elysia and other fetch apps](#fetch-apps) | an object with a `fetch(request)` method |
 | [AWS Lambda](#aws-lambda) | `lambda(handler)` |
-| [No framework](#no-framework) | leave out `app` |
 | [A running server](#a-running-server) | its URL |
 | [Anything else](#custom-adapters) | an object with a `send(request)` method |
+| [No framework](#no-framework) | leave out `app`, and pass `transformResponse` |
 
 :::tip
 
@@ -41,6 +41,9 @@ app.use((req, res, next) => api.handleRequest(req, req, res).catch(next));
 ```ts title="test/client.ts"
 export const client = createTestClient(api, { app });
 ```
+
+The first time it sends a request, the client serves your app on a random port on `127.0.0.1`, like
+[supertest](https://github.com/ladjs/supertest) does. The server doesn't keep your test process running.
 
 The same works for any framework that gives you a Node.js request listener, like [Connect](https://github.com/senchalabs/connect)
 or [Polka](https://github.com/lukeed/polka).
@@ -86,6 +89,8 @@ app.use((ctx) => api.handleRequest(ctx.request, ctx));
 export const client = createTestClient(api, { app });
 ```
 
+The client serves `app.callback()` on a random local port, like it does for Express.
+
 ## Hapi
 
 ```ts title="src/server.ts"
@@ -127,6 +132,8 @@ import { api, server } from '../src/server';
 
 export const client = createTestClient(api, { app: server });
 ```
+
+The client serves the server's request listener on a random local port. It doesn't call `listen()` on your server.
 
 ## Fetch apps
 
@@ -181,48 +188,12 @@ import { api, handler } from '../src/lambda';
 export const client = createTestClient(api, { app: lambda(handler) });
 ```
 
-The client turns each request into an API Gateway event, calls your handler, and reads the response from the result.
+The client turns each request into an API Gateway event, calls your handler, and reads the response from its result,
+like API Gateway does. Results without a `content-type` header are sent as `application/json`.
+
 By default, events look like they come from an API Gateway REST API. For HTTP APIs and function URLs, use
 `lambda(handler, { event: 'v2' })`. See the [reference](/docs/openapi-backend/testing/reference#lambdahandler-options)
 for all options.
-
-## No framework
-
-If your handlers return their responses, you don't need an app. Leave out `app`, and the client calls
-`api.handleRequest()` directly:
-
-```ts
-const api = new OpenAPIBackend({
-  definition: './openapi.yml',
-  handlers: {
-    getPets: async () => ({ status: 200, body: await db.listPets() }),
-    validationFail: (c) => ({
-      status: 400,
-      body: { message: 'Bad request', errors: c.validation.errors },
-    }),
-  },
-});
-
-const client = createTestClient(api);
-```
-
-The value returned by `api.handleRequest()` is turned into a response:
-
-| Return value | Response |
-| --- | --- |
-| a `Response` | used as is |
-| an object with a numeric `statusCode`, like an API Gateway result | its `statusCode`, `headers` and `body` |
-| an object with a numeric `status` | its `status`, `headers` and `body` |
-| anything else | a `200` response with the value as its body |
-
-Bodies that are JSON strings are parsed.
-
-When `api.handleRequest()` throws one of openapi-backend's own errors, like `404-notFound` or, in strict mode,
-`400-validationFail`, the client responds with that status code. Any other error is thrown, so the test fails with
-your original error and stack trace.
-
-Handlers called this way get no framework arguments. If your handlers use objects like Express's `res`, pass your
-`app` instead.
 
 ## A running server
 
@@ -235,8 +206,64 @@ export const client = createTestClient(api, {
 ```
 
 Requests are built from your spec and responses are checked against it, as usual. But the client can't see inside
-another process, so `res.context` is `undefined`, and `toFailValidation()`, `toBeUnauthorized()` and
-[security stubs](/docs/openapi-backend/testing/security#stubbing-security-handlers) don't work.
+another process, so `res.context` is `undefined`, and
+[security stubs](/docs/openapi-backend/testing/security#stubbing-security-handlers) throw an error.
+
+## Custom adapters
+
+For anything else, pass an object with a `send()` method. It gets the request the client built, which is also a valid
+openapi-backend [Request object](/docs/openapi-backend/api#request-object), and returns the response as
+`{ status, headers, body }` or as a fetch `Response`:
+
+```ts
+const client = createTestClient(api, {
+  app: {
+    async send(request) {
+      const result = await myPlatform.invoke(toPlatformRequest(request));
+      return { status: result.code, headers: result.headers, body: result.payload };
+    },
+  },
+});
+```
+
+String and Buffer bodies are parsed according to the `content-type` header. Other values are used as the body as they
+are.
+
+## No framework
+
+If your handlers don't depend on a framework, you don't need an app. Leave out `app`, and the client calls
+`api.handleRequest()` directly. openapi-backend doesn't know what your handlers return, so tell the client how to turn
+it into a response with `transformResponse`:
+
+```ts
+const api = new OpenAPIBackend({
+  definition: './openapi.yml',
+  handlers: {
+    getPets: async () => ({ statusCode: 200, body: await db.listPets() }),
+    validationFail: (c) => ({
+      statusCode: 400,
+      body: { message: 'Bad request', errors: c.validation.errors },
+    }),
+  },
+});
+
+const client = createTestClient(api, {
+  transformResponse: (result) => ({
+    status: result.statusCode,
+    headers: { 'content-type': 'application/json', ...result.headers },
+    body: result.body,
+  }),
+});
+```
+
+`transformResponse` gets the value `api.handleRequest()` returned, and returns `{ status, headers, body }` or a fetch
+`Response`, like a [custom adapter](#custom-adapters).
+
+Request bodies reach `api.handleRequest()` the way a body parser would pass them on: JSON as parsed objects, form
+fields as strings, and other bodies as strings or Buffers.
+
+If `api.handleRequest()` throws, for example with a `400-validationFail` error in strict mode, the call throws the same
+error.
 
 ## Base path
 
@@ -250,22 +277,8 @@ const client = createTestClient(api, { app, basePath: '/api' });
 await client.getPets(); // GET /api/pets
 ```
 
-## Custom adapters
+## How the client sees what happened
 
-For anything else, pass an object with a `send()` method. It gets the request the client built, which is also a valid
-openapi-backend [Request object](/docs/openapi-backend/api#request-object), and returns the response:
-
-```ts
-// handlers that return { code, data }
-const client = createTestClient(api, {
-  app: {
-    async send(request) {
-      const { code, data } = await api.handleRequest(request);
-      return { status: code, body: data };
-    },
-  },
-});
-```
-
-Whenever `api.handleRequest()` runs in the same process as your tests, the client records what openapi-backend did,
-so `res.context`, `toFailValidation()` and `toBeUnauthorized()` work with custom adapters too.
+To link each request to the context openapi-backend builds for it, the client adds an `x-openapi-backend-test-id`
+header to requests it handles in the same process. Your app needs to pass the request headers to `api.handleRequest()`,
+which it does anyway, so they can be validated. The header isn't included in `res.request`.

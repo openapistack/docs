@@ -5,15 +5,12 @@ sidebar_position: 9
 
 # Testing Reference
 
-## Entry points
+Everything on this page is exported from `openapi-backend/testing`:
 
-| Import | Contents |
-| --- | --- |
-| `openapi-backend/testing` | [`createTestClient()`](#createtestclientapi-options), [`createContext()`](#createcontextapi-operationid-request), [`lambda()`](#lambdahandler-options), the error classes and types |
-| `openapi-backend/vitest` | Registers the [matchers](#matchers) and the [snapshot serializer](#snapshot-serializer) with Vitest. Import it in a [setup file](https://vitest.dev/config/setupfiles). |
-
-`openapi-backend/vitest` also adds the matchers' TypeScript types. If your editor doesn't pick them up, add
-`openapi-backend/vitest` to `compilerOptions.types` in your `tsconfig.json`.
+```ts
+import { createTestClient, lambda, RoutingError, ResponseValidationError } from 'openapi-backend/testing';
+import type { TestClient, TestRequest, TestResponse, SentRequest, TestAdapter } from 'openapi-backend/testing';
+```
 
 ## createTestClient(api, options?)
 
@@ -35,14 +32,17 @@ The client initializes `api` on its first request, if it isn't initialized yet.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `app` | `TestApp` | Where to send requests. See [Frameworks](/docs/openapi-backend/testing/frameworks). Without `app`, requests go directly to `api.handleRequest()`. |
+| `app` | `TestApp` | Where to send requests. See [Frameworks](/docs/openapi-backend/testing/frameworks). |
+| `transformResponse` | `function` | Without `app`: turns the value `api.handleRequest()` returns into a response. See [No framework](/docs/openapi-backend/testing/frameworks#no-framework). |
 | `basePath` | `string` | Path prepended to the paths of operations. Default: `api.apiRoot` |
-| `headers` | `Record<string, string>` | Headers for every request |
-| `query` | `Record<string, unknown>` | Query parameters for every request |
-| `cookies` | `Record<string, string>` | Cookies for every request |
-| `security` | `Record<string, unknown>` | [Security handler stubs](/docs/openapi-backend/testing/security#stubbing-security-handlers) for every request |
+| `headers` | `object` | Headers for every request |
+| `query` | `object` | Query parameters for every request |
+| `cookies` | `object` | Cookies for every request |
+| `security` | `object` | [Security handler stubs](/docs/openapi-backend/testing/security#stubbing-security-handlers) for every request |
 | `example` | `boolean` or `string` | Build every request from [examples](/docs/openapi-backend/testing/requests#generating-requests-from-examples) |
 | `validateResponse` | `boolean` | Check responses against the spec. Default: `true` |
+
+Either `app` or `transformResponse` is required.
 
 ## TestClient
 
@@ -51,11 +51,12 @@ The client initializes `api` on its first request, if it isn't initialized yet.
 Every operation in your API definition has a method named after its `operationId`.
 
 Builds a request for the operation, sends it, and resolves to a [TestResponse](#testresponse) for any status code.
-Before resolving, it checks that:
+Throws:
 
-- the request was routed to this operation, or it throws a [`RoutingError`](#errors)
-- the response matches the spec, unless `validateResponse` is `false`, or it throws a
-  [`ResponseValidationError`](#errors)
+- an `Error` if the operation doesn't exist, or a path parameter is missing
+- a [`RoutingError`](#routingerror) if the request is routed to another operation, or to none
+- a [`ResponseValidationError`](#responsevalidationerror) if the response doesn't match the spec, unless
+  `validateResponse` is `false`
 
 ```ts
 const res = await client.getPetById({ params: { id: 1 } });
@@ -78,13 +79,13 @@ const res = await client.call('getPetById', { params: { id: 1 } });
 
 ### client.request(request, options?)
 
-Sends a raw request, without building it from an operation. Doesn't throw a `RoutingError`. If the router matches an
-operation, the response is still checked against the spec.
+Sends a raw request, without building it from an operation. If the router matches an operation, the response is
+still checked against the spec.
 
 ```ts
 await client.request('GET /pets?limit=10');
 await client.request('POST /pets', { body: { name: 'Garfield' } });
-await client.request({ method: 'GET', path: '/pets', query: { limit: '10' } });
+await client.request({ method: 'GET', path: '/pets', query: { limit: 10 } });
 ```
 
 Parameters:
@@ -113,14 +114,14 @@ Options for a request. All are optional.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `params` | `Record<string, unknown>` | Path parameters. Filled into the path template and URL-encoded. |
-| `query` | `Record<string, unknown>` | Query parameters. Serialized with the `style` and `explode` of each parameter in the spec. |
-| `headers` | `Record<string, string>` | Request headers |
-| `cookies` | `Record<string, string>` | Cookies, sent in the `Cookie` header |
-| `body` | `unknown` | The request body. Objects are encoded as the operation's media type. Strings and Buffers are sent as is. |
-| `contentType` | `string` | The media type to send the body as. Default: the operation's first media type, preferring `application/json` |
+| `params` | `object` | Path parameters. Filled into the path template and URL-encoded. |
+| `query` | `object` | Query parameters. Serialized with the `style` and `explode` of each parameter in the spec. |
+| `headers` | `object` | Request headers. Arrays are sent as comma separated values. |
+| `cookies` | `object` | Cookies, sent in the `Cookie` header |
+| `body` | `unknown` | The request body. Objects are encoded as the operation's media type. Strings, Buffers, `URLSearchParams` and `FormData` are sent as they are. |
+| `contentType` | `string` | The media type to send the body as. Default: the operation's media type, preferring `application/json` |
 | `example` | `boolean` or `string` | `true` builds the request from the spec's examples, a string picks a named example. Other options are deep merged into it. |
-| `security` | `Record<string, unknown>` | Results to use instead of calling the security handlers, by security scheme name |
+| `security` | `object` | Results to use instead of calling the security handlers, by security scheme name |
 | `validateResponse` | `boolean` | `false` skips checking the response against the spec |
 
 Options passed to a request override defaults from `createTestClient()` and `client.with()`. `headers`, `query`,
@@ -131,12 +132,14 @@ Options passed to a request override defaults from `createTestClient()` and `cli
 | Property | Type | Description |
 | --- | --- | --- |
 | `status` | `number` | The HTTP status code |
-| `headers` | `Record<string, string>` | Response headers, with lowercase names |
-| `body` | `any` | The body. JSON is parsed. Other content is a string, or a Buffer for binary content. Typed from your spec with a typed client. |
-| `operationId` | `string` or `undefined` | The operation the router matched |
+| `headers` | `object` | Response headers, with lowercase names. Several values for one header are joined with `, `. |
+| `body` | `any` | The body. JSON is parsed. Other text is a string, binary content is a Buffer, and an empty body is `undefined`. Typed from your spec with a typed client. |
+| `operationId` | `string` or `undefined` | The operation the request was routed to |
 | `operation` | `Operation` or `undefined` | The matched [Operation object](/docs/openapi-backend/api#operation-object) |
-| `context` | `Context` or `undefined` | The [Context object](/docs/openapi-backend/api#context-object) openapi-backend built for the request. `undefined` if the request never reached `api.handleRequest()` in the same process. |
+| `context` | `Context` | The [Context object](/docs/openapi-backend/api#context-object) openapi-backend built for the request. `undefined` if the request never reached `api.handleRequest()` in the same process. |
 | `request` | `SentRequest` | The request that was sent |
+
+`operation`, `context` and `request` aren't enumerable.
 
 ### SentRequest
 
@@ -147,33 +150,9 @@ The request the client sent. It's also a valid openapi-backend [Request object](
 | `method` | `string` | The HTTP method, in uppercase |
 | `path` | `string` | The path, without the query string |
 | `url` | `string` | The path, with the query string |
-| `query` | `object` | The query parameters. Repeated parameters are arrays. |
-| `headers` | `Record<string, string>` | The request headers, with lowercase names |
+| `query` | `string` | The query string, without the `?` |
+| `headers` | `object` | The request headers, with lowercase names |
 | `body` | `string`, `Buffer` or `undefined` | The encoded body |
-
-## createContext(api, operationId, request?)
-
-Builds the [Context object](/docs/openapi-backend/api#context-object) a handler would receive for a request. See
-[Unit testing handlers](/docs/openapi-backend/testing/handlers).
-
-```ts
-import { createContext } from 'openapi-backend/testing';
-
-const c = await createContext(api, 'getPetById', { params: { id: 1 } });
-```
-
-The request is built, parsed, authorized and validated like `api.handleRequest()` does. Throws if the operation's
-handler would never receive the request: when it fails validation and you have a `validationFail` handler or use
-strict mode, or when it doesn't satisfy the security requirements and you have an `unauthorizedHandler` or use strict
-mode.
-
-Parameters:
-
-- `api`: an OpenAPIBackend instance. Initialized if it isn't yet.
-- `operationId`: the operation to create a context for
-- `request`: [`TestRequest`](#testrequest)
-
-Returns: `Promise<Context>`
 
 ## lambda(handler, options?)
 
@@ -192,8 +171,10 @@ const client = createTestClient(api, { app });
 | `event` | `'v1'` or `'v2'` | `'v1'` for API Gateway REST API events, `'v2'` for HTTP API and function URL events (payload format 2.0). Default: `'v1'` |
 | `context` | `object` | Properties of the Lambda context object passed to the handler |
 
-The response is read from the `statusCode`, `headers`, `multiValueHeaders`, `cookies` and `body` of the handler's
-result. Base64 encoded bodies are decoded.
+Handlers can return a promise or call the callback. The response is read from the `statusCode`, `headers`,
+`multiValueHeaders`, `cookies` and `body` of the result, and base64 encoded bodies are decoded. Like API Gateway, a
+result without a `content-type` header is sent as `application/json`, and with `'v2'`, a result without a
+`statusCode` is sent as a `200` JSON response.
 
 ## TestApp
 
@@ -201,122 +182,30 @@ What you can pass as the `app` option:
 
 - an Express, Koa or Fastify app, or a Hapi server
 - an `http.Server`, or a Node.js `(req, res)` request listener
-- an object with a `fetch(request: Request): Response | Promise<Response>` method
+- an object with a `fetch(request)` method that returns a `Response`
 - a URL string, to send requests to a running server
 - a `TestAdapter`: an adapter created with `lambda()`, or your own object with a `send()` method
 
 ```ts
 interface TestAdapter {
-  send(request: SentRequest): Promise<{
-    status: number;
-    headers?: Record<string, string | string[]>;
-    body?: unknown;
-  }>;
+  send(request: SentRequest): TestAdapterResponse | Response | Promise<TestAdapterResponse | Response>;
+}
+
+interface TestAdapterResponse {
+  status: number;
+  headers?: { [name: string]: string | string[] | number | undefined };
+  body?: unknown;
 }
 ```
 
-String and Buffer bodies returned by `send()` are parsed like HTTP responses. Other values are used as the body as
-they are.
-
-## Matchers
-
-| Matcher | Use on | Passes when |
-| --- | --- | --- |
-| [`toHaveStatus(status)`](#tohavestatusstatus) | a response | the response has the status |
-| [`toFailValidation(location?)`](#tofailvalidationlocation) | a response | request validation failed, and the request was rejected because of it |
-| [`toBeUnauthorized()`](#tobeunauthorized) | a response | the security requirements weren't satisfied, and the request was rejected because of it |
-| [`toMatchApiSpec()`](#tomatchapispec) | a response | the response matches the responses documented in the spec |
-| [`toRoute(request, operationId?)`](#torouterequest-operationid) | an API or a client | the request is routed to the operation |
-
-All matchers work with `.not` and [`expect.soft()`](https://vitest.dev/api/expect#soft).
-
-### toHaveStatus(status)
-
-```ts
-expect(res).toHaveStatus(201);
-expect(res).toHaveStatus('2XX');
-```
-
-`status` is a status code, or a range like `'2XX'`, as in OpenAPI response keys. When it fails, the message shows the
-request, the response, and the validation and security results.
-
-### toFailValidation(location?)
-
-```ts
-expect(res).toFailValidation();
-expect(res).toFailValidation('body.name');
-expect(res).toFailValidation({ at: 'body.name', keyword: 'maxLength' });
-```
-
-`location` is a [location](/docs/openapi-backend/testing/validation#error-locations) in the request, or an object:
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `at` | `string` | Matches errors at this location, or anywhere inside it |
-| `keyword` | `string` | Matches errors for this JSON Schema keyword, like `required` or `minLength`, or `parse` for malformed JSON |
-| `message` | `string` or `RegExp` | Matches errors with this message |
-
-Passes when the request failed validation with a matching error, and was rejected: your `validationFail` handler
-responded, or strict mode rejected it. Fails if the operation handler ran.
-
-`.not.toFailValidation()` passes when the request was validated and passed. It fails if the request was never
-validated, like when it was rejected as unauthorized first, so it can't pass by accident.
-
-### toBeUnauthorized()
-
-```ts
-expect(res).toBeUnauthorized();
-```
-
-Passes when the request didn't satisfy the operation's security requirements, and was rejected: your
-`unauthorizedHandler` responded, or strict mode rejected it. Fails if the operation handler ran.
-
-### toMatchApiSpec()
-
-```ts
-expect(res).toMatchApiSpec();
-```
-
-Passes when the status code, `content-type`, body and headers of the response match the responses documented for the
-operation. The same check runs automatically for every response, unless you set `validateResponse: false`. See
-[Contract testing](/docs/openapi-backend/testing/contract).
-
-### toRoute(request, operationId?)
-
-```ts
-expect(api).toRoute('GET /pets/1', 'getPetById');
-expect(api).not.toRoute('GET /cats');
-```
-
-Passes when the router matches `request` to the operation. Without `operationId`, passes when any operation matches.
-Only runs the router: no handlers are called. `api` must be initialized.
-
-`request` is a string with the method, path and an optional query string, or a
-[Request object](/docs/openapi-backend/api#request-object).
-
-## Snapshot serializer
-
-`openapi-backend/vitest` registers a snapshot serializer for responses. Snapshots show the status line, the
-`content-type`, any response headers documented in the spec, and the body:
-
-```
-HTTP/1.1 201 Created
-content-type: application/json; charset=utf-8
-
-{
-  "id": 3,
-  "name": "Garfield",
-  "type": "cat"
-}
-```
+String and Buffer bodies are parsed according to the `content-type` header. Other values are used as the body as they
+are. `transformResponse` returns the same.
 
 ## Errors
 
-The client throws these errors instead of resolving. Both are exported from `openapi-backend/testing`.
-
 ### RoutingError
 
-The request built for an operation was routed to another operation, or to none. See
+Thrown by operation methods when the request built for an operation is routed to another operation, or to none. See
 [Operation methods check routing too](/docs/openapi-backend/testing/routing#operation-methods-check-routing-too).
 
 | Property | Description |
@@ -327,9 +216,9 @@ The request built for an operation was routed to another operation, or to none. 
 
 ### ResponseValidationError
 
-The response doesn't match the spec. See [Contract testing](/docs/openapi-backend/testing/contract).
+Thrown when a response doesn't match the spec. See [Contract testing](/docs/openapi-backend/testing/contract).
 
 | Property | Description |
 | --- | --- |
 | `response` | The [TestResponse](#testresponse) |
-| `errors` | What didn't match, each with a `location` like `body.name` and a `message` |
+| `errors` | What didn't match, each with a `location`, like `status`, `headers.content-type` or `body.name`, and a `message` |

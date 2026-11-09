@@ -11,7 +11,8 @@ valid requests aren't.
 
 ## Invalid requests
 
-`toFailValidation()` checks that a request was rejected by request validation, and where the error was:
+Send a request that breaks a rule in your spec, and check that it was rejected. `res.context.validation` has the
+result of request validation:
 
 ```ts title="test/createPet.test.ts"
 import { describe, test, expect } from 'vitest';
@@ -23,21 +24,20 @@ describe('createPet', () => {
   test('requires a name', async () => {
     const res = await alice.createPet({ body: { type: 'cat' } });
 
-    expect(res).toFailValidation('body.name');
-  });
-
-  test('rejects names longer than 64 characters', async () => {
-    const name = 'G'.repeat(65);
-    const res = await alice.createPet({ body: { name, type: 'cat' } });
-
-    expect(res).toFailValidation('body.name');
+    expect(res.status).toBe(400);
+    expect(res.context.validation.errors).toContainEqual(
+      expect.objectContaining({ keyword: 'required', params: { missingProperty: 'name' } }),
+    );
   });
 
   test('only accepts cats and dogs', async () => {
     const nemo = { name: 'Nemo', type: 'fish' };
     const res = await alice.createPet({ body: nemo });
 
-    expect(res).toFailValidation('body.type');
+    expect(res.status).toBe(400);
+    expect(res.context.validation.errors).toContainEqual(
+      expect.objectContaining({ instancePath: '/requestBody/type', keyword: 'enum' }),
+    );
   });
 
   test('rejects unknown properties', async () => {
@@ -45,7 +45,8 @@ describe('createPet', () => {
       body: { name: 'Garfield', type: 'cat', age: 5 },
     });
 
-    expect(res).toFailValidation('body.age');
+    expect(res.status).toBe(400);
+    expect(res.context.validation.valid).toBe(false);
   });
 });
 ```
@@ -54,65 +55,41 @@ describe('createPet', () => {
 these requests are sent [as alice](/docs/openapi-backend/testing/security#stubbing-security-handlers): an anonymous
 request would be rejected as unauthorized before validation even runs.
 
-### Error locations
+### Reading validation errors
 
-Locations are written the same way you wrote the request:
+`res.context.validation` is a [ValidationResult object](/docs/openapi-backend/api#validationresult-object): `valid`
+tells whether the request passed, and `errors` is a list of [Ajv errors](https://ajv.js.org/api.html#validation-errors).
+Their `instancePath` points into the request:
 
-| Location | Points to |
+| `instancePath` | Points to |
 | --- | --- |
-| `params.id` | the path parameter `id` |
-| `query.limit` | the query parameter `limit` |
-| `headers.x-api-key` | the header `x-api-key` |
-| `cookies.session` | the cookie `session` |
-| `body` | the request body as a whole, like when it's missing or isn't valid JSON |
-| `body.owner.name` | a property in the body |
-| `body.tags[0]` | an item in an array |
+| `/path/id` | the path parameter `id` |
+| `/query/limit` | the query parameter `limit` |
+| `/header/x-api-key` | the header `x-api-key` |
+| `/cookie/session` | the cookie `session` |
+| `/requestBody/owner/name` | a property in the body |
+| `/requestBody/tags/0` | an item in an array |
 
-A location matches errors at that location and anywhere inside it, so `toFailValidation('body')` passes for any error
-in the body. Without a location, `toFailValidation()` passes for any validation error.
-
-Missing and unknown properties are reported at the property itself. A body without a `name` fails at `body.name`,
-not at `body`.
-
-### Checking the error
-
-To be more specific, pass an object with the `keyword` or `message` you expect:
-
-```ts
-expect(res).toFailValidation({ at: 'body.name', keyword: 'maxLength' });
-expect(res).toFailValidation({ at: 'query.limit', message: 'must be <= 100' });
-```
-
-Keywords are the JSON Schema keywords reported by [Ajv](https://ajv.js.org), like `required`, `type`, `enum`,
-`minLength` or `additionalProperties`, and `parse` for malformed JSON.
-
-When a request has several problems, assert each one:
-
-```ts
-const res = await alice.createPet({ body: {} });
-
-expect(res).toFailValidation('body.name');
-expect(res).toFailValidation('body.type');
-```
-
-All the errors are in `res.context.validation.errors`.
+Missing properties are reported at the object they're missing from, with the property in `params.missingProperty`.
+Ajv stops at the first error unless you set `allErrors` in [`ajvOpts`](/docs/openapi-backend/api#parameter-optsajvopts).
 
 ## Valid requests
 
-`.not.toFailValidation()` passes when a request was validated and passed, whatever your handler did with it
+`res.context.validation.valid` tells whether a request passed validation, whatever your handler did with it
 afterwards. That lets you test what your spec accepts without setting up data for your handlers:
 
 ```ts
 test.each([1, 50, 100])('accepts limit=%i', async (limit) => {
   const res = await client.getPets({ query: { limit } });
 
-  expect(res).not.toFailValidation();
+  expect(res.context.validation.valid).toBe(true);
 });
 
 test.each([0, 101])('rejects limit=%i', async (limit) => {
   const res = await client.getPets({ query: { limit } });
 
-  expect(res).toFailValidation('query.limit');
+  expect(res.status).toBe(400);
+  expect(res.context.validation.valid).toBe(false);
 });
 ```
 
@@ -126,7 +103,10 @@ the examples in your spec, and you only write the part that matters:
 test('rejects an empty name', async () => {
   const res = await alice.createPet({ example: true, body: { name: '' } });
 
-  expect(res).toFailValidation('body.name');
+  expect(res.status).toBe(400);
+  expect(res.context.validation.errors).toContainEqual(
+    expect.objectContaining({ instancePath: '/requestBody/name', keyword: 'minLength' }),
+  );
 });
 ```
 
@@ -145,7 +125,10 @@ test.each(required)('createPet requires %s', async (property) => {
   const body = { [property]: undefined };
   const res = await alice.createPet({ example: true, body });
 
-  expect(res).toFailValidation(`body.${property}`);
+  expect(res.status).toBe(400);
+  expect(res.context.validation.errors).toContainEqual(
+    expect.objectContaining({ params: { missingProperty: property } }),
+  );
 });
 ```
 
@@ -161,19 +144,18 @@ test('rejects malformed JSON', async () => {
     body: '{ "name": "Garfield", ',
   });
 
-  expect(res).toHaveStatus(400);
+  expect(res.status).toBe(400);
 });
 ```
 
 Whether openapi-backend ever sees a malformed body depends on your app. In the example Express app, `express.json()`
-rejects it before the request reaches `api.handleRequest()`, so this test checks your app's own error handling. When
-your app passes the raw body to openapi-backend, like a Lambda handler does, the request fails validation instead:
+rejects it before the request reaches `api.handleRequest()`, so this test checks your app's own error handling, and
+`res.context` is `undefined`. When your app passes the raw body to openapi-backend, like a Lambda handler does, the
+request fails validation with a `parse` error instead:
 
 ```ts
-expect(res).toFailValidation({ at: 'body', keyword: 'parse' });
+expect(res.context.validation.errors).toContainEqual(expect.objectContaining({ keyword: 'parse' }));
 ```
-
-If a request never reached openapi-backend, `toFailValidation()` fails and tells you so.
 
 ## Formats and Ajv options
 
@@ -181,30 +163,12 @@ Tests use your own `api` instance, so custom formats from [`customizeAjv`](/docs
 [`ajvOpts`](/docs/openapi-backend/api#parameter-optsajvopts) and
 [`coerceTypes`](/docs/openapi-backend/api#parameter-optscoercetypes) apply in tests exactly as they do in production.
 
-## What toFailValidation() checks
+## Check the status, too
 
-`toFailValidation()` only passes when both of these are true:
-
-1. the request failed openapi-backend's request validation, at the location you gave
-1. the request was rejected because of it: your `validationFail` handler responded, or
-   [strict mode](/docs/openapi-backend/api#parameter-optsstrict) rejected the request. Your operation handler never ran.
-
-The second part matters. Without a `validationFail` handler or `strict: true`, requests that fail validation still
-reach your operation handlers. `toFailValidation()` catches that:
-
-```
-AssertionError: expected createPet to reject the request
-
-  The request failed validation:
-    body.name  must NOT have fewer than 1 characters
-
-  But the createPet handler ran anyway, and responded with 201.
-  Requests that fail validation reach your handlers unless you register a
-  validationFail handler or set strict: true. See
-  https://openapistack.co/docs/openapi-backend/security
-```
-
-See [Security Best Practices](/docs/openapi-backend/security#enforce-request-validation).
+Without a `validationFail` handler or [`strict: true`](/docs/openapi-backend/api#parameter-optsstrict), requests
+that fail validation still reach your operation handlers. `res.context.validation.valid` is `false` either way, so
+assert on `res.status` as well: a test like the ones above fails if an invalid request gets a `201`. See
+[Security Best Practices](/docs/openapi-backend/security#enforce-request-validation).
 
 ## Response validation
 

@@ -14,12 +14,12 @@ Before an operation method resolves, the client checks the response against the 
 operation:
 
 - the status code is documented, either exactly, as a range like `4XX`, or with a `default` response
-- the `content-type` is one of the media types documented for that status
-- the body matches the documented schema
+- the `content-type` is one of the media types documented for that status, and the body isn't missing
+- JSON bodies are valid JSON, and match the documented schema
 - the required response headers are there, and documented headers match their schemas
 
-If anything doesn't match, the call throws and the test fails right where the request was sent, even if the test
-never looks at the body:
+If anything doesn't match, the call throws a `ResponseValidationError`, and the test fails right where the request was
+sent, even if the test never looks at the body:
 
 ```
 ResponseValidationError: getPetById's 200 response doesn't match the API spec
@@ -42,29 +42,46 @@ Status codes your spec doesn't document fail too, which catches unhandled errors
 ```
 ResponseValidationError: getPetById responded with an undocumented 500
 
+  GET /pets/1  →  getPetById
+  500 Internal Server Error
+  {
+    "message": "Cannot read properties of undefined (reading 'name')"
+  }
+
   The API spec documents 200, 400 and 404.
 ```
 
 Responses to requests that didn't match any operation aren't checked, since there's nothing to check them against.
 
-## Checking responses yourself
+The checks use the same [Ajv](https://ajv.js.org) options and custom formats as your API's request validation, and
+report every problem with a response, not just the first one.
 
-Set `validateResponse: false` to skip the automatic check, for one request, for a client created with
-[`client.with()`](/docs/openapi-backend/testing/requests#default-request-options), or for all requests in
-`createTestClient()`. Then check responses with `toMatchApiSpec()` where you want to:
+## Turning it off
+
+Set `validateResponse: false` to skip the check for one request, for a client created with
+[`client.with()`](/docs/openapi-backend/testing/requests#default-request-options), or for every request:
 
 ```ts
+// one request
+await client.getPets({ validateResponse: false });
+
+// every request sent with this client
 const legacy = client.with({ validateResponse: false });
 
-test('getPets matches the spec', async () => {
-  const res = await legacy.getPets();
-
-  expect(res).toMatchApiSpec();
-});
+// every request
+createTestClient(api, { app, validateResponse: false });
 ```
 
-This is useful while you bring an existing API in line with its spec. `toMatchApiSpec()` runs the same checks and
-fails with the same message.
+This is useful while you bring an existing API in line with its spec.
+
+`ResponseValidationError` is exported from `openapi-backend/testing`. Its `errors` property lists what didn't match,
+each with a `location` like `body.name` and a `message`, and `response` is the response that didn't match:
+
+```ts
+import { ResponseValidationError } from 'openapi-backend/testing';
+
+await expect(client.getLegacyReport()).rejects.toThrow(ResponseValidationError);
+```
 
 ## Testing your examples
 
@@ -82,7 +99,7 @@ const operationIds = api
 test.each(operationIds)('%s accepts its example', async (operationId) => {
   const res = await admin.call(operationId, { example: true });
 
-  expect(res).not.toFailValidation();
+  expect(res.context.validation.valid).toBe(true);
   expect(res.status).toBeLessThan(500);
 });
 ```
@@ -103,7 +120,7 @@ const examples = api.getOperations().flatMap((operation) => {
 test.each(examples)('%s accepts example %s', async (operationId, name) => {
   const res = await admin.call(operationId, { example: name });
 
-  expect(res).not.toFailValidation();
+  expect(res.context.validation.valid).toBe(true);
 });
 ```
 

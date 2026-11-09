@@ -12,8 +12,7 @@ Security tests make sure protected operations stay protected.
 
 ## Anonymous requests
 
-`toBeUnauthorized()` checks that a request was rejected because it didn't satisfy the operation's security
-requirements:
+Send a request without credentials, and check that it was rejected:
 
 ```ts
 import { test, expect } from 'vitest';
@@ -22,7 +21,8 @@ import { client } from './client';
 test('creating pets requires authentication', async () => {
   const res = await client.createPet({ example: true });
 
-  expect(res).toBeUnauthorized();
+  expect(res.status).toBe(401);
+  expect(res.context.security.authorized).toBe(false);
 });
 ```
 
@@ -47,7 +47,7 @@ const operationIds = api
 test.each(operationIds)('%s requires authentication', async (operationId) => {
   const res = await client.call(operationId, { example: true });
 
-  expect(res).toBeUnauthorized();
+  expect(res.status).toBe(401);
 });
 ```
 
@@ -57,7 +57,7 @@ operation. Operations you add later are tested automatically.
 :::note
 
 Test tables built from `api.getOperations()` need the API to be initialized when the test file loads. The shared
-[test client module](/docs/openapi-backend/testing#2-create-a-test-client) does that with a top-level `await api.init()`.
+[test client module](/docs/openapi-backend/testing#1-create-a-test-client) does that with a top-level `await api.init()`.
 
 :::
 
@@ -75,7 +75,7 @@ const alice = client.with({ headers: { authorization: `Bearer ${token}` } });
 test('alice can create pets', async () => {
   const res = await alice.createPet({ example: true });
 
-  expect(res).toHaveStatus(201);
+  expect(res.status).toBe(201);
 });
 
 test('rejects expired tokens', async () => {
@@ -85,7 +85,7 @@ test('rejects expired tokens', async () => {
     headers: { authorization: `Bearer ${expired}` },
   });
 
-  expect(res).toBeUnauthorized();
+  expect(res.status).toBe(401);
 });
 ```
 
@@ -99,8 +99,8 @@ const user = client.with({ security: { jwt: { role: 'user' } } });
 const admin = client.with({ security: { jwt: { role: 'admin' } } });
 
 test('only admins can delete pets', async () => {
-  expect(await user.deletePetById({ params: { id: 1 } })).toHaveStatus(403);
-  expect(await admin.deletePetById({ params: { id: 1 } })).toHaveStatus(204);
+  expect((await user.deletePetById({ params: { id: 1 } })).status).toBe(403);
+  expect((await admin.deletePetById({ params: { id: 1 } })).status).toBe(204);
 });
 ```
 
@@ -132,32 +132,14 @@ expect(res.context.security.authorized).toBe(true);
 expect(res.context.security.jwt).toMatchObject({ sub: 'alice' });
 ```
 
-## What toBeUnauthorized() checks
-
-`toBeUnauthorized()` only passes when both of these are true:
-
-1. the request didn't satisfy the operation's security requirements
-1. the request was rejected because of it: your `unauthorizedHandler` responded, or
-   [strict mode](/docs/openapi-backend/api#parameter-optsstrict) rejected the request. Your operation handler never ran.
+## Check the status, too
 
 Security handlers don't reject requests on their own. Without an `unauthorizedHandler` or `strict: true`, the
-operation handler still runs for unauthorized requests. `toBeUnauthorized()` catches that:
+operation handler still runs for unauthorized requests, and `res.context.security.authorized` is `false` either way.
+Assert on `res.status`, like the tests above do, and a protected operation that lets anonymous requests through fails
+the test. See [Security Best Practices](/docs/openapi-backend/security#enforce-security-requirements).
 
-```
-AssertionError: expected deletePetById to reject the request
-
-  The request did not satisfy the security requirements of deletePetById:
-    jwt  no security handler is registered for this scheme
-
-  But the deletePetById handler ran anyway, and responded with 204.
-  Requests that fail security requirements reach your handlers unless you
-  register an unauthorizedHandler or set strict: true. See
-  https://openapistack.co/docs/openapi-backend/security
-```
-
-Together with the [protected operations](#every-protected-operation) test, this covers most of
-[Security Best Practices](/docs/openapi-backend/security). For the rest, use
-[openapi-backend-codeql](/docs/openapi-backend/security#static-analysis-with-codeql).
+For the rest of the best practices, use [openapi-backend-codeql](/docs/openapi-backend/security#static-analysis-with-codeql).
 
 ## Signed-in users with Vitest fixtures
 
@@ -187,6 +169,6 @@ import { test } from './fixtures';
 test('users can create pets', async ({ user }) => {
   const res = await user.createPet({ example: true });
 
-  expect(res).toHaveStatus(201);
+  expect(res.status).toBe(201);
 });
 ```

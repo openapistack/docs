@@ -74,10 +74,11 @@ See [ajv-formats documentation](https://ajv.js.org/packages/ajv-formats.html) fo
 
 ## Testing request validation
 
-Use [`toFailValidation()`](/docs/openapi-backend/testing/validation) to test that invalid requests are rejected:
+Use the [test client](/docs/openapi-backend/testing/validation) to test that invalid requests are rejected:
 
 ```ts
 const res = await client.createPet({ body: { type: "cat" } });
 
-expect(res).toFailValidation("body.name");
+expect(res.status).toBe(400);
+expect(res.context.validation.valid).toBe(false);
 ```

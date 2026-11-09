@@ -14,12 +14,12 @@ import { client } from './client';
 test('lists pets', async () => {
   const res = await client.getPets({ query: { limit: 10 } });
 
-  expect(res).toHaveStatus(200);
+  expect(res.status).toBe(200);
   expect(res.body).toHaveLength(10);
 });
 ```
 
-See [Testing](/docs/openapi-backend/testing#2-create-a-test-client) for how to create the client.
+See [Testing](/docs/openapi-backend/testing#1-create-a-test-client) for how to create the client.
 
 ## Calling operations
 
@@ -55,7 +55,8 @@ The client builds the HTTP request from the operation in your spec, the same way
 - query parameters are serialized with the `style` and `explode` defined for each parameter, so an array declared with
   `explode: false` is sent as `tags=cat,dog`
 - the body is encoded as the operation's media type, preferring `application/json`, and `content-type` is set for you.
-  Strings and Buffers are sent as is.
+  Form bodies are encoded as `application/x-www-form-urlencoded` or `multipart/form-data`. Strings and Buffers are sent
+  as they are.
 
 `res.request` shows what was actually sent:
 
@@ -66,6 +67,16 @@ expect(res.request.method).toBe('GET');
 expect(res.request.url).toBe('/pets?limit=10');
 ```
 
+Calling an operation that doesn't exist, or leaving out a path parameter, throws:
+
+```
+Error: Unknown operationId "getPetByID". Did you mean "getPetById"?
+```
+
+```
+Error: Missing path parameter "id" for getPetById (GET /pets/{id})
+```
+
 ## The response
 
 Operation methods resolve to a response object:
@@ -73,12 +84,12 @@ Operation methods resolve to a response object:
 | Property | Description |
 | --- | --- |
 | `status` | The HTTP status code. |
-| `headers` | The response headers, with lowercase names. |
-| `body` | The response body. JSON is parsed. Other content is a string, or a Buffer for binary content. |
-| `operationId` | The `operationId` of the operation the router matched. `undefined` when no operation matched. |
+| `headers` | The response headers, with lowercase names. Several values for the same header are joined with `, `. |
+| `body` | The response body. JSON is parsed. Other text is a string, binary content is a Buffer, and an empty body is `undefined`. |
+| `operationId` | The `operationId` of the operation the request was routed to. `undefined` when no operation matched. |
 | `operation` | The matched [Operation object](/docs/openapi-backend/api#operation-object). |
-| `context` | The [Context object](/docs/openapi-backend/api#context-object) openapi-backend built for the request, with the parsed request, validation result and security handler results. `undefined` when the request never reached `api.handleRequest()`. |
-| `request` | The request the client sent: `method`, `url`, `headers` and `body`. |
+| `context` | The [Context object](/docs/openapi-backend/api#context-object) openapi-backend built for the request: the parsed request, the request validation result and the security handler results. `undefined` when the request never reached `api.handleRequest()`. |
+| `request` | The request the client sent: `method`, `path`, `url`, `query`, `headers` and `body`. |
 
 The client resolves for every status code. A `404` is a response to assert on, not an error:
 
@@ -86,7 +97,7 @@ The client resolves for every status code. A `404` is a response to assert on, n
 test('returns 404 for unknown pets', async () => {
   const res = await client.getPetById({ params: { id: 999 } });
 
-  expect(res).toHaveStatus(404);
+  expect(res.status).toBe(404);
   expect(res.body.message).toBe('Pet not found');
 });
 ```
@@ -99,6 +110,9 @@ const res = await client.getPets({ query: { limit: 10 } });
 
 expect(res.context.request.query).toEqual({ limit: 10 });
 ```
+
+`operation`, `context` and `request` aren't enumerable, so they stay out of the way in `toEqual()` and
+`toMatchObject()` diffs.
 
 :::note
 
@@ -120,8 +134,8 @@ const aliceAtAcme = alice.with({ headers: { 'x-tenant': 'acme' } });
 await aliceAtAcme.getPets(); // sends both headers
 ```
 
-Options are merged, and options passed to a single request win. The original client doesn't change, so it's safe to
-share one client between tests.
+Options are merged, and options passed to a single request win. Set an option to `undefined` to remove it. The
+original client doesn't change, so it's safe to share one client between tests.
 
 You can also pass defaults straight to `createTestClient()`:
 
@@ -145,11 +159,12 @@ const res = await alice.createPet({ example: true });
 Values come from the first place that has one:
 
 1. the `example` or `examples` of the parameter or request body
-1. the `example` or `default` of its schema
-1. a value generated from the schema with [mock-json-schema](/docs/utilities/mock-json-schema)
+1. the `example` or `examples` of its schema
+1. a value generated from the schema with [mock-json-schema](/docs/utilities/mock-json-schema), which uses `default`
+   and `enum` values when your schema has them
 
-When there are several examples, the first one is used. Required parameters and the request body are always filled
-in. Optional parameters are only included if your spec has an example for them.
+When there are several examples, the first one is used. Path parameters, required parameters and the request body are
+always filled in. Optional parameters are only included if your spec has an example for them.
 
 Pick a named example with its name:
 
@@ -158,27 +173,35 @@ await alice.createPet({ example: 'odie' });
 // { "name": "Odie", "type": "dog" }
 ```
 
-Anything else you pass is deep merged into the example. Set a property to `undefined` to leave it out. This makes
-"a valid request, except for one thing" tests short and readable:
+Anything else you pass is deep merged into the example. Set a property to `undefined` to leave it out. Arrays replace
+the example's arrays. This makes "a valid request, except for one thing" tests short and readable:
 
 ```ts
 test('rejects an empty name', async () => {
   const res = await alice.createPet({ example: true, body: { name: '' } });
 
-  expect(res).toFailValidation('body.name');
+  expect(res.status).toBe(400);
 });
 
 test('requires a type', async () => {
   const body = { type: undefined };
   const res = await alice.createPet({ example: true, body });
 
-  expect(res).toFailValidation('body.type');
+  expect(res.status).toBe(400);
 });
 ```
 
 The generated request is checked against your API's own validation before your overrides are applied. If it doesn't
-pass, for example because a schema has a `pattern` the generator can't satisfy, the client throws and tells you which
-schema needs an example.
+pass, for example because a schema has a `pattern` the generator can't satisfy, the client throws and tells you what
+needs an example:
+
+```
+Error: The example request for createCode doesn't pass validation:
+
+  body.code  must match pattern "^[A-Z]{3}$"
+
+Add an example for it to your API definition, or pass the values yourself.
+```
 
 :::tip
 
@@ -213,38 +236,12 @@ against your spec if the router matched an operation.
 test.each(['getPets', 'getPetsMeta'])('%s is public', async (operationId) => {
   const res = await client.call(operationId);
 
-  expect(res).toHaveStatus(200);
+  expect(res.status).toBe(200);
 });
 ```
 
 It's also how you call an operation whose `operationId` clashes with one of the client's own methods: `call`,
 `request`, `with` or `api`.
-
-## Snapshots
-
-Responses have a snapshot format that reads like HTTP:
-
-```ts
-test('creates a pet', async () => {
-  const res = await alice.createPet({ example: 'garfield' });
-
-  expect(res).toMatchInlineSnapshot(`
-    HTTP/1.1 201 Created
-    content-type: application/json; charset=utf-8
-
-    {
-      "id": 3,
-      "name": "Garfield",
-      "type": "cat"
-    }
-  `);
-});
-```
-
-Snapshots include the status, the `content-type`, the response headers documented in your spec, and the body. Other
-headers, like `date` or `etag`, change between runs and are left out.
-
-`console.log(res)` prints a response in the same format.
 
 ## TypeScript
 
@@ -270,19 +267,15 @@ await client.getPetByID({ params: { id: 1 } });
 await client.createPet({ body: { name: 'Garfield' } });
 ```
 
+With `example`, request bodies and parameters only need the parts you want to change.
+
 To send an invalid request on purpose, mark it with `@ts-expect-error`, which also documents your intent:
 
 ```ts
 // @ts-expect-error: id must be a number
 const res = await client.getPetById({ params: { id: 'garfield' } });
 
-expect(res).toFailValidation('params.id');
+expect(res.status).toBe(400);
 ```
 
 Or use [`client.request()`](#raw-requests), which isn't typed by operation.
-
-Without types, calling an unknown operation throws:
-
-```
-Error: Unknown operationId "getPetByID". Did you mean "getPetById"?
-```
