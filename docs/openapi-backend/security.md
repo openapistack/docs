@@ -12,6 +12,9 @@ records the result on the [Context object](/docs/openapi-backend/api#context-obj
 This page covers the most common ways openapi-backend gets set up insecurely, and how to fix each one. The full
 contract is in the openapi-backend [threat model](https://github.com/openapistack/openapi-backend/blob/main/docs/threat-model.md).
 
+openapi-stack took part in the [GitHub Secure Open Source Fund](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/).
+The threat model, the CodeQL packs and much of this page came out of it.
+
 :::tip
 
 Use [openapi-backend-codeql](#static-analysis-with-codeql) to find these problems in your code automatically.

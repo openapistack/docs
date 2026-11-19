@@ -6,11 +6,13 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import { LogoStrip } from '@site/src/components/LogoStrip';
 import { Contributors } from '@site/src/components/Contributors';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiShield } from 'react-icons/fi';
 
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
 import { Sandbox } from '../components/Sandbox/Sandbox';
+
+const SECURE_FUND_URL = 'https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/';
 
 function HomepageHeader() {
   return (
@@ -35,6 +37,16 @@ function HomepageHeader() {
               to="/docs/examples"
             >
               Examples
+            </Link>
+          </div>
+
+          <div className="mt-4 -mx-12 sm:mx-0">
+            <Link
+              to={SECURE_FUND_URL}
+              className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-xs sm:text-sm whitespace-nowrap font-medium text-white hover:bg-white/20 hover:text-white hover:no-underline"
+            >
+              <FiShield className={styles.badgeIcon} size={16} strokeWidth={2} />
+              GitHub Secure Open Source Fund alumni
             </Link>
           </div>
         </div>

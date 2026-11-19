@@ -24,4 +24,13 @@
     width: 15px;
     height: 15px;
   }
+
+  .heroBanner .badgeIcon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.badgeIcon {
+  flex-shrink: 0;
 }
