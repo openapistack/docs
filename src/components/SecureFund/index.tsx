@@ -22,7 +22,7 @@ const Logo = ({ className }: { className?: string }): JSX.Element => (
 
 /** Homepage section */
 export const SecureFund = (): JSX.Element => (
-  <section className="bg-white dark:bg-zinc-950 border-t border-zinc-200/70 dark:border-zinc-800/70 py-16">
+  <section className="bg-white dark:bg-zinc-950 py-16">
     <div className="container max-w-5xl mx-auto px-4">
       <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
         <Link to={SECURE_FUND_URL} className="shrink-0 hover:no-underline">
@@ -30,7 +30,10 @@ export const SecureFund = (): JSX.Element => (
         </Link>
 
         <div className="text-center md:text-left">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 mb-2">
+          <p className="flex items-center justify-center md:justify-start gap-3 text-xs font-mono uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 mb-2">
+            <span className="rounded-full bg-green-600 px-2.5 py-0.5 font-sans text-[11px] font-semibold tracking-wider text-white">
+              New
+            </span>
             Security
           </p>
           <h2 className="text-2xl md:text-3xl font-semibold text-zinc-900 dark:text-zinc-100 mt-0 mb-3">

@@ -6,12 +6,12 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import { LogoStrip } from '@site/src/components/LogoStrip';
 import { Contributors } from '@site/src/components/Contributors';
-import { FiArrowRight, FiShield } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
 import { Sandbox } from '../components/Sandbox/Sandbox';
-import { SecureFund, BLOG_POST_URL } from '@site/src/components/SecureFund';
+import { SecureFund } from '@site/src/components/SecureFund';
 
 
 function HomepageHeader() {
@@ -39,16 +39,6 @@ function HomepageHeader() {
               Examples
             </Link>
           </div>
-
-          <div className="mt-4 -mx-12 sm:mx-0">
-            <Link
-              to={BLOG_POST_URL}
-              className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-xs sm:text-sm whitespace-nowrap font-medium text-white hover:bg-white/20 hover:text-white hover:no-underline"
-            >
-              <FiShield className={styles.badgeIcon} size={16} strokeWidth={2} />
-              GitHub Secure Open Source Fund alumni
-            </Link>
-          </div>
         </div>
       </div>
     </header>
@@ -66,6 +56,8 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
 
       <main>
+        <SecureFund />
+
         <LogoStrip />
 
         <HomepageFeatures />
@@ -73,8 +65,6 @@ export default function Home(): JSX.Element {
         <Sandbox />
 
         <Contributors />
-
-        <SecureFund />
       </main>
     </Layout>
   );
