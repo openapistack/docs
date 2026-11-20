@@ -70,11 +70,11 @@ export default function Home(): JSX.Element {
 
         <HomepageFeatures />
 
-        <SecureFund />
-
         <Sandbox />
 
         <Contributors />
+
+        <SecureFund />
       </main>
     </Layout>
   );
