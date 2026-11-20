@@ -5,7 +5,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export const SECURE_FUND_URL =
   'https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/';
-const BLOG_POST_URL = 'https://viljami.io/feed/openapi-stack-joins-the-github-secure-open-source-fund/';
+export const BLOG_POST_URL = 'https://viljami.io/feed/openapi-stack-joins-the-github-secure-open-source-fund/';
 const THREAT_MODEL_URL = 'https://github.com/openapistack/openapi-backend/blob/main/docs/threat-model.md';
 const CODEQL_URL = 'https://github.com/openapistack/openapi-backend-codeql';
 
