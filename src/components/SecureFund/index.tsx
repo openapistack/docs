@@ -21,7 +21,7 @@ const Logo = ({ className }: { className?: string }): JSX.Element => (
 
 /** Homepage section */
 export const SecureFund = (): JSX.Element => (
-  <section className="bg-white dark:bg-zinc-950 border-b border-zinc-200/70 dark:border-zinc-800/70 py-16">
+  <section className="bg-white dark:bg-zinc-950 border-t border-zinc-200/70 dark:border-zinc-800/70 py-16">
     <div className="container max-w-5xl mx-auto px-4">
       <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
         <Link to={SECURE_FUND_URL} className="shrink-0 hover:no-underline">
