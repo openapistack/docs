@@ -11,8 +11,8 @@ import { FiArrowRight, FiShield } from 'react-icons/fi';
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
 import { Sandbox } from '../components/Sandbox/Sandbox';
+import { SecureFund, SECURE_FUND_URL } from '@site/src/components/SecureFund';
 
-const SECURE_FUND_URL = 'https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/';
 
 function HomepageHeader() {
   return (
@@ -69,6 +69,8 @@ export default function Home(): JSX.Element {
         <LogoStrip />
 
         <HomepageFeatures />
+
+        <SecureFund />
 
         <Sandbox />
 
