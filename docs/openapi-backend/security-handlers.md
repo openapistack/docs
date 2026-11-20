@@ -2,6 +2,8 @@
 sidebar_position: 8
 ---
 
+import { SecureFundBadge } from '@site/src/components/SecureFund';
+
 # Auth with Security Handlers
 
 :::tip
@@ -90,3 +92,5 @@ success, unless the return value is an object containing an `error` property.
 All falsy return values are interpreted as auth fail.
 
 Throwing an error from the security handler also gets interpreted as auth fail. The error is available in `context.security[name].error`.
+
+<SecureFundBadge />
