@@ -5,6 +5,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export const SECURE_FUND_URL =
   'https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/';
+const BLOG_POST_URL = 'https://viljami.io/feed/openapi-stack-joins-the-github-secure-open-source-fund/';
 const THREAT_MODEL_URL = 'https://github.com/openapistack/openapi-backend/blob/main/docs/threat-model.md';
 const CODEQL_URL = 'https://github.com/openapistack/openapi-backend-codeql';
 
@@ -42,10 +43,17 @@ export const SecureFund = (): JSX.Element => (
           </p>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 text-sm font-medium">
             <Link
-              to="/docs/openapi-backend/security"
+              to={BLOG_POST_URL}
               className="inline-flex items-center gap-1 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100"
             >
-              Security best practices <FiArrowRight size={16} strokeWidth={2} />
+              Read the blog post <FiArrowRight size={16} strokeWidth={2} />
+            </Link>
+            <span className="hidden sm:inline text-zinc-300 dark:text-zinc-700">·</span>
+            <Link
+              to="/docs/openapi-backend/security"
+              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100"
+            >
+              Security best practices
             </Link>
             <span className="hidden sm:inline text-zinc-300 dark:text-zinc-700">·</span>
             <Link
@@ -70,7 +78,7 @@ export const SecureFundBadge = (): JSX.Element => (
     <p className="m-0 text-sm text-zinc-600 text-center sm:text-left">
       openapi-stack is an alumni of the <Link to={SECURE_FUND_URL}>GitHub Secure Open Source Fund</Link>. The{' '}
       <Link to={THREAT_MODEL_URL}>threat model</Link>, the <Link to={CODEQL_URL}>CodeQL packs</Link> and the
-      security guidance in these docs came out of that program.
+      security guidance in these docs came out of that program. <Link to={BLOG_POST_URL}>Read the blog post</Link>.
     </p>
   </div>
 );
