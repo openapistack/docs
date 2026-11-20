@@ -11,7 +11,7 @@ import { FiArrowRight, FiShield } from 'react-icons/fi';
 import styles from './index.module.css';
 import { GithubStarsButton } from '../components/HomepageFeatures/GithubStarsButton';
 import { Sandbox } from '../components/Sandbox/Sandbox';
-import { SecureFund, SECURE_FUND_URL } from '@site/src/components/SecureFund';
+import { SecureFund, BLOG_POST_URL } from '@site/src/components/SecureFund';
 
 
 function HomepageHeader() {
@@ -42,7 +42,7 @@ function HomepageHeader() {
 
           <div className="mt-4 -mx-12 sm:mx-0">
             <Link
-              to={SECURE_FUND_URL}
+              to={BLOG_POST_URL}
               className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-xs sm:text-sm whitespace-nowrap font-medium text-white hover:bg-white/20 hover:text-white hover:no-underline"
             >
               <FiShield className={styles.badgeIcon} size={16} strokeWidth={2} />
