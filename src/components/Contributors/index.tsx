@@ -31,7 +31,7 @@ export const Contributors = (): JSX.Element => {
             openapi-stack is the work of dozens of engineers across{' '}
             {contribData.repos.length} repositories — backend, client, CLI,
             utilities, and docs. Thank you to everyone who has filed an
-            issue, opened a PR, or reviewed code.
+            issue, opened a PR, reviewed code, or reported a vulnerability.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export const Contributors = (): JSX.Element => {
         <div className="text-center">
           <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 inline-flex items-center justify-center gap-2">
             <FiHeart size={14} className="text-pink-500" />
-            Want to be on this list? File an issue, open a PR, or review one.
+            Want to be on this list? File an issue, open a PR, review one, or report a vulnerability.
           </p>
           <div>
             <Link
